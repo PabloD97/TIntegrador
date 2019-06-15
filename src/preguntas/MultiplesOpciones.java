@@ -1,24 +1,27 @@
 package preguntas;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
-import respuestas.Respondible;
+import respuestas.Respuesta;
+
 
 public class MultiplesOpciones extends Pregunta {
 	
-	protected List<Respondible> respuestas;
+	protected List<Respuesta> respuestas;
 
 	
 
-	public MultiplesOpciones(String pregunta2) {
-		this.pregunta= pregunta2;
+	public MultiplesOpciones(String pregunta2, Pregunta sigPregunta) {
+		super(pregunta2,sigPregunta);
 		
 	}
+	
 
 	public List<String> getRespuestas(){
 	List<String> stringDeRespuestas = new ArrayList<String>();
-		for( Respondible respuesta: respuestas ) {
+		for( Respuesta respuesta: respuestas ) {
 			stringDeRespuestas.add(respuesta.getRespuesta() );
 		}
 		

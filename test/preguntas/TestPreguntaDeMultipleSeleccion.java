@@ -6,30 +6,31 @@ import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import contenedor.Formulario;
-import respuestas.RespuestaCerrada;
+import contenedor.Encuestado;
+import respuestas.Respuesta;
+
 
 class TestPreguntaDeMultipleSeleccion {
 	
 	PreguntaDeMultipleSeleccion preguntaMultiple;
-	RespuestaCerrada respuestaCerrada1;
-	RespuestaCerrada respuestaCerrada2;
-	RespuestaCerrada respuestaCerrada3;
-	RespuestaCerrada respuestaCerrada4;
-	Formulario contenedor;
+	Respuesta respuestaCerrada1;
+	Respuesta respuestaCerrada2;
+	Respuesta respuestaCerrada3;
+	Respuesta respuestaCerrada4;
+	Encuestado contenedor;
 	
 
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		contenedor = spy(new Formulario(null, null,null));
+		contenedor = spy(new Encuestado(null, null,null));
 
-		respuestaCerrada1 = mock(RespuestaCerrada.class);
-		respuestaCerrada2 = mock(RespuestaCerrada.class);
-		respuestaCerrada3 = mock(RespuestaCerrada.class);
+		respuestaCerrada1 = mock(Respuesta.class);
+		respuestaCerrada2 = mock(Respuesta.class);
+		respuestaCerrada3 = mock(Respuesta.class);
 		
 		
-		preguntaMultiple= new PreguntaDeMultipleSeleccion("�Que colores te gustan?", contenedor);
+		preguntaMultiple= new PreguntaDeMultipleSeleccion(null, contenedor, preguntaMultiple);
 		
 		preguntaMultiple.addRespuesta(respuestaCerrada1);
 		preguntaMultiple.addRespuesta(respuestaCerrada2);

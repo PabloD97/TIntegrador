@@ -1,10 +1,11 @@
 package preguntas;
 
+
 import java.util.ArrayList;
-import java.util.List;
 
 import contenedor.Encuestado;
 import respuestas.Respuesta;
+
 
 public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 
@@ -13,8 +14,8 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 	private Encuestado contenedorDeRespuestas;
 	private ArrayList<Respuesta> respuestas= new ArrayList<Respuesta>();
 	
-	public PreguntaDeMultipleSeleccion(String pregunta2,  Encuestado contenedor) {
-		super(pregunta2);
+	public PreguntaDeMultipleSeleccion(String pregunta2,  Encuestado contenedor, Pregunta sigPreg) {
+		super(pregunta2,sigPreg);
 		this.contenedorDeRespuestas = contenedor;
 		this.respuestas = new ArrayList<Respuesta>();
 		this.respuestaElegidas= new ArrayList<Respuesta>();

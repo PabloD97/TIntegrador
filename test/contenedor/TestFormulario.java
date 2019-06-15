@@ -12,17 +12,17 @@ import encuesta.Encuesta;
 
 class TestFormulario {
 
-	Formulario formulario;
+	Encuestado formulario;
 	Encuesta encuesta;
 
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		formulario= new Formulario("Pepe", "Pepon",encuesta);
+		formulario= new Encuestado("Pepe", "Pepon",encuesta);
 	
-		formulario.addRespuesta("kaskote");
-		formulario.addRespuesta("kakote");
+		formulario.addRespuesta(null); // .addRespuesta("kaskote");
+		formulario.addRespuesta(null); // aca hay que pasarle una Respuesta
 		
 	}
 

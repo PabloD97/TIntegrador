@@ -10,26 +10,25 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import contenedor.Formulario;
-import respuestas.RespuestaAbierta;
+import contenedor.Encuestado;
+import respuestas.Respuesta;
 
 class TestPreguntaAbierta {
 	
 	PreguntaAbierta preguntaAbierta;
 	
-	RespuestaAbierta respuestaAbierta;
-	Formulario contenedor;
+	Respuesta respuestaAbierta;
+	Encuestado contenedor;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		
 		//DUC
-		respuestaAbierta= mock( RespuestaAbierta.class);
-		contenedor= mock( Formulario.class);
+		respuestaAbierta= mock( Respuesta.class);
+		contenedor= mock( Encuestado.class);
 		
 		//SUT
-		preguntaAbierta = new PreguntaAbierta("¿Te gusta ?", respuestaAbierta, contenedor);
-		
+		preguntaAbierta = new PreguntaAbierta(null, contenedor, preguntaAbierta);
 		
 	}
 	@Test
@@ -57,8 +56,8 @@ class TestPreguntaAbierta {
 	@Test
 	void testSeGuardoLaRespuestaEnElContenedor() {	
 		
-		List<String> spyRespuestas= spy(new ArrayList<String>());	
-		Formulario contenedor= new Formulario((ArrayList<String>) spyRespuestas);
+		List<Respuesta> spyRespuestas= spy(new ArrayList<Respuesta>());	
+		Encuestado contenedor= new Encuestado(null);
 		
 		preguntaAbierta.responder("no se");
 		//when( respuestaAbierta.getRespuesta()).thenReturn("no se");
@@ -67,8 +66,8 @@ class TestPreguntaAbierta {
 		preguntaAbierta.responder("capaz");
 		//when( respuestaAbierta.getRespuesta()).thenReturn("capaz");
 
-		contenedor.addRespuesta("no se");
-		contenedor.addRespuesta("capaz");
+		contenedor.addRespuesta(null);// hay que agregar las respuestas a los parametros
+		contenedor.addRespuesta(null); 
 
 		
 		assertEquals( new Integer(2), contenedor.getRespuestasDelEncuestado().size()  );	

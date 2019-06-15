@@ -9,10 +9,9 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import contenedor.Formulario;
+import contenedor.Encuestado;
 import encuesta.Encuesta;
-import respuestas.RespuestaCompleja;
+import respuestas.Respuesta;
 
 class TestPreguntaCompleja {
 	
@@ -22,35 +21,33 @@ class TestPreguntaCompleja {
 	Encuesta encuesta;
 	
 	
-	RespuestaCompleja got;
+	Respuesta got;
 	
 	
-	RespuestaCompleja twd;
+	Respuesta twd;
 	
 	
 
-	Formulario contenedor;
+	Encuestado contenedor;
 
 	@BeforeEach
 	void setUp() throws Exception {
 	
-		got= mock( RespuestaCompleja.class );
+		got= mock( Respuesta.class );
 		preguntaAbierta1= mock(PreguntaAbierta.class);
 		
 		
 		
-		twd= mock( RespuestaCompleja.class );
+		twd= mock( Respuesta.class );
 		preguntaCerrada= mock(PreguntaDeMultipleSeleccion.class);
 		
-		contenedor= spy( new Formulario("Pablo", "Diaz",encuesta) );
+		contenedor= spy( new Encuestado("Pablo", "Diaz",encuesta) );
 		
 		
 		//SUT
-		preguntaCompleja = new PreguntaCompleja("�Cual serie ves?", contenedor);
+		preguntaCompleja = new PreguntaCompleja(null, preguntaAbierta1);
 	
-		when(got.getSiguientePregunta()).thenReturn( preguntaAbierta1 );
-		when(twd.getSiguientePregunta()).thenReturn( preguntaCerrada);
-		
+				
 		when(got.getRespuesta()).thenReturn( "got");
 		when(twd.getRespuesta()).thenReturn( "twd");
 		
@@ -72,7 +69,7 @@ class TestPreguntaCompleja {
 		listaAComparar.add("got");
 		listaAComparar.add("twd");
 		
-		assertEquals(  listaAComparar , preguntaCompleja.getRespuestas() );
+		assertEquals(  listaAComparar , preguntaCompleja.getRespuesta() );
 	}
 	
 	@Test
