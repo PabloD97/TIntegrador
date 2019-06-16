@@ -1,6 +1,6 @@
 package preguntas;
 
-import contenedor.Encuestado;
+import encuestado.Encuestado;
 
 public class Pregunta {
 	

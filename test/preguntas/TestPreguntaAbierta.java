@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import contenedor.Encuestado;
+import encuestado.Encuestado;
 import respuestas.Respuesta;
 
 class TestPreguntaAbierta {

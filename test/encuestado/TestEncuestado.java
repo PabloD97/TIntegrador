@@ -1,4 +1,4 @@
-package contenedor;
+package encuestado;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,9 +8,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import encuesta.Encuesta;
+import encuestado.Encuestado;
 
 
-class TestFormulario {
+class TestEncuestado {
 
 	Encuestado formulario;
 	Encuesta encuesta;

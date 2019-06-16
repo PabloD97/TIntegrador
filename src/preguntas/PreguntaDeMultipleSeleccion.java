@@ -3,7 +3,7 @@ package preguntas;
 
 import java.util.ArrayList;
 
-import contenedor.Encuestado;
+import encuestado.Encuestado;
 import respuestas.Respuesta;
 
 

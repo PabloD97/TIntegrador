@@ -1,6 +1,6 @@
 package preguntas;
 
-import contenedor.Encuestado;
+import encuestado.Encuestado;
 import respuestas.Respuesta;
 
 public class PreguntaAbierta extends Pregunta {

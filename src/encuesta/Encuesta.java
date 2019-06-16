@@ -2,11 +2,12 @@ package encuesta;
 
 import java.util.ArrayList;
 
-import contenedor.Encuestado;
 import proyecto.Proyecto;
 import respuestas.Respuesta;
 
 import java.util.List;
+
+import encuestado.Encuestado;
 import preguntas.Pregunta;
 
 public class Encuesta {
