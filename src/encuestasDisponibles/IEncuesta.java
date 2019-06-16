@@ -7,4 +7,4 @@ import investigador.Investigador;
 
 public interface IEncuesta {
 	public List<Encuesta>dameLasEncuestas(Investigador investigador);
-}
+ }
