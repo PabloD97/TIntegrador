@@ -66,7 +66,7 @@ public class Proyecto {
 	public ArrayList<Encuesta> encuestasPorOrdenAlfabetico(){		
 		//ArrayList<Encuesta> ordenadasAlfabeticamente = new ArrayList<Encuesta>();	
 	//	return collecction//
-	}
+	} 
 	
 	
 }
