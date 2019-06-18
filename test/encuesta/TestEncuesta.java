@@ -51,8 +51,8 @@ class TestEncuesta {
 
 
 		
-		encuesta1= new Encuesta();
-		encuesta2= new Encuesta();
+		encuesta1= new Encuesta(null);
+		encuesta2= new Encuesta(null);
 		
 		
 		
@@ -89,7 +89,7 @@ class TestEncuesta {
 	void testEliminarFormulario() {
 		encuesta1.encuestaFinalizada(formulario);
 		encuesta1.eliminarFormulario(formulario);
-		assertEquals(false,encuesta1.getFormularios().contains(formulario));
+		assertEquals(false,encuesta1.getEncuestados().contains(formulario));
 	}
 	@Test 
 	void testrespuestasDelFormulario()

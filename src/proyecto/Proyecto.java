@@ -44,10 +44,7 @@ public class Proyecto {
 		return(encuestas.stream().max((e1,e2) -> Integer.compare(e1.vecesFinalizado(),e2.vecesFinalizado())));
 	}
 	
-	public void agregarSubProyecto(Proyecto subProyecto) {
-		//if no retorna nada
-		//else retorna string
-		//no se como armar este test		
+	public void agregarSubProyecto(Proyecto subProyecto) {		
 		if(this.puedoAgregarProyecto(subProyecto)) {
 			this.subProyectos.add(subProyecto);
 		}
@@ -66,4 +63,20 @@ public class Proyecto {
 		return this.subProyectos;
 	}
 	
+	public ArrayList<Encuesta> encuestasPorOrdenAlfabetico(){		
+		//ArrayList<Encuesta> ordenadasAlfabeticamente = new ArrayList<Encuesta>();	
+	//	return collecction//
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,8 @@
 package investigador;
 
 import java.util.ArrayList;
+
+import preguntas.Pregunta;
 import proyecto.Proyecto;
 
 
@@ -30,4 +32,16 @@ public class Investigador {
 		this.proyectos.remove(proyecto);
 	}
 
+
+	// mensajes nuevos, correspondientes al hito 2
+	public void suscribirse(Pregunta pregunta) {
+		pregunta.agregarInteresado(this);
+	}
+	
+	public void desuscribirse(Pregunta pregunta) {
+		pregunta.sacarInteresado(this);
+	}
+	
+	public void notificarme() {}
+	
 }

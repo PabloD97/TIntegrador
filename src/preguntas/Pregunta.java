@@ -1,12 +1,16 @@
 package preguntas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import encuestado.Encuestado;
+import investigador.Investigador;
 
 public class Pregunta {
 	
 	
 	
-
+	protected List<Investigador> interesados;
 	protected String pregunta;
 	private Encuestado contenedor;
 	private boolean esPrimerPregunta=false;
@@ -20,6 +24,7 @@ public class Pregunta {
 	public Pregunta(String preg,Pregunta siguientePregunta) {
 		this.pregunta=preg;
 		this.siguientePregunta=siguientePregunta;
+		this.interesados= new ArrayList<Investigador>();
 	}
 	public Pregunta getSiguientePregunta() {
 		return this.siguientePregunta;
@@ -47,4 +52,38 @@ public class Pregunta {
 	    	this.contenedor.fin();
 	    }
 	}
+	// mensajes nuevos
+	public void agregarInteresado(Investigador interesado) {
+		this.interesados.add(interesado);
+	}
+
+	public void sacarInteresado(Investigador interesado) {
+		this.interesados.remove(interesado);
+	}
+	
+	public void notificar() {
+		for( Investigador interesado: interesados ) {
+			interesado.notificarme();
+		}
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
