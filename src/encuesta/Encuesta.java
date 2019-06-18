@@ -1,6 +1,7 @@
 package encuesta;
 
 import java.util.ArrayList;
+import estadosDeLaEncuesta.Estado;
 
 import proyecto.Proyecto;
 import respuestas.Respuesta;
@@ -16,12 +17,21 @@ public class Encuesta {
 	private List<Pregunta> protocoloDePreguntas;
 	private int vecesFinalizado=0;
 	private ArrayList<Respuesta> respuestas;
+	private Estado estado;
 	
 	
 	
 	public Encuesta() {
 		this.encuestados= new ArrayList<Encuestado>();
 		this.protocoloDePreguntas= new ArrayList<Pregunta>();
+	}
+	
+	public Estado getEstado() {
+		return this.estado;
+	}
+	
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 	
 	public void addPregunta(Pregunta pregunta) {

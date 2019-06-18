@@ -98,6 +98,8 @@ class TestEncuesta {
 		encuesta1.encuestaFinalizada(formulario);
 		assertEquals(1,encuesta1.getTodasLasRespuestas().size());
 	}
+	
+	
 	@Test 
 	void testGetRespuestas() {
 		/*PreguntaDeMultipleSeleccion colorFavorito=new PreguntaDeMultipleSeleccion("¿Cual de estos Colores te gusta mas?", formulario);
