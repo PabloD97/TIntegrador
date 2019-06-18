@@ -2,6 +2,7 @@ package proyecto;
 
 import java.awt.List;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Optional;
 
 import encuesta.Encuesta;
@@ -63,9 +64,9 @@ public class Proyecto {
 		return this.subProyectos;
 	}
 	
-	public ArrayList<Encuesta> encuestasPorOrdenAlfabetico(){		
+	public ArrayList<Encuesta> encuestasPorOrdenAlfabetico(){// expresiones lambda de mierda!
 		//ArrayList<Encuesta> ordenadasAlfabeticamente = new ArrayList<Encuesta>();	
-	//	return collecction//
+		return Collections.sort( this.getEncuestas(), ( String encuesta1, String encuesta2) -> encuesta1.dameTuNombre().compareTo(encuesta2.dameTuNombre()) );
 	} 
 	
 	
