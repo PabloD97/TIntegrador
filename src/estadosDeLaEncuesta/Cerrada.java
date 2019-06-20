@@ -13,8 +13,8 @@ public class Cerrada extends Estado {
 	//como hago para que se conozcan?
 	//public void EmpezarEncuesta(Encuestado encuestado) {}
 	
-	public Boolean encuestaDisponible() {
-		return false;
+	public Estado encuestaDisponible() {
+		return encuesta.getEstado();
 	}
 
 	public Estado getEstado() {

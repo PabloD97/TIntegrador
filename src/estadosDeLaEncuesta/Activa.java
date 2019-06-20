@@ -1,6 +1,6 @@
 package estadosDeLaEncuesta;
 
-import encuesta.Encuesta;
+import encuestado.Encuestado;
 import preguntas.Pregunta;
 
 public class Activa extends Estado {
@@ -13,22 +13,19 @@ public class Activa extends Estado {
 	//
 	public void siguienteEstado() {
 		Estado cerrada = new Estado();
-		encuesta.setEstado(cerrada);
+		this.encuesta.setEstado(cerrada);
 	}
     
-	//como hago para que se conozcan?
-	//Pregunta pregunta = new Pregunta();
-	//public void EmpezarEncuesta(Encuestado encuestado) {
-	//  encuestado.setPreguntaActual(pregunta.primerPregunta());
-	//}
+	public void comenzarEncuesta(Encuestado encuestado) {
+		encuestado.setPreguntaActual(  this.encuesta.getProtocoloDePreguntas().get(0) );
+	}
 	
-	public Boolean encuestaDisponible() {
-		return true;
+	public Estado encuestaDisponible() {
+		return this.encuesta.getEstado();
 	}
 
 	public Estado getEstado() {
-		Estado activa = new Estado();
-		return activa;
+		return this;
 	}
 
 

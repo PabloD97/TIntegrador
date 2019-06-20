@@ -1,6 +1,7 @@
 package estadosDeLaEncuesta;
 
 import encuesta.Encuesta;
+import preguntas.Pregunta;
 
 public class Estado {
 	
@@ -9,10 +10,13 @@ public class Estado {
 	
 	public void siguienteEstado() {}
 	
-	public void agregarPregunta() {}
+	public void agregarPregunta(Pregunta pregunta) {}
 	
-	public void eliminarPregunta() {}
+	public void eliminarPregunta(Pregunta pregunta) {}
 	
+	public void setearEncuesta(Encuesta encuesta) {
+		this.encuesta = encuesta;
+	}
 	
 	//como hago para que se conozcan?
 	//public void EmpezarEncuesta(Encuestado encuestado) {}
@@ -21,7 +25,7 @@ public class Estado {
 		return null;
 		}
 	
-    public Boolean encuestaDisponible() {
+    public Estado encuestaDisponible() {
     	return null;
     }
 }

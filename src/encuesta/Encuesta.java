@@ -12,10 +12,11 @@ import preguntas.Pregunta;
 
 public class Encuesta {
 
+	
+	// cambie tdas a list ya que hay que pensar en interfaces
 	private List<Encuestado> encuestados;
 	private List<Pregunta> protocoloDePreguntas;
-	//private int vecesFinalizado=0;
-	private ArrayList<Respuesta> respuestas;
+	private List<Respuesta> respuestas;
 	private Estado estado;
 	
 	private String nombreDeLaEncuesta;
@@ -28,19 +29,21 @@ public class Encuesta {
 	}
 	
 	public Estado getEstado() {
-		return this.estado;
+		return this.estado.getEstado();//queda bien asi?
 	}
 	
+	// modifique este metodo para que los state conozcan a la encuesta
 	public void setEstado(Estado estado) {
 		this.estado = estado;
+		estado.setearEncuesta(this);
 	}
 	
 	public void addPregunta(Pregunta pregunta) {
-		this.protocoloDePreguntas.add(pregunta);
+		this.estado.agregarPregunta(pregunta);
 	}
 	
 	public void eliminarPregunta(Pregunta pregunta) {
-		this.protocoloDePreguntas.remove(pregunta);
+		this.estado.eliminarPregunta(pregunta);
 	}
 
 	
@@ -60,7 +63,7 @@ public class Encuesta {
 	public int vecesFinalizado() {// queda mejor asi, sino teniamos una variable de mas alpedo
 		return this.encuestados.size();
 	}
-	public ArrayList<Respuesta> getTodasLasRespuestas(){
+	public List<Respuesta> getTodasLasRespuestas(){
 		for(Encuestado f:encuestados) {
 			respuestas.addAll(f.getRespuestasDelEncuestado());
 		}
@@ -70,12 +73,23 @@ public class Encuesta {
 		return (ArrayList<Encuestado>) this.encuestados;
 	}
 	public void comenzarEncuesta(Encuestado encuestado) {
-		encuestado.setPreguntaActual(this.protocoloDePreguntas.get(1));
+		encuestado.setPreguntaActual(this.protocoloDePreguntas.get(0));
 	}
 
+	
+	
 	public String dameTuNombre(){
 		return this.nombreDeLaEncuesta;
 	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
 

@@ -30,8 +30,8 @@ public class Editable extends Estado {
 		return editable;
 	}
 
-	 public Boolean encuestaDisponible() {
-	    	return null;
-	    }
+	public Estado encuestaDisponible() {
+		return encuesta.getEstado();
+	}
 
 }
