@@ -1,5 +1,6 @@
 package estadosDeLaEncuesta;
 
+import encuestado.Encuestado;
 import preguntas.Pregunta;
 
 public class Cerrada extends Estado {
@@ -10,15 +11,15 @@ public class Cerrada extends Estado {
 
 	public void siguienteEstado() {}
     
-	//como hago para que se conozcan?
-	//public void EmpezarEncuesta(Encuestado encuestado) {}
+
+	public void EmpezarEncuesta(Encuestado encuestado) {}
 	
 	public Estado encuestaDisponible() {
 		return encuesta.getEstado();
 	}
 
 	public Estado getEstado() {
-		return null;
+		return this;
 	}
 
 }

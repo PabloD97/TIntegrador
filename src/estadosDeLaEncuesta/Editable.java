@@ -1,5 +1,6 @@
 package estadosDeLaEncuesta;
 
+import encuestado.Encuestado;
 import preguntas.Pregunta;
 
 
@@ -18,12 +19,10 @@ public class Editable extends Estado {
 	//
 	public void siguienteEstado() {
 		Estado activa = new Estado();
-		encuesta.setEstado(activa);
+		this.encuesta.setEstado(activa);
 	}
     
-	//como hago para que se conozcan?
-	//public void EmpezarEncuesta(Encuestado encuestado) {
-	//}
+	public void EmpezarEncuesta(Encuestado encuestado) {}
 
 	public Estado getEstado() {
 		Estado editable = new Estado();
