@@ -26,7 +26,7 @@ public class Estado {
 		return null;
 	}
 	
-    public Estado encuestaDisponible() {
-		return null;
+    public Boolean encuestaDisponible() {
+		return false;
 	}
 }

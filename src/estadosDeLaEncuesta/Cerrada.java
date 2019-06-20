@@ -14,9 +14,7 @@ public class Cerrada extends Estado {
 
 	public void EmpezarEncuesta(Encuestado encuestado) {}
 	
-	public Estado encuestaDisponible() {
-		return encuesta.getEstado();
-	}
+	
 
 	public Estado getEstado() {
 		return this;

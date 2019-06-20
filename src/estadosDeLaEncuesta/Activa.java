@@ -20,9 +20,6 @@ public class Activa extends Estado {
 		encuestado.setPreguntaActual(  this.encuesta.getProtocoloDePreguntas().get(0) );
 	}
 	
-	public Estado encuestaDisponible() {
-		return this.encuesta.getEstado();
-	}
 
 	public Estado getEstado() {
 		return this;
