@@ -34,14 +34,7 @@ public class Investigador {
 
 
 	// mensajes nuevos, correspondientes al hito 2
-	public void suscribirse(Pregunta pregunta) {
-		pregunta.agregarInteresado(this);
-	}
 	
-	public void desuscribirse(Pregunta pregunta) {
-		pregunta.sacarInteresado(this);
-	}
-	
-	public void notificarme() {}
+	public void notificar() {}
 	
 }
