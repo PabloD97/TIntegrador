@@ -1,6 +1,7 @@
 package encuestado;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import encuesta.Encuesta;
 import preguntas.Pregunta;
@@ -13,7 +14,7 @@ public class Encuestado {
 	private Pregunta preguntaActual;
 	
 	
-	public ArrayList<Respuesta> respuestasDelEncuestado;
+	public List<Respuesta> respuestasDelEncuestado;
 	
 	
 	public Encuestado( String nombre, String apellido , Encuesta encuesta){
@@ -36,7 +37,7 @@ public class Encuestado {
 		return this.nombre+ " " +this.apellido;
 	}
 	
-	public ArrayList<Respuesta> getRespuestasDelEncuestado(){
+	public List<Respuesta> getRespuestasDelEncuestado(){
 		return  this.respuestasDelEncuestado;
 	}
 
