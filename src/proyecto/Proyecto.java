@@ -1,8 +1,8 @@
 package proyecto;
 
-import java.awt.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import encuesta.Encuesta;
@@ -10,10 +10,12 @@ import encuesta.Encuesta;
 
 public class Proyecto {
 	
+	protected List<Encuesta> encuestas;
+	protected List<Proyecto> subProyectos;
 	private String descripcion;
 	private String proposito;
-	protected ArrayList<Encuesta> encuestas;
-	protected ArrayList<Proyecto> subProyectos;
+	
+	
 	
 	
 	
@@ -34,7 +36,7 @@ public class Proyecto {
 		
 	}
 
-	public ArrayList<Encuesta> getEncuestas() {
+	public List<Encuesta> getEncuestas() {
 		return encuestas;
 		
 	}
@@ -60,13 +62,16 @@ public class Proyecto {
 		return !this.getSubProyectos().contains(subProyecto);
 	}
 
-	public ArrayList<Proyecto> getSubProyectos() {
+	public List<Proyecto> getSubProyectos() {
 		return this.subProyectos;
 	}
 	
-	public ArrayList<Encuesta> encuestasPorOrdenAlfabetico(){// expresiones lambda de mierda!
-		//ArrayList<Encuesta> ordenadasAlfabeticamente = new ArrayList<Encuesta>();	
-		return Collections.sort( this.getEncuestas(), ( String encuesta1, String encuesta2) -> encuesta1.dameTuNombre().compareTo(encuesta2.dameTuNombre()) );
+	public List<Encuesta> encuestasPorOrdenAlfabetico(){// Esto daria las encuestas ordenadas alfabeticamente
+		List<Encuesta> ordenadas = this.getEncuestas();
+		 
+		Collections.sort(ordenadas, (encuesta1, encuesta2) -> encuesta1.dameTuNombre() .compareTo(encuesta2.dameTuNombre() ));
+		
+		return ordenadas;
 	} 
 	
 	
