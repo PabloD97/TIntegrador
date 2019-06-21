@@ -3,6 +3,7 @@ package preguntas;
 import java.util.ArrayList;
 import java.util.List;
 
+import encuesta.Encuesta;
 import encuestado.Encuestado;
 import investigador.Investigador;
 
@@ -17,7 +18,8 @@ public class Pregunta {
 	private boolean esUltimaPregunta=false;
 	private Pregunta siguientePregunta;
 	private Pregunta anteriorPregunta;
-
+    private Encuesta encuesta;
+	 
 	public String getPregunta() {
 		return this.pregunta;
 	}
@@ -35,6 +37,9 @@ public class Pregunta {
 	public void setEncuestado(Encuestado contenedor2) {
 		this.contenedor=contenedor2;
 	}
+	public void setEncuesta(Encuesta encuesta ) {
+		this.encuesta = encuesta;
+	}
 	public void esPrimerPregunta() {
 		this.esPrimerPregunta=true;
 	}
@@ -49,7 +54,7 @@ public class Pregunta {
 	}
 	public void siSoyUltima( ) {
 		if(this.ultimaPregunta()) {
-	    	this.contenedor.fin();
+	    	this.contenedor.termineLaEncuesta();
 	    }
 	}
 	// mensajes nuevos
@@ -61,9 +66,9 @@ public class Pregunta {
 		this.interesados.remove(interesado);
 	}
 	
-	public void notificar() {
+	public void notificar( Respuesta respuesta) {
 		for( Investigador interesado: interesados ) {
-			interesado.notificarme();
+			interesado.notificarme(this.encuesta);
 		}
 	}
 	

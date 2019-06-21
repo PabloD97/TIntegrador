@@ -8,6 +8,7 @@ public class Editable extends Estado {
 
 	public void agregarPregunta(Pregunta pregunta) {
 		encuesta.getProtocoloDePreguntas().add(pregunta);
+		pregunta.setEncuesta(encuesta);
 	}
 
 	public void eliminarPregunta(Pregunta pregunta) {

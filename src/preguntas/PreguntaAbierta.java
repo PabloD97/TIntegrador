@@ -23,6 +23,7 @@ public class PreguntaAbierta extends Pregunta {
 		this.siSoyUltima();
 		this.getSiguientePregunta().setPreguntaAnterior(this);
 	}
+	
 	public String getRespuesta() {
 		return respuestaAbierta.getRespuesta();
 	}

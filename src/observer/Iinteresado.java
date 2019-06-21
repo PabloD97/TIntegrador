@@ -1,0 +1,15 @@
+package observer;
+
+import encuesta.Encuesta;
+import preguntas.Pregunta;
+import respuestas.Respuesta;
+
+public interface Iinteresado {
+
+	public void meInteresa(Pregunta pregunta); 
+    
+	public void noMeInteresa(Pregunta pregunta);
+	
+	public void notificarme(Encuesta encuesta, Pregunta pregunta, Respuesta respuesta);
+	
+}

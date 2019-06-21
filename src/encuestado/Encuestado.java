@@ -45,9 +45,11 @@ public class Encuestado {
 		res.setPregunta(this.preguntaActual);
 		this.respuestasDelEncuestado.add(res);
 	}
-	public void fin() {
+	
+	public void termineLaEncuesta() {
 		encuesta.encuestaFinalizada(this);
 	}
+	
 	public Pregunta getPreguntaActual() {
 		return this.preguntaActual;
 	}

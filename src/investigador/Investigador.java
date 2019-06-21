@@ -5,10 +5,12 @@ import java.util.List;
 
 import encuesta.Encuesta;
 import encuestasDisponibles.IEstrategia;
+import observer.Iinteresado;
+import preguntas.Pregunta;
 import proyecto.Proyecto;
 
 
-public class Investigador {
+public class Investigador implements Iinteresado{
 	
 	
 	private IEstrategia estrategia;
@@ -39,7 +41,7 @@ public class Investigador {
 
 	// mensajes nuevos, correspondientes al hito 2
 	
-	public void notificar() {}
+	
 	
 	public void setEstrategia(IEstrategia estrategia) {
 		this.estrategia = estrategia;
@@ -47,6 +49,16 @@ public class Investigador {
 	
 	public List<Encuesta> dameLasEncuestas(Investigador this){
 		return estrategia.dameLasEncuestas(this);
+	}
+
+	@Override
+	public void meInteresa(Pregunta pregunta) {
+		pregunta.agregarInteresado(this);		
+	}
+
+	@Override
+	public void noMeInteresa(Pregunta pregunta) {
+		pregunta.sacarInteresado(this);		
 	}
 	
 	

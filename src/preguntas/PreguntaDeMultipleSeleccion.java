@@ -33,7 +33,7 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 		respuestaElegidas.add(respuestaCerrada1);
 	}
 	
-	public void responder(   ) {
+	public void responder() {
 		for( Respuesta respuesta : respuestaElegidas ) {
 			contenedorDeRespuestas.addRespuesta(respuesta );
 			this.getSiguientePregunta().setPreguntaAnterior(this);
