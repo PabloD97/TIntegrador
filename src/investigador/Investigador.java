@@ -1,14 +1,18 @@
 package investigador;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import preguntas.Pregunta;
+import encuesta.Encuesta;
+import encuestasDisponibles.IEstrategia;
 import proyecto.Proyecto;
 
 
 public class Investigador {
 	
-	public ArrayList<Proyecto> proyectos;
+	
+	private IEstrategia estrategia;
+	private ArrayList<Proyecto> proyectos;
 	
 	
 
@@ -37,4 +41,21 @@ public class Investigador {
 	
 	public void notificar() {}
 	
+	public void setEstrategia(IEstrategia estrategia) {
+		this.estrategia = estrategia;
+	}
+	
+	public List<Encuesta> dameLasEncuestas(Investigador this){
+		return estrategia.dameLasEncuestas(this);
+	}
+	
+	
 }
+
+
+
+
+
+
+
+

@@ -5,6 +5,6 @@ import java.util.List;
 import encuesta.Encuesta;
 import investigador.Investigador;
 
-public interface IEncuesta {
+public interface IEstrategia {
 	public List<Encuesta>dameLasEncuestas(Investigador investigador);
  }
