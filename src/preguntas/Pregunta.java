@@ -19,7 +19,7 @@ public class Pregunta {
 	private boolean esUltimaPregunta=false;
 	private Pregunta siguientePregunta;
 	private Pregunta anteriorPregunta;
-    private Encuesta encuesta;
+    protected Encuesta encuesta;
 	 
 	public String getPregunta() {
 		return this.pregunta;
@@ -72,6 +72,7 @@ public class Pregunta {
 			interesado.notificarme(this.encuesta, this, respuesta);
 		}
 	}
+	
 	
 }
 

@@ -16,6 +16,7 @@ public class Investigador implements Iinteresado{
 	
 	private IEstrategia estrategia;
 	private ArrayList<Proyecto> proyectos;
+	private ArrayList<String>subscripcionRespuestas=new ArrayList<String>();
 	
 	
 
@@ -54,7 +55,8 @@ public class Investigador implements Iinteresado{
 
 	@Override
 	public void meInteresa(Pregunta pregunta) {
-		pregunta.agregarInteresado(this);		
+		pregunta.agregarInteresado(this);
+		
 	}
 
 	@Override
@@ -75,6 +77,13 @@ public class Investigador implements Iinteresado{
 		 }
 		}
 		return ls;
+	}
+	//Sobre entendiendo que solamente se va a poder suscribir si la respuesta esta en la pregunta
+	public void subscribirseRespuesta(Respuesta res) {
+		this.subscripcionRespuestas.add(res.getRespuesta());
+	}
+	public ArrayList<String> getSuscripciones(){
+		return this.subscripcionRespuestas;
 	}
 	
 }

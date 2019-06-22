@@ -4,6 +4,7 @@ package preguntas;
 import java.util.ArrayList;
 import java.util.List;
 
+import investigador.Investigador;
 import respuestas.Respuesta;
 
 
@@ -26,6 +27,27 @@ public class MultiplesOpciones extends Pregunta {
 		}
 		
 		return stringDeRespuestas ;
+	}
+	
+	@Override 
+	public void agregarInteresado(Investigador interesado) {
+		this.interesados.add(interesado);
+		for(Respuesta r : respuestas) {
+			interesado.subscribirseRespuesta(r);
+		}
+		
+	}
+	public boolean estaSuscripto(Investigador i, String r) {
+		return i.getSuscripciones().contains(r);
+	}
+	@Override
+	public void notificar( String respuesta) {
+		
+		for( Investigador interesado: interesados ) {
+			if(this.estaSuscripto(interesado, respuesta)) {
+			interesado.notificarme(this.encuesta, this, respuesta);
+			}
+		}
 	}
 	
 }
