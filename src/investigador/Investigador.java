@@ -67,6 +67,15 @@ public class Investigador implements Iinteresado{
 		
 	}
 	
+	public List<Encuesta> getTodasLasEncuestas() {
+		List<Encuesta> ls = new ArrayList<Encuesta>();
+		for(Proyecto p : proyectos) {
+		 for(Encuesta e : p.getEncuestas()) {
+			 ls.add(e);
+		 }
+		}
+		return ls;
+	}
 	
 }
 

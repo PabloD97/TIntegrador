@@ -9,13 +9,24 @@ import investigador.Investigador;
 import prueboMetodos.Pibito;
 
 public class Las25MasContestadas implements IEstrategia{
+	
+	
+	public List<Encuesta> dameLasEncuestasOrdenadosPorCantidadDeRespuesta(List<Encuesta> lista){
+		// Ordena los objetos de menor a mayor mediante el valor de un atributo
+		Collections.sort(lista, (encuesta1, encuesta2) -> encuesta1.vecesFinalizado().compareTo(encuesta2.vecesFinalizado()));
+		// Collections.reverse(pibitos); Devuelve la lista ordenada de mayor a menor
+		return lista;
+	}
 
 	@Override
 	public List<Encuesta> dameLasEncuestas(Investigador investigador) {
 		
-		List<Pibito>lista1= lista;
+		List<Encuesta>lista1= investigador.getTodasLasEncuestas();
+		this.dameLasEncuestasOrdenadosPorCantidadDeRespuesta(lista1);
+		
 		Collections.reverse(lista1);
-		List<Pibito> listaReturn= new ArrayList<Pibito>();
+		
+		List<Encuesta> listaReturn= new ArrayList<Encuesta>();
 		for(int index = 0 ;  index >= 25 || lista1.isEmpty(); index++ ) {
 			listaReturn.add(lista1.get(index));
 			lista1.remove(index);

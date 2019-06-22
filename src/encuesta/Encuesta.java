@@ -60,7 +60,7 @@ public class Encuesta {
 		this.encuestados.remove(formulario);
 		
 	}
-	public int vecesFinalizado() {// queda mejor asi, sino teniamos una variable de mas alpedo
+	public Integer vecesFinalizado() {// queda mejor asi, sino teniamos una variable de mas alpedo
 		return this.encuestados.size();
 	}
 	public List<Respuesta> getTodasLasRespuestas(){
