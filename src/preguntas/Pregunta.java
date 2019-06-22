@@ -66,7 +66,7 @@ public class Pregunta {
 	public void sacarInteresado(Investigador interesado) {
 		this.interesados.remove(interesado);
 	}
-	
+	//Lo cambie
 	public void notificar( String respuesta) {
 		for( Investigador interesado: interesados ) {
 			interesado.notificarme(this.encuesta, this, respuesta);
