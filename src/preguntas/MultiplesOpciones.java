@@ -27,4 +27,5 @@ public class MultiplesOpciones extends Pregunta {
 		
 		return stringDeRespuestas ;
 	}
+	
 }

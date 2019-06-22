@@ -35,8 +35,10 @@ public class PreguntaCompleja extends Pregunta  {
 	public void responder( Respuesta respuesta ) {
 		this.setRespuestaElegida(respuesta);
 		this.contenedor.addRespuesta(respuesta);
+		this.notificar(respuesta.getRespuesta());
 		this.siSoyUltima();
 		this.getSiguientePregunta().setPreguntaAnterior(this);
+		
 		
 	}
 
@@ -54,6 +56,8 @@ public class PreguntaCompleja extends Pregunta  {
 	private void setPreguntaARediregir(Pregunta preg) {
 		this.preguntaARedirigir=preg;
 	}
+	
+	
 
 	
 	

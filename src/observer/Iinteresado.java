@@ -10,6 +10,6 @@ public interface Iinteresado {
     
 	public void noMeInteresa(Pregunta pregunta);
 	
-	public void notificarme(Encuesta encuesta, Pregunta pregunta, Respuesta respuesta);
+	public void notificarme(Encuesta encuesta, Pregunta pregunta, String respuesta);
 	
 }

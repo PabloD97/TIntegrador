@@ -22,6 +22,7 @@ public class PreguntaAbierta extends Pregunta {
 		contenedorDeRespuestas.addRespuesta( respuestaAbierta );
 		this.siSoyUltima();
 		this.getSiguientePregunta().setPreguntaAnterior(this);
+		this.notificar(contestacion);
 	}
 	
 	public String getRespuesta() {

@@ -34,15 +34,20 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 	}
 	
 	public void responder() {
+		//Lo inicializo en null dado que doy por sentado que si no elije alguna opcion no va a poder responder
+		String respuestas = null;
 		for( Respuesta respuesta : respuestaElegidas ) {
+			respuestas+=respuesta.getRespuesta();
 			contenedorDeRespuestas.addRespuesta(respuesta );
 			this.getSiguientePregunta().setPreguntaAnterior(this);
 		}
+		this.notificar(respuestas);
 		this.respuestaElegidas.removeAll(respuestaElegidas);
 		this.siSoyUltima();
 	    
 	}
-
+ 
+ 
 	
 
 	

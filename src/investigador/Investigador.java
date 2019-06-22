@@ -8,6 +8,7 @@ import encuestasDisponibles.IEstrategia;
 import observer.Iinteresado;
 import preguntas.Pregunta;
 import proyecto.Proyecto;
+import respuestas.Respuesta;
 
 
 public class Investigador implements Iinteresado{
@@ -59,6 +60,11 @@ public class Investigador implements Iinteresado{
 	@Override
 	public void noMeInteresa(Pregunta pregunta) {
 		pregunta.sacarInteresado(this);		
+	}
+	@Override
+	public void notificarme(Encuesta encuesta, Pregunta pregunta, String respuesta) {
+		System.out.println("La pregunta" + pregunta.getPregunta() + "de la encuesta" + pregunta.getPregunta() + "Tuvo la siguiente respuesta" + respuesta);
+		
 	}
 	
 	

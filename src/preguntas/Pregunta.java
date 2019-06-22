@@ -6,6 +6,7 @@ import java.util.List;
 import encuesta.Encuesta;
 import encuestado.Encuestado;
 import investigador.Investigador;
+import respuestas.Respuesta;
 
 public class Pregunta {
 	
@@ -66,9 +67,9 @@ public class Pregunta {
 		this.interesados.remove(interesado);
 	}
 	
-	public void notificar( Respuesta respuesta) {
+	public void notificar( String respuesta) {
 		for( Investigador interesado: interesados ) {
-			interesado.notificarme(this.encuesta);
+			interesado.notificarme(this.encuesta, this, respuesta);
 		}
 	}
 	
