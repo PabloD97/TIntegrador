@@ -6,7 +6,6 @@ import java.util.List;
 
 import encuesta.Encuesta;
 import investigador.Investigador;
-import prueboMetodos.Pibito;
 
 public class Las25MasContestadas implements IEstrategia{
 	
