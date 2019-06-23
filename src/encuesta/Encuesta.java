@@ -1,6 +1,8 @@
 package encuesta;
 
 import java.util.ArrayList;
+import java.util.Date;
+
 import estadosDeLaEncuesta.Estado;
 
 import respuestas.Respuesta;
@@ -11,14 +13,14 @@ import encuestado.Encuestado;
 import preguntas.Pregunta;
 
 public class Encuesta {
-
+ 
 	
 	// cambie tdas a list ya que hay que pensar en interfaces
 	private List<Encuestado> encuestados;
 	private List<Pregunta> protocoloDePreguntas;
 	private List<Respuesta> respuestas;
 	private Estado estado;
-	
+	private Date fechaDeCreacion;
 	private String nombreDeLaEncuesta;
 	
 	
@@ -26,6 +28,7 @@ public class Encuesta {
 		this.nombreDeLaEncuesta= nombre;
 		this.encuestados= new ArrayList<Encuestado>();
 		this.protocoloDePreguntas= new ArrayList<Pregunta>();
+		this.fechaDeCreacion= new Date();
 	}
 	
 	public Estado getEstado() {
@@ -36,6 +39,10 @@ public class Encuesta {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 		estado.setearEncuesta(this);
+	}
+	
+	public Date getDate() {
+		return this.fechaDeCreacion;
 	}
 	
 	public void addPregunta(Pregunta pregunta) {

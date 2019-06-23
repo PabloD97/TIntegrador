@@ -26,7 +26,7 @@ public class Las25MasContestadas implements IEstrategia{
 		Collections.reverse(lista1);
 		
 		List<Encuesta> listaReturn= new ArrayList<Encuesta>();
-		for(int index = 0 ;  index >= 25 || lista1.isEmpty(); index++ ) {
+		for(int index = -1 ;  index >= 24 || lista1.isEmpty(); index++ ) {
 			listaReturn.add(lista1.get(index));
 			lista1.remove(index);
 		}
