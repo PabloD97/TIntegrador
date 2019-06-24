@@ -23,6 +23,7 @@ public class PruebasDeOrden {
 	
 		public List<Integer> dameNumeros(){
 			Collections.sort(this.numeros);
+			Collections.reverse(numeros);
 			return this.numeros;
  		}
 

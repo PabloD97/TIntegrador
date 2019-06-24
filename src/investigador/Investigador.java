@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import encuesta.Encuesta;
-import encuestasDisponibles.IEstrategia;
 import encuestasDisponibles.Las25MasContestadas;
 import encuestasDisponibles.OrdenadasPorProyecto;
 import encuestasDisponibles.Ultimas20Creadas;
@@ -22,10 +21,13 @@ public class Investigador implements Iinteresado{
 	private OrdenadasPorProyecto ordenadas = new OrdenadasPorProyecto();
 	private Ultimas20Creadas ultimasCreadas = new Ultimas20Creadas();
 	
+	//
+	private List<Encuesta>encuestas;
 	
 	
 
 	public Investigador() {
+		this.encuestas= new ArrayList<Encuesta>();
 		this.proyectos = new ArrayList<Proyecto>();
 	}
 	
@@ -39,10 +41,14 @@ public class Investigador implements Iinteresado{
 
 	public void sumarProyectoALaLista(Proyecto proyecto) {
 		this.proyectos.add(proyecto);
+		// para testear ahora
+		this.encuestas.addAll(proyecto.getEncuestas());
 	}
 	
 	public void darDeBajaProyecto(Proyecto proyecto) {
 		this.proyectos.remove(proyecto);
+		//para testear
+		this.encuestas.removeAll(proyecto.getEncuestas());
 	}
 	
 
@@ -78,14 +84,10 @@ public class Investigador implements Iinteresado{
 	}
 	
 	public List<Encuesta> getTodasLasEncuestas() {
-		List<Encuesta> ls = new ArrayList<Encuesta>();
-		for(Proyecto p : proyectos) {
-		 for(Encuesta e : p.getEncuestas()) {
-			 ls.add(e);
-		 }
-		}
-		return ls;
+		return this.encuestas;
 	}
+	
+	
 	//Sobre entendiendo que solamente se va a poder suscribir si la respuesta esta en la pregunta
 	public void subscribirseRespuesta(Respuesta res) {
 		this.subscripcionRespuestas.add(res.getRespuesta());

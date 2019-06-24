@@ -8,6 +8,8 @@ import investigador.Investigador;
 
 public class Ultimas20Creadas implements IEstrategia {
 
+	private List<Encuesta>lista1= new ArrayList<Encuesta>();
+	private List<Encuesta> listaReturn= new ArrayList<Encuesta>();
 
 	public List<Encuesta> dameLasUltimasEncuestas(List<Encuesta> lista1) {
 		// Ordena los objetos de menor a mayor mediante el valor de un atributo
@@ -18,21 +20,23 @@ public class Ultimas20Creadas implements IEstrategia {
 
 	@Override
 	public List<Encuesta> dameLasEncuestas(Investigador investigador) {
-		List<Encuesta>lista1= investigador.getTodasLasEncuestas();
+		this.lista1= investigador.getTodasLasEncuestas();
 		this.dameLasUltimasEncuestas(lista1);
 		
 		Collections.reverse(lista1);
 		
-		List<Encuesta> listaReturn= new ArrayList<Encuesta>();
-		for(int index = -1 ;  index >= 19 || lista1.isEmpty(); index++ ) {
-			listaReturn.add(lista1.get(index));
-			lista1.remove(index);
+		for( Encuesta e: lista1 ) {
+			if(listaReturn.size() <20) {
+				this.listaReturn.add(e);
+			}
 		}
 		return listaReturn;
 	}
+		
+}
 	
 	
 	
 	
 
-}
+

@@ -24,12 +24,15 @@ public class Encuesta {
 	private String nombreDeLaEncuesta;
 	
 	
-	public Encuesta(String nombre) {
+	@SuppressWarnings("deprecation")
+	public Encuesta(String nombre,int año,int mes, int dia) {
 		this.nombreDeLaEncuesta= nombre;
 		this.encuestados= new ArrayList<Encuestado>();
 		this.protocoloDePreguntas= new ArrayList<Pregunta>();
-		this.fechaDeCreacion= new Date();
+		this.fechaDeCreacion= new Date(año,mes,dia);
 	}
+	
+	
 	
 	public Estado getEstado() {
 		return this.estado.getEstado();//queda bien asi?

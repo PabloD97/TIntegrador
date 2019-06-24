@@ -3,20 +3,17 @@ package encuestasDisponibles;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import encuesta.Encuesta;
-import encuestado.Encuestado;
 import investigador.Investigador;
-import preguntas.PreguntaAbierta;
-import preguntas.PreguntaCompleja;
-import preguntas.PreguntaDeMultipleSeleccion;
 import proyecto.Proyecto;
 
-class TestencuestasDisponibles {
-
+class TestUltimas20Creadas {
+	
 	Investigador investigador;
 	Proyecto proyecto1;
 	Proyecto proyecto2;
@@ -46,42 +43,43 @@ class TestencuestasDisponibles {
 	Encuesta encuesta24;
 	Encuesta encuesta25;
 	Encuesta encuesta26;
+	Encuesta encuesta27;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		investigador = new Investigador();
-		proyecto1 = new Proyecto("para testear", "nahuel puto");
-		proyecto2 = new Proyecto("para testear tambien", "pablo capo");
-		encuesta1 = new Encuesta("encuesta1");
-		encuesta2 = new Encuesta("encuesta2");
-		encuesta3 = new Encuesta("encuesta3");
-		encuesta4 = new Encuesta("encuesta4");
-		encuesta5 = new Encuesta("encuesta5");
-		encuesta6 = new Encuesta("encuesta6");
-		encuesta7 = new Encuesta("encuesta7");
-		encuesta8 = new Encuesta("encuesta8");
-		encuesta9 = new Encuesta("encuesta9");
-		encuesta10 = new Encuesta("encuesta10");
-		encuesta11 = new Encuesta("encuesta11");
-		encuesta12 = new Encuesta("encuesta12");
-		encuesta13 = new Encuesta("encuesta13");
-		encuesta14 = new Encuesta("encuesta14");
-		encuesta15 = new Encuesta("encuesta15");
-		encuesta16 = new Encuesta("encuesta16");
-		encuesta17 = new Encuesta("encuesta17");
-		encuesta18 = new Encuesta("encuesta18");
-		encuesta19 = new Encuesta("encuesta19");
-		encuesta20 = new Encuesta("encuesta20");
-		encuesta21 = new Encuesta("encuesta21");
-		encuesta22 = new Encuesta("encuesta22");
-		encuesta23 = new Encuesta("encuesta23");
-		encuesta24 = new Encuesta("encuesta24");
-		encuesta25 = new Encuesta("encuesta25");
-		encuesta26 = new Encuesta("encuesta26");
+		proyecto1 = new Proyecto("para testear", "nahuel ");
+		proyecto2 = new Proyecto("para testear tambien", "pablo ");
+		encuesta1 = new Encuesta("a", 119, 6, 1);
+		encuesta2 = new Encuesta("b", 119, 6, 2);
+		encuesta3 = new Encuesta("c", 119, 6, 3);
+		encuesta4 = new Encuesta("d", 119, 6, 4);
+		encuesta5 = new Encuesta("e", 119, 6, 5);
+		encuesta6 = new Encuesta("f", 119, 6, 6);
+		encuesta7 = new Encuesta("g", 119, 6, 7);
+		encuesta8 = new Encuesta("h", 119, 6, 8);
+		encuesta9 = new Encuesta("i", 119, 6, 9);
+		encuesta10 = new Encuesta("j", 119, 6, 10);
+		encuesta11 = new Encuesta("k", 119, 6, 11);
+		encuesta12 = new Encuesta("l", 119, 6, 12);
+		encuesta13 = new Encuesta("n", 119, 6, 13);
+		encuesta14 = new Encuesta("m", 119, 6, 14);
+		encuesta15 = new Encuesta("o", 119, 6, 15);
+		encuesta16 = new Encuesta("p", 119, 6, 16);
+		encuesta17 = new Encuesta("q", 119, 6, 17);
+		encuesta18 = new Encuesta("r", 119, 6, 18);
+		encuesta19 = new Encuesta("s", 119, 6, 19);
+		encuesta20 = new Encuesta("t", 119, 6, 20);
+		encuesta21 = new Encuesta("u", 119, 6, 21);
+		encuesta22 = new Encuesta("v", 119, 6, 22);
+		encuesta23 = new Encuesta("w", 119, 6, 23);
+		encuesta24 = new Encuesta("x", 119, 6, 24);
+		encuesta25 = new Encuesta("y", 119, 6, 25);
+		encuesta26 = new Encuesta("z", 119, 6, 26);
 	}
 
 	@Test
-	void testEstratetegiaUltimas20() {
+	void testUltimas20Creadas() {
 		proyecto1.agregarUnaEncuesta(encuesta1);
 		proyecto1.agregarUnaEncuesta(encuesta2);
 		proyecto1.agregarUnaEncuesta(encuesta3);
@@ -108,35 +106,37 @@ class TestencuestasDisponibles {
 		proyecto2.agregarUnaEncuesta(encuesta24);
 		proyecto2.agregarUnaEncuesta(encuesta25);
 		proyecto2.agregarUnaEncuesta(encuesta26);
-		
+
 		investigador.sumarProyectoALaLista(proyecto1);
 		investigador.sumarProyectoALaLista(proyecto2);
-		
+
 		ArrayList<Encuesta> encuesta = new ArrayList<Encuesta>();
-		encuesta.add(encuesta26);
-		encuesta.add(encuesta25);
-		encuesta.add(encuesta24);
-		encuesta.add(encuesta23);
-		encuesta.add(encuesta22);
-		encuesta.add(encuesta21);
-		encuesta.add(encuesta20);
-		encuesta.add(encuesta19);
-		encuesta.add(encuesta18);
-		encuesta.add(encuesta17);
-		encuesta.add(encuesta16);
-		encuesta.add(encuesta15);
-		encuesta.add(encuesta14);
-		encuesta.add(encuesta13);
-		encuesta.add(encuesta12);
-		encuesta.add(encuesta11);
-		encuesta.add(encuesta10);
-		encuesta.add(encuesta9);
-		encuesta.add(encuesta8);
+	
+		
 		encuesta.add(encuesta7);
-		encuesta.add(encuesta6);
+		encuesta.add(encuesta8);
+		encuesta.add(encuesta9);
+		encuesta.add(encuesta10);
+		encuesta.add(encuesta11);
+		encuesta.add(encuesta12);
+		encuesta.add(encuesta13);
+		encuesta.add(encuesta14);
+		encuesta.add(encuesta15);
+		encuesta.add(encuesta16);
+		encuesta.add(encuesta17);
+		encuesta.add(encuesta18);
+		encuesta.add(encuesta19);
+		encuesta.add(encuesta20);
+		encuesta.add(encuesta21);
+		encuesta.add(encuesta22);
+		encuesta.add(encuesta23);
+		encuesta.add(encuesta24);
+		encuesta.add(encuesta25);
+		encuesta.add(encuesta26);
+
+		Collections.reverse(encuesta);
 		
-		assertEquals(investigador.dameLasUltimas20Creadas(), encuesta);
-		
+		assertEquals(encuesta, investigador.dameLasUltimas20Creadas() );
 	}
 
 }
