@@ -25,11 +25,11 @@ public class Encuesta {
 	
 	
 	@SuppressWarnings("deprecation")
-	public Encuesta(String nombre,int año,int mes, int dia) {
+	public Encuesta(String nombre,int anio,int mes, int dia) {
 		this.nombreDeLaEncuesta= nombre;
 		this.encuestados= new ArrayList<Encuestado>();
 		this.protocoloDePreguntas= new ArrayList<Pregunta>();
-		this.fechaDeCreacion= new Date(año,mes,dia);
+		this.fechaDeCreacion= new Date(anio,mes,dia);
 	}
 	
 	

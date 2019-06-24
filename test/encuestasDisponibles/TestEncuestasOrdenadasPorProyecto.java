@@ -50,7 +50,7 @@ class TestEncuestasOrdenadasPorProyecto {
 		investigador = new Investigador();
 		proyecto1 = new Proyecto("para testear", "nahuel ");
 		proyecto2 = new Proyecto("para testear tambien", "pablo ");
-		encuesta1 = new Encuesta("a", 119, 6, 1);
+		encuesta1 = new Enc	uesta("a", 119, 6, 1);
 		encuesta2 = new Encuesta("b", 119, 6, 2);
 		encuesta3 = new Encuesta("c", 119, 6, 3);
 		encuesta4 = new Encuesta("d", 119, 6, 4);
