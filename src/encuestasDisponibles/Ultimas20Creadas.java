@@ -13,7 +13,7 @@ public class Ultimas20Creadas implements IEstrategia {
 
 	public List<Encuesta> dameLasUltimasEncuestas(List<Encuesta> lista1) {
 		// Ordena los objetos de menor a mayor mediante el valor de un atributo
-				Collections.sort(lista1, (encuesta1, encuesta2) -> encuesta1.getDate().compareTo(encuesta2.getDate()));
+				Collections.sort(lista1, (encuesta1, encuesta2) -> encuesta1.getFechaDeCreacion().compareTo(encuesta2.getFechaDeCreacion()));
 				// Collections.reverse(pibitos); Devuelve la lista ordenada de mayor a menor
 				return lista1;
 	}

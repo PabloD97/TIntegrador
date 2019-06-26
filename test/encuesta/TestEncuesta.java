@@ -17,6 +17,7 @@ import respuestas.Respuesta;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 class TestEncuesta {
 
@@ -63,7 +64,7 @@ class TestEncuesta {
 		editable= new Editable();
 		activa = new Activa();
 		
-		encuesta1= new Encuesta("encuesta2", 119, 6, 20);
+		encuesta1= new Encuesta("encuesta1", 119, 6, 20);
 		encuesta2= new Encuesta("encuesta3", 119, 6, 21);
 		
 		
@@ -77,6 +78,10 @@ class TestEncuesta {
 		assertEquals(editable , encuesta1.getEstado());
 	}
 
+	@Test
+	void testDameTuNombre() {
+		assertEquals(new String("encuesta1"), encuesta1.dameTuNombre());
+	}
 	@Test
 	void testAgregarPreguntas() {
 		encuesta1.setEstado(editable);
@@ -131,10 +136,11 @@ class TestEncuesta {
 		assertEquals( new Integer(0), encuesta1.vecesFinalizado() );
 	}
 	@Test 
-	void testrespuestasDelFormulario() {
-		
+	void testFechaDeCreacion() {
+		@SuppressWarnings("deprecation")
+		Date fecha= new Date(119,6,20);
+		assertEquals(fecha, encuesta1.getFechaDeCreacion());
 	}
-	
 	
 	@Test 
 	void testGetRespuestas() {

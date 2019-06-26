@@ -44,7 +44,7 @@ public class Encuesta {
 		estado.setearEncuesta(this);
 	}
 	
-	public Date getDate() {
+	public Date getFechaDeCreacion() {
 		return this.fechaDeCreacion;
 	}
 	
