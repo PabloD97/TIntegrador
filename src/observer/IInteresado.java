@@ -4,7 +4,7 @@ import encuesta.Encuesta;
 import preguntas.Pregunta;
 import respuestas.Respuesta;
 
-public interface Iinteresado {
+public interface IInteresado {
 
 	public void meInteresa(Pregunta pregunta); 
     

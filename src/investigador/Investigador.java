@@ -7,13 +7,13 @@ import encuesta.Encuesta;
 import encuestasDisponibles.Las25MasContestadas;
 import encuestasDisponibles.OrdenadasPorProyecto;
 import encuestasDisponibles.Ultimas20Creadas;
-import observer.Iinteresado;
+import observer.IInteresado;
 import preguntas.Pregunta;
 import proyecto.Proyecto;
 import respuestas.Respuesta;
 
 
-public class Investigador implements Iinteresado{
+public class Investigador implements IInteresado{
 	
 	private ArrayList<Proyecto> proyectos;
 	private ArrayList<String>subscripcionRespuestas=new ArrayList<String>();
