@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import preguntas.PreguntaAbierta;
 import proyecto.Proyecto;
 import static org.mockito.Mockito.*;
 
@@ -13,15 +14,19 @@ import java.util.ArrayList;
 class TestInvestigador {
 
 	Investigador investigador;
-	Proyecto cubaNegra;
-	Proyecto cubaNegra1;
-
+	Proyecto proyecto1;
+	Proyecto proyecto2;
+	PreguntaAbierta pregunta1;
+	PreguntaAbierta pregunta2;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		cubaNegra= mock(Proyecto.class);
-		cubaNegra1= mock(Proyecto.class);
+		proyecto1= mock(Proyecto.class);
+		proyecto2= mock(Proyecto.class);
+		pregunta1= mock(PreguntaAbierta.class);
+		pregunta2= mock(PreguntaAbierta.class);
+		
 		
 		investigador= new Investigador( );
 		
@@ -29,32 +34,37 @@ class TestInvestigador {
 
 	@Test
 	void testAgregarUnProyecto() {
-		ArrayList<Proyecto>proyectos= spy(new ArrayList<Proyecto>());
-		Investigador investigador1 = new Investigador(proyectos);
-		
-		investigador1.sumarProyectoALaLista(cubaNegra);
-		
-		verify(proyectos).add(cubaNegra);
-		
-	}
-
-	@Test
-	void testInvestigadorDameTusProyectos() {
 		ArrayList<Proyecto>proyectos= new ArrayList<Proyecto>();
-		proyectos.add(cubaNegra);
-		proyectos.add(cubaNegra1);
+		proyectos.add(proyecto1);
+		proyectos.add(proyecto2);
 		
-		investigador.sumarProyectoALaLista(cubaNegra);
-		investigador.sumarProyectoALaLista(cubaNegra1);
-
-		assertEquals( proyectos , investigador.getProyectos() );
+		investigador.agregarProyecto(proyecto1);
+		investigador.agregarProyecto(proyecto2);
+		
+		assertEquals(proyectos, investigador.getProyectos());
 	}
 	
 	@Test 
 	void testRemoverUnProyecto() {
-		investigador.sumarProyectoALaLista(cubaNegra);
+		investigador.agregarProyecto(proyecto1);
 		assertEquals( 1, investigador.getProyectos().size() );
-		investigador.darDeBajaProyecto(cubaNegra);
+		investigador.darDeBajaProyecto(proyecto1);
 		assertEquals( 0, investigador.getProyectos().size() );
 	}
+
+	// FALTA TESTEAR LO DE SUSCRIBIRSE A UNA RESPUESTA( AUN NO ENTIENDO MUY BIEN ESA PARTE), LO DE
+	// NOTIFICARME, LO DE DESUSCRIBIRSE A LA RESPUESTA Y GETSUSCRIPCIONES
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+

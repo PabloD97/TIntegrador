@@ -15,7 +15,7 @@ import respuestas.Respuesta;
 
 class TestPreguntaCompleja {
 	
-	PreguntaCompleja preguntaCompleja;
+	PreguntaDeSimpleSeleccion preguntaCompleja;
 	PreguntaAbierta preguntaAbierta1;
 	PreguntaDeMultipleSeleccion preguntaCerrada;
 	Encuesta encuesta;
@@ -45,7 +45,7 @@ class TestPreguntaCompleja {
 		
 		
 		//SUT
-		preguntaCompleja = new PreguntaCompleja(null, preguntaAbierta1);
+		preguntaCompleja = new PreguntaDeSimpleSeleccion(null, preguntaAbierta1);
 	
 				
 		when(got.getRespuesta()).thenReturn( "got");

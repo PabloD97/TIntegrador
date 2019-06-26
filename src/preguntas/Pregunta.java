@@ -66,6 +66,11 @@ public class Pregunta {
 	public void sacarInteresado(Investigador interesado) {
 		this.interesados.remove(interesado);
 	}
+	
+	public String getEncuesta() {
+		return this.encuesta.dameTuNombre();
+	}
+	
 	//Lo cambie
 	public void notificar( String respuesta) {
 		for( Investigador interesado: interesados ) {

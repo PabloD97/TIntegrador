@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import encuestado.Encuestado;
 import preguntas.PreguntaAbierta;
-import preguntas.PreguntaCompleja;
+import preguntas.PreguntaDeSimpleSeleccion;
 import preguntas.PreguntaDeMultipleSeleccion;
 import respuestas.Respuesta;
 
@@ -26,7 +26,7 @@ class TestEncuesta {
 
 	
 	PreguntaAbierta preguntaAbiert1;
-	PreguntaCompleja preguntaCompleja;
+	PreguntaDeSimpleSeleccion preguntaCompleja;
 	PreguntaDeMultipleSeleccion preguntaDeMultipleSeleccion;
 	PreguntaAbierta preguntaLibre;
 	Respuesta respuestaCerrada = new Respuesta("marron");
@@ -46,7 +46,7 @@ class TestEncuesta {
 		formulario3= mock(Encuestado.class);
 		
 		preguntaAbiert1= mock(PreguntaAbierta.class);
-		preguntaCompleja= mock(PreguntaCompleja.class);
+		preguntaCompleja= mock(PreguntaDeSimpleSeleccion.class);
 		preguntaDeMultipleSeleccion= mock(PreguntaDeMultipleSeleccion.class);
 
 

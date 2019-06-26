@@ -2,7 +2,6 @@ package observer;
 
 import encuesta.Encuesta;
 import preguntas.Pregunta;
-import respuestas.Respuesta;
 
 public interface IInteresado {
 

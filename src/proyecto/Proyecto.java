@@ -24,6 +24,7 @@ public class Proyecto {
 		this.descripcion = descripcion;
 		this.proposito = proposito;
 		this.encuestas = new ArrayList<Encuesta>();
+		this.subProyectos= new ArrayList<Proyecto>();
 	}
 
 	public String getProposito() {

@@ -57,21 +57,11 @@ class TestProyecto {
 		assertEquals( encuestas , proyecto1.getEncuestas() );
 	}
 	
-	//test de subProyectos
-	@Test
-	void testDameTusSubProyectos() {
-		ArrayList<Proyecto>subProyectos = new ArrayList<Proyecto>();
-		proyecto1.agregarSubProyecto(proyecto2);
-		proyecto1.agregarSubProyecto(proyecto3);
-		
-		assertEquals( subProyectos , proyecto1.getSubProyectos());
-	}
-	
+
 	void testNoPuedoAgregarSubProytecto() {
 		proyecto1.agregarSubProyecto(proyecto2);
 		
 		assertFalse( proyecto2.puedoAgregarProyecto(proyecto1));
-		/*assertEquals("El proyecto no puede ser agregado", proyecto1.agregarSubProyecto(proyecto2));
-		 * TODO arreglar test*/
+		assertEquals(new Integer(0),proyecto1.getSubProyectos().size());
 	}
 }

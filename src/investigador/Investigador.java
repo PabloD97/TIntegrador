@@ -15,8 +15,8 @@ import respuestas.Respuesta;
 
 public class Investigador implements IInteresado{
 	
-	private ArrayList<Proyecto> proyectos;
-	private ArrayList<String>subscripcionRespuestas=new ArrayList<String>();
+	private List<Proyecto> proyectos;
+	private List<String>subscripcionRespuestas=new ArrayList<String>();
 	private Las25MasContestadas masContestadas = new Las25MasContestadas();
 	private OrdenadasPorProyecto ordenadas = new OrdenadasPorProyecto();
 	private Ultimas20Creadas ultimasCreadas = new Ultimas20Creadas();
@@ -31,23 +31,20 @@ public class Investigador implements IInteresado{
 		this.proyectos = new ArrayList<Proyecto>();
 	}
 	
-	public Investigador( ArrayList<Proyecto> proyecto) {
-		this.proyectos = proyecto;
-	}
+	
+	
 
-	public ArrayList<Proyecto> getProyectos() {
+	public List<Proyecto> getProyectos() {
 		return proyectos;	
 	}
 
-	public void sumarProyectoALaLista(Proyecto proyecto) {
+	public void agregarProyecto(Proyecto proyecto) {
 		this.proyectos.add(proyecto);
-		// para testear ahora
 		this.encuestas.addAll(proyecto.getEncuestas());
 	}
 	
 	public void darDeBajaProyecto(Proyecto proyecto) {
 		this.proyectos.remove(proyecto);
-		//para testear
 		this.encuestas.removeAll(proyecto.getEncuestas());
 	}
 	
@@ -79,7 +76,9 @@ public class Investigador implements IInteresado{
 	}
 	@Override
 	public void notificarme(Encuesta encuesta, Pregunta pregunta, String respuesta) {
-		System.out.println("La pregunta" + pregunta.getPregunta() + "de la encuesta" + pregunta.getPregunta() + "Tuvo la siguiente respuesta" + respuesta);
+		System.out.println("La pregunta" + pregunta.getPregunta() + "de la encuesta" 
+		+ pregunta.getEncuesta()
+		+ "Tuvo la siguiente respuesta" + respuesta);
 		
 	}
 	
@@ -92,9 +91,11 @@ public class Investigador implements IInteresado{
 	public void subscribirseRespuesta(Respuesta res) {
 		this.subscripcionRespuestas.add(res.getRespuesta());
 	}
-	public ArrayList<String> getSuscripciones(){
+	public List<String> getSuscripciones(){
 		return this.subscripcionRespuestas;
 	}
+
+
 	
 }
 

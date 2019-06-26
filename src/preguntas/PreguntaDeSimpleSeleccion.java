@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import encuestado.Encuestado;
 import respuestas.Respuesta;
 
-public class PreguntaCompleja extends Pregunta  {
+public class PreguntaDeSimpleSeleccion extends Pregunta  {
 	
 	private Encuestado contenedor;
 	private Respuesta respuestaElegida;
@@ -13,9 +13,10 @@ public class PreguntaCompleja extends Pregunta  {
 	private Pregunta  preguntaARedirigir;
 	private ArrayList<Respuesta> respuestas;
 
-	public PreguntaCompleja(String preg, Pregunta siguientePregunta) {
+	public PreguntaDeSimpleSeleccion(String preg, Pregunta siguientePregunta) {
 		super(preg, siguientePregunta);
 	}
+	
 	@Override
 	public Pregunta getSiguientePregunta() {
 		Pregunta res;
