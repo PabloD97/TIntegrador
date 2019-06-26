@@ -42,10 +42,10 @@ class Tesito {
 	void test2() {// Ordena los objetos de menor a mayor mediante el valor de un atributo 
 		ArrayList<Pibito> pibites= new ArrayList<Pibito>();
 		
-		pibites.add(pablo1); 1
-		pibites.add(pablo2); 2
-		pibites.add(pablo); 5
-		pibites.add(pablo3); 7
+		pibites.add(pablo1); 
+		pibites.add(pablo2); 
+		pibites.add(pablo); 
+		pibites.add(pablo3); 
 		
 		x.agregarPibito(pablo);
 		x.agregarPibito(pablo2);

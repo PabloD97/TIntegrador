@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import encuestado.Encuestado;
+import estadosDeLaEncuesta.Editable;
 import preguntas.PreguntaAbierta;
 import preguntas.PreguntaDeSimpleSeleccion;
 import preguntas.PreguntaDeMultipleSeleccion;
@@ -18,17 +19,22 @@ class TestEncuesta {
 	Encuesta encuesta1;
 	Encuesta encuesta2;
 	
+	Editable editable;
 	
-	
-	Encuestado formulario;
-	Encuestado formulario2;
-	Encuestado formulario3;
+	Encuestado encuestado1;
+	Encuestado encuestado2;
+	Encuestado encuestado3;
 
 	
-	PreguntaAbierta preguntaAbiert1;
+	
+	
+	
 	PreguntaDeSimpleSeleccion preguntaCompleja;
+	
 	PreguntaDeMultipleSeleccion preguntaDeMultipleSeleccion;
-	PreguntaAbierta preguntaLibre;
+	
+	PreguntaAbierta preguntaAbierta;
+	
 	Respuesta respuestaCerrada = new Respuesta("marron");
 	Respuesta respuestaCerrada2 = new Respuesta("azul");
 	Respuesta respuestaCerrada3 = new Respuesta("amarillo");
@@ -41,78 +47,60 @@ class TestEncuesta {
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		formulario= mock(Encuestado.class);
-		formulario2= mock(Encuestado.class);
-		formulario3= mock(Encuestado.class);
+		encuestado1= mock(Encuestado.class);
+		encuestado2= mock(Encuestado.class);
+		encuestado3= mock(Encuestado.class);
 		
-		preguntaAbiert1= mock(PreguntaAbierta.class);
+		preguntaAbierta= mock(PreguntaAbierta.class);
 		preguntaCompleja= mock(PreguntaDeSimpleSeleccion.class);
 		preguntaDeMultipleSeleccion= mock(PreguntaDeMultipleSeleccion.class);
 
-
+		editable= mock(Editable.class);
 		
-		encuesta1= new Encuesta(null);
-		encuesta2= new Encuesta(null);
+		encuesta1= new Encuesta("encuesta2", 119, 6, 20);
+		encuesta2= new Encuesta("encuesta3", 119, 6, 21);
 		
 		
 		
 		
 	}
+	
+	@Test
+	void testDameTuEstado() {
+		when(editable.getEstado()).thenReturn(editable);
+		encuesta1.setEstado(editable);
+		assertEquals(editable, encuesta1.getEstado());
+	}
 
 	@Test
 	void testAgregarPreguntas() {
-		encuesta1.addPregunta(preguntaAbiert1);
-		encuesta1.addPregunta(preguntaCompleja);
-		encuesta1.addPregunta(preguntaDeMultipleSeleccion);
-		
-		assertEquals(new Integer(3) ,encuesta1.getProtocoloDePreguntas().size()  );
+	
 		
 	}
 	
 	@Test 
 	void testQuitarPregunta() {
-		encuesta1.addPregunta(preguntaAbiert1);
-		encuesta1.eliminarPregunta(preguntaAbiert1);
-		assertEquals( new Integer(0) , encuesta1.getProtocoloDePreguntas().size() );
+	
 	}
 	
 	@Test 
 	void testEncuestaFinalizada() {
-		encuesta1.encuestaFinalizada(formulario);
-		encuesta1.encuestaFinalizada(formulario2);
-		encuesta1.encuestaFinalizada(formulario3);
 		
-		assertEquals( new Integer(3),encuesta1.vecesFinalizado() );
 	}
 	
 	@Test
 	void testEliminarFormulario() {
-		encuesta1.encuestaFinalizada(formulario);
-		encuesta1.eliminarFormulario(formulario);
-		assertEquals(false,encuesta1.getEncuestados().contains(formulario));
+	
 	}
 	@Test 
-	void testrespuestasDelFormulario()
-	 {
-		formulario.addRespuesta(null);
-		encuesta1.encuestaFinalizada(formulario);
-		assertEquals(1,encuesta1.getTodasLasRespuestas().size());
+	void testrespuestasDelFormulario() {
+		
 	}
 	
 	
 	@Test 
 	void testGetRespuestas() {
-		/*PreguntaDeMultipleSeleccion colorFavorito=new PreguntaDeMultipleSeleccion("¿Cual de estos Colores te gusta mas?", formulario);
-		colorFavorito.addRespuesta(respuestaCerrada);
-		colorFavorito.addRespuesta(respuestaCerrada2);
-		colorFavorito.addRespuesta(respuestaCerrada3);
-		colorFavorito.addRespuesta(respuestaCerrada4);
-		encuesta2.addPregunta(colorFavorito);
-		colorFavorito.elegirRespuesta(respuestaCerrada);
-		colorFavorito.elegirRespuesta(respuestaCerrada2);
-		colorFavorito.responder();
-		assertEquals(true,encuesta2.getTodasLasRespuestas().contains("marron") && encuesta2.getTodasLasRespuestas().contains("azul") && encuesta2.getTodasLasRespuestas().size()==2);
-		*/
+		
 	}
 
 }

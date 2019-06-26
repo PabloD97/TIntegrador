@@ -147,8 +147,8 @@ class TestLas25EncuestasMasCompletadas {
 		
 		
 		
-		investigador.sumarProyectoALaLista(proyecto1);
-		investigador.sumarProyectoALaLista(proyecto2);
+		investigador.agregarProyecto(proyecto1);
+		investigador.agregarProyecto(proyecto2);
 		
 		List<Encuesta>e= new ArrayList<Encuesta>();	
 		e.add(encuesta26);

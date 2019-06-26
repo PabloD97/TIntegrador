@@ -3,7 +3,6 @@ package proyecto;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 import encuesta.Encuesta;
 
@@ -44,8 +43,11 @@ public class Proyecto {
 	public void agregarUnaEncuesta(Encuesta encuesta) {
 		encuestas.add(encuesta);
 	}
-	public Optional<Encuesta> laMasContestada() {
-		return(encuestas.stream().max((e1,e2) -> Integer.compare(e1.vecesFinalizado(),e2.vecesFinalizado())));
+	public Encuesta encuestaMasContestada() {
+		List<Encuesta> encuestas= this.getEncuestas();
+		Collections.sort(encuestas, (encuesta1, encuesta2) -> encuesta1.vecesFinalizado().compareTo(encuesta2.vecesFinalizado()));
+		Collections.reverse(encuestas);
+		return encuestas.get(0);
 	}
 	
 	public void agregarSubProyecto(Proyecto subProyecto) {		

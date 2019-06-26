@@ -107,8 +107,8 @@ class TestUltimas20Creadas {
 		proyecto2.agregarUnaEncuesta(encuesta25);
 		proyecto2.agregarUnaEncuesta(encuesta26);
 
-		investigador.sumarProyectoALaLista(proyecto1);
-		investigador.sumarProyectoALaLista(proyecto2);
+		investigador.agregarProyecto(proyecto1);
+		investigador.agregarProyecto(proyecto2);
 
 		ArrayList<Encuesta> encuesta = new ArrayList<Encuesta>();
 	
