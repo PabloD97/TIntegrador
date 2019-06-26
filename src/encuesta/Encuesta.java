@@ -48,7 +48,7 @@ public class Encuesta {
 		return this.fechaDeCreacion;
 	}
 	
-	public void addPregunta(Pregunta pregunta) {
+	public void agregarPregunta(Pregunta pregunta) {
 		this.estado.agregarPregunta(pregunta);
 	}
 	

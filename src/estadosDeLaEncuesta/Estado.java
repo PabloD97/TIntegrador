@@ -23,7 +23,7 @@ public class Estado {
 	public void EmpezarEncuesta(Encuestado encuestado) {}
 	
 	public Estado getEstado() {
-		return null;
+		return this;
 	}
 	
     public Boolean encuestaDisponible() {

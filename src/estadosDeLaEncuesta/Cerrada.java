@@ -16,8 +16,4 @@ public class Cerrada extends Estado {
 	
 	
 
-	public Estado getEstado() {
-		return this;
-	}
-
 }

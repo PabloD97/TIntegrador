@@ -21,9 +21,6 @@ public class Activa extends Estado {
 	}
 	
 
-	public Estado getEstado() {
-		return this;
-	}
 
 	public Boolean encuestaDisponible() {
 		return true;

@@ -23,9 +23,6 @@ public class Editable extends Estado {
 	}
     
 
-	public Estado getEstado() {
-		Estado editable = new Estado();
-		return editable;
-	}
+	
 
 }
