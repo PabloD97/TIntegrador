@@ -83,7 +83,7 @@ class TestEncuesta {
 	
 	}
 	
-	@Test 
+	@Test  
 	void testEncuestaFinalizada() {
 		
 	}
