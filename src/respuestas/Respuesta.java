@@ -20,4 +20,7 @@ public class Respuesta {
 	public void setPregunta(Pregunta preg) {
 		this.pregPertenencia=preg;
 	}
+	public Pregunta getPreguntaALaQuePertenece() {
+		return this.pregPertenencia;
+	}
 }

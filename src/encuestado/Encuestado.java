@@ -8,6 +8,7 @@ import preguntas.Pregunta;
 import respuestas.Respuesta;
 
 public class Encuestado {
+	
 	private String nombre;
 	private String apellido;
 	private Encuesta encuesta;
@@ -24,14 +25,6 @@ public class Encuestado {
 		this.encuesta=encuesta;
 	}
 	
-	
-	
-	public Encuestado(ArrayList<Respuesta> respuestasDelEncuestado) {
-		super();
-		this.respuestasDelEncuestado = respuestasDelEncuestado;
-	}
-
-
 
 	public String getDatosDelEncuestado() {
 		return this.nombre+ " " +this.apellido;
@@ -41,7 +34,7 @@ public class Encuestado {
 		return  this.respuestasDelEncuestado;
 	}
 
-	public void addRespuesta(Respuesta res) {
+	public void agregarRespuesta(Respuesta res) {
 		res.setPregunta(this.preguntaActual);
 		this.respuestasDelEncuestado.add(res);
 	}
@@ -55,5 +48,9 @@ public class Encuestado {
 	}
 	public void setPreguntaActual(Pregunta preg) {
 		this.preguntaActual=preg;
+	}
+	
+	public void responder(String respuesta) {
+		
 	}
 }
