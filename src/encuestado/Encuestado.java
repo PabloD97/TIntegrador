@@ -51,6 +51,6 @@ public class Encuestado {
 	}
 	
 	public void responder(String respuesta) {
-		
+		this.preguntaActual.
 	}
 }

@@ -18,8 +18,8 @@ public class Editable extends Estado {
 	
 	//
 	public void siguienteEstado() {
-		Estado activa = new Estado();
-		this.encuesta.setEstado(activa);
+		Activa estado= new Activa();
+		this.encuesta.setEstado(estado);
 	}
     
 

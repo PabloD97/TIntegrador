@@ -12,8 +12,8 @@ public class Activa extends Estado {
 	
 	//
 	public void siguienteEstado() {
-		Estado cerrada = new Estado();
-		this.encuesta.setEstado(cerrada);
+		Cerrada estado= new Cerrada();
+		this.encuesta.setEstado(estado);
 	}
     
 	public void comenzarEncuesta(Encuestado encuestado) {

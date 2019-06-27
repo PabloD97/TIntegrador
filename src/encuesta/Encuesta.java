@@ -3,6 +3,7 @@ package encuesta;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 import estadosDeLaEncuesta.Estado;
 
 import respuestas.Respuesta;
@@ -38,11 +39,26 @@ public class Encuesta {
 		return this.estado.getEstado();//queda bien asi?
 	}
 	
+	public void siguienteEstado() {
+		this.estado.siguienteEstado();
+	}
+	
 	// modifique este metodo para que los state conozcan a la encuesta
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 		estado.setearEncuesta(this);
 	}
+	/*
+	public void activa() {
+		this.estado = new Activa();
+		estado.setearEncuesta(this);
+	}
+	
+	public void cerrada() {
+		this.estado = new Cerrada();
+		estado.setearEncuesta(this);
+	}
+	*/
 	
 	public Date getFechaDeCreacion() {
 		return this.fechaDeCreacion;
@@ -86,7 +102,9 @@ public class Encuesta {
 		encuestado.setPreguntaActual(this.protocoloDePreguntas.get(0));
 	}
 
-	
+	public Boolean encuestaDisponible() {
+		return this.estado.encuestaDisponible();
+	}
 	
 	public String dameTuNombre(){
 		return this.nombreDeLaEncuesta;

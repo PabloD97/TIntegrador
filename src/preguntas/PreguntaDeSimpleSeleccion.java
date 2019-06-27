@@ -35,7 +35,7 @@ public class PreguntaDeSimpleSeleccion extends Pregunta  {
 
 	public void responder( Respuesta respuesta ) {
 		this.setRespuestaElegida(respuesta);
-		this.contenedor.addRespuesta(respuesta);
+		this.contenedor.agregarRespuesta(respuesta);
 		this.notificar(respuesta.getRespuesta());
 		this.siSoyUltima();
 		this.getSiguientePregunta().setPreguntaAnterior(this);

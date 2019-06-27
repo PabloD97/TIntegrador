@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import encuestado.Encuestado;
 import estadosDeLaEncuesta.Activa;
+import estadosDeLaEncuesta.Cerrada;
 import estadosDeLaEncuesta.Editable;
 import preguntas.Pregunta;
 import preguntas.PreguntaAbierta;
@@ -26,6 +27,7 @@ class TestEncuesta {
 	
 	Editable editable;
 	Activa activa;
+	Cerrada cerrada;
 	
 	Encuestado encuestado1;
 	Encuestado encuestado2;
@@ -63,6 +65,7 @@ class TestEncuesta {
 
 		editable= new Editable();
 		activa = new Activa();
+		cerrada= new Cerrada();
 		
 		encuesta1= new Encuesta("encuesta1", 119, 6, 20);
 		encuesta2= new Encuesta("encuesta3", 119, 6, 21);
@@ -75,8 +78,19 @@ class TestEncuesta {
 	@Test
 	void testDameTuEstado() {
 		encuesta1.setEstado(editable);
-		assertEquals(editable , encuesta1.getEstado());
+		assertEquals( editable, encuesta1.getEstado());
 	}
+	
+	@Test
+	void testCambiandoTuEstado() {
+		encuesta1.setEstado(editable);
+		assertEquals( editable, encuesta1.getEstado());
+		
+		encuesta1.siguienteEstado();
+		assertTrue( encuesta1.getEstado() == new Activa());
+		
+	}
+
 
 	@Test
 	void testDameTuNombre() {
@@ -143,7 +157,15 @@ class TestEncuesta {
 	}
 	
 	@Test 
-	void testGetRespuestas() {
+	void testEncuestaDisponible() {
+		encuesta1.setEstado(editable);
+		assertTrue(!encuesta1.encuestaDisponible());
+		
+		encuesta1.setEstado(activa);
+		assertTrue(encuesta1.encuestaDisponible());
+		
+		encuesta1.setEstado(cerrada);
+		assertTrue(!encuesta1.encuestaDisponible());
 		
 	}
 

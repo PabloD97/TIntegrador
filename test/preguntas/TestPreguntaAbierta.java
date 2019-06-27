@@ -4,8 +4,7 @@ package preguntas;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,9 @@ import respuestas.Respuesta;
 
 class TestPreguntaAbierta {
 	
-	PreguntaAbierta preguntaAbierta;
+	PreguntaAbierta preguntaAbierta1;
+	PreguntaAbierta preguntaAbierta2;
+
 	
 	Respuesta respuestaAbierta;
 	Encuestado contenedor;
@@ -25,55 +26,20 @@ class TestPreguntaAbierta {
 		
 		//DUC
 		respuestaAbierta= mock( Respuesta.class);
-		contenedor= mock( Encuestado.class);
+		preguntaAbierta2= mock(PreguntaAbierta.class);
 		
 		//SUT
-		preguntaAbierta = new PreguntaAbierta(null, contenedor, preguntaAbierta);
+		preguntaAbierta1 = new PreguntaAbierta("¿que color te gusta?", preguntaAbierta2);
 		
 	}
 	@Test
 	void testPreguntaAbierta() {
-		
-		assertEquals( "¿Te gusta ?" , preguntaAbierta.getPregunta() );
+		assertEquals( new String("¿que color te gusta?") , preguntaAbierta1.getPregunta() );
 	}
 
-	@Test
-	void testEncuestadoResponde() {	
-		preguntaAbierta.responder("capaz");
-		when( respuestaAbierta.getRespuesta()).thenReturn("capaz");
-		assertEquals( "capaz", respuestaAbierta.getRespuesta() );
-	}
-	
-
-	@Test
-	void test2doEncuestadoResponde() {
-		preguntaAbierta.responder("no se");
-		when( respuestaAbierta.getRespuesta()).thenReturn("no se");
-		assertEquals( "no se", respuestaAbierta.getRespuesta() );
-	}
 	
 	
-	@Test
-	void testSeGuardoLaRespuestaEnElContenedor() {	
-		
-		List<Respuesta> spyRespuestas= spy(new ArrayList<Respuesta>());	
-		Encuestado contenedor= new Encuestado(null);
-		
-		preguntaAbierta.responder("no se");
-		//when( respuestaAbierta.getRespuesta()).thenReturn("no se");
 
-
-		preguntaAbierta.responder("capaz");
-		//when( respuestaAbierta.getRespuesta()).thenReturn("capaz");
-
-		contenedor.addRespuesta(null);// hay que agregar las respuestas a los parametros
-		contenedor.addRespuesta(null); 
-
-		
-		assertEquals( new Integer(2), contenedor.getRespuestasDelEncuestado().size()  );	
-		verify(spyRespuestas).size();
-
-	}
 	
 	
 }
