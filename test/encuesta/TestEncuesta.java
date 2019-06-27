@@ -86,8 +86,8 @@ class TestEncuesta {
 		encuesta1.setEstado(editable);
 		assertEquals( editable, encuesta1.getEstado());
 		
-		encuesta1.siguienteEstado();
-		assertFalse( encuesta1.getEstado()== editable);
+		encuesta1.siguienteEstado();// para saber si cambio de estado o no
+		assertEquals( encuesta1.getEstado().getClass().getCanonicalName() , activa.getClass().getCanonicalName());
 		
 	}
 

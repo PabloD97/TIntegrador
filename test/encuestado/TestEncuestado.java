@@ -2,43 +2,38 @@ package encuestado;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import encuesta.Encuesta;
 import encuestado.Encuestado;
-
+import static org.mockito.Mockito.*;
 
 class TestEncuestado {
 
-	Encuestado formulario;
+	Encuestado encuestado;
 	Encuesta encuesta;
 
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		
-		formulario= new Encuestado("Pepe", "Pepon",encuesta);
 	
-		formulario.addRespuesta(null); // .addRespuesta("kaskote");
-		formulario.addRespuesta(null); // aca hay que pasarle una Respuesta
+		
+		encuestado= new Encuestado("Pepe", "Pepon",encuesta);
+	
+	//	encuestado.agregarRespuesta(null); // .addRespuesta("kaskote");
+		//encuestado.agregarRespuesta(null); // aca hay que pasarle una Respuesta
 		
 	}
 
 	@Test
 	void testDameLosDatosDeTuEncuestado() {
-		assertEquals( "Pepe Pepon" , formulario.getDatosDelEncuestado() );
+		assertEquals( "Pepe Pepon" , encuestado.getDatosDelEncuestado() );
 	}
 
-	@Test
-	void testDameLasRespuestasDeTuEncuestado() {
-		ArrayList<String>respuestas= new ArrayList<String>();
-		respuestas.add("kaskote");
-		respuestas.add("kakote");
-		assertEquals( respuestas  , formulario.getRespuestasDelEncuestado());
-	}
+
+
 
 	
 }
