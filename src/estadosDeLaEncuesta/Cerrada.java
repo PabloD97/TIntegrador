@@ -12,8 +12,7 @@ public class Cerrada extends Estado {
 	public void siguienteEstado() {}
     
 
-	public void EmpezarEncuesta(Encuestado encuestado) {}
-	
+	public void comenzarEncuesta(Encuestado encuestado) {}	
 	
 
 }

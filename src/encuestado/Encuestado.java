@@ -5,6 +5,7 @@ import java.util.List;
 
 import encuesta.Encuesta;
 import preguntas.Pregunta;
+import preguntas.PreguntaAbierta;
 import respuestas.Respuesta;
 
 public class Encuestado {
@@ -51,6 +52,8 @@ public class Encuestado {
 	}
 	
 	public void responder(String respuesta) {
-		this.preguntaActual.
+		if(this.preguntaActual ) {
+			
+		}
 	}
 }

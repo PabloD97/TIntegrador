@@ -4,7 +4,7 @@ import encuesta.Encuesta;
 import encuestado.Encuestado;
 import preguntas.Pregunta;
 
-public class Estado {
+public  abstract class Estado {
 	
 	public Encuesta encuesta;
 	
@@ -20,7 +20,7 @@ public class Estado {
 	}
 	
 	
-	public void EmpezarEncuesta(Encuestado encuestado) {}
+	public void comenzarEncuesta(Encuestado encuestado) {}
 	
 	public Estado getEstado() {
 		return this;

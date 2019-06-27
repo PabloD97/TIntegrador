@@ -48,17 +48,7 @@ public class Encuesta {
 		this.estado = estado;
 		estado.setearEncuesta(this);
 	}
-	/*
-	public void activa() {
-		this.estado = new Activa();
-		estado.setearEncuesta(this);
-	}
-	
-	public void cerrada() {
-		this.estado = new Cerrada();
-		estado.setearEncuesta(this);
-	}
-	*/
+
 	
 	public Date getFechaDeCreacion() {
 		return this.fechaDeCreacion;
@@ -99,7 +89,7 @@ public class Encuesta {
 		return (ArrayList<Encuestado>) this.encuestados;
 	}
 	public void comenzarEncuesta(Encuestado encuestado) {
-		encuestado.setPreguntaActual(this.protocoloDePreguntas.get(0));
+		this.estado.comenzarEncuesta(encuestado);
 	}
 
 	public Boolean encuestaDisponible() {

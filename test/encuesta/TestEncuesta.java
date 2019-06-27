@@ -87,7 +87,7 @@ class TestEncuesta {
 		assertEquals( editable, encuesta1.getEstado());
 		
 		encuesta1.siguienteEstado();
-		assertTrue( encuesta1.getEstado() == new Activa());
+		assertFalse( encuesta1.getEstado()== editable);
 		
 	}
 
