@@ -82,7 +82,7 @@ public class PreguntaDeSimpleSeleccion extends Pregunta  {
 		this.siSoyUltima(); 
 		//this.getSiguientePregunta().setPreguntaAnterior(this);
 		
-		
+		 
 	}
 
 	
