@@ -6,8 +6,9 @@ public class Respuesta {
 	private String respuesta;
 	private Pregunta pregPertenencia;
 	
-	public Respuesta(String textoRespuesta ) {
+	public Respuesta(String textoRespuesta) {
 		this.respuesta=textoRespuesta;
+		
 	}
 
 	public void setRespuesta(String contestacion) {
@@ -17,10 +18,11 @@ public class Respuesta {
 	public String getRespuesta() {
 		return this.respuesta;
 	}
-	public void setPregunta(Pregunta preg) {
-		this.pregPertenencia=preg;
-	}
+
 	public Pregunta getPreguntaALaQuePertenece() {
 		return this.pregPertenencia;
+	}
+	public void setPreguntaPertenencia(Pregunta preg) {
+		this.pregPertenencia=preg;
 	}
 }

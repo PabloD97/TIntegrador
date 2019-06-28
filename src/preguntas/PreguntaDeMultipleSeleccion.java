@@ -29,21 +29,36 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 		return this.respuestaElegidas;
 	}
 	
-	public void elegirRespuesta(Respuesta respuestaCerrada1) {
-		respuestaElegidas.add(respuestaCerrada1);
+	public void elegirRespuesta(Respuesta respuestaCerrada1, Encuestado e) {
+		e.elegirRespuesta(respuestaCerrada1);
 	}
-	
-	public void responder() {
+	@Override
+	public void responder(Encuestado e) {
 		//Lo inicializo en null dado que doy por sentado que si no elije alguna opcion no va a poder responder
-		String respuestas = null;
+		String res = null;
+		
+		for(Respuesta r :e.getRespuestasElegidas()) {
+			e.agregarRespuesta(r);
+			this.notificarRespuesta(r);
+			res+=r.getRespuesta();
+			}
+		this.notificarPregunta(res);
+		
+		e.getRespuestasElegidas().removeAll(e.getRespuestasElegidas());
+		this.getSiguientePregunta().setPreguntaAnterior(this);
+		this.siSoyUltima();
+		
+		
+		
+		/*String 
 		for( Respuesta respuesta : respuestaElegidas ) {
-			respuestas+=respuesta.getRespuesta();
-			contenedorDeRespuestas.addRespuesta(respuesta );
+			
+			contenedorDeRespuestas.agregarRespuesta(respuesta );
 			this.getSiguientePregunta().setPreguntaAnterior(this);
 		}
 		this.notificar(respuestas);
 		this.respuestaElegidas.removeAll(respuestaElegidas);
-		this.siSoyUltima();
+		this.siSoyUltima();*/
 	    
 	}
  

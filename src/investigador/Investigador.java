@@ -16,7 +16,7 @@ import respuestas.Respuesta;
 public class Investigador implements IInteresado{
 	
 	private List<Proyecto> proyectos;
-	private List<String>subscripcionRespuestas=new ArrayList<String>();
+	private List<Respuesta>subscripcionRespuestas=new ArrayList<Respuesta>();
 	private Las25MasContestadas masContestadas = new Las25MasContestadas();
 	private OrdenadasPorProyecto ordenadas = new OrdenadasPorProyecto();
 	private Ultimas20Creadas ultimasCreadas = new Ultimas20Creadas();
@@ -74,13 +74,7 @@ public class Investigador implements IInteresado{
 	public void noMeInteresa(Pregunta pregunta) {
 		pregunta.sacarInteresado(this);		
 	}
-	@Override
-	public void notificarme(Encuesta encuesta, Pregunta pregunta, String respuesta) {
-		System.out.println("La pregunta" + pregunta.getPregunta() + "de la encuesta" 
-		+ pregunta.getEncuesta()
-		+ "Tuvo la siguiente respuesta" + respuesta);
-		
-	}
+	
 	
 	public List<Encuesta> getTodasLasEncuestas() {
 		return this.encuestas;
@@ -89,12 +83,28 @@ public class Investigador implements IInteresado{
 	
 	//Sobre entendiendo que solamente se va a poder suscribir si la respuesta esta en la pregunta
 	public void subscribirseRespuesta(Respuesta res) {
-		this.subscripcionRespuestas.add(res.getRespuesta());
+		this.subscripcionRespuestas.add(res);
 	}
-	public List<String> getSuscripciones(){
+	public List<Respuesta> getSuscripciones(){
 		return this.subscripcionRespuestas;
 	}
 
+
+
+
+	@Override
+	public void notificarmePregunta(Pregunta p, String r) {
+		System.out.println("La pregunta" + p.getPregunta() + "de la encuesta" 
+				+ p.getEncuesta()
+				+ "Tuvo la siguiente respuesta" + r);
+	}
+	@Override
+	public void notificarmeRespuesta(Pregunta pregunta, Respuesta respuesta) {
+		System.out.println("La pregunta" + pregunta.getPregunta() + "de la encuesta" 
+		+ pregunta.getEncuesta()
+		+ "Tuvo la siguiente respuesta" + respuesta.getRespuesta());
+		
+	}
 
 	
 }

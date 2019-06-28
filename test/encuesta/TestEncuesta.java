@@ -14,8 +14,8 @@ import preguntas.PreguntaAbierta;
 import preguntas.PreguntaDeSimpleSeleccion;
 import preguntas.PreguntaDeMultipleSeleccion;
 import respuestas.Respuesta;
-
 import static org.mockito.Mockito.*;
+//import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 import java.util.Date;

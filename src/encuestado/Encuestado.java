@@ -14,6 +14,7 @@ public class Encuestado {
 	private String apellido;
 	private Encuesta encuesta;
 	private Pregunta preguntaActual;
+	private List<Respuesta>respuestasElegidas;
 	
 	
 	public List<Respuesta> respuestasDelEncuestado;
@@ -24,6 +25,7 @@ public class Encuestado {
 		this.apellido=apellido;
 		this.respuestasDelEncuestado = new ArrayList<Respuesta>();
 		this.encuesta=encuesta;
+		this.respuestasElegidas=new ArrayList<Respuesta>();
 	}
 	
 
@@ -36,7 +38,7 @@ public class Encuestado {
 	}
 
 	public void agregarRespuesta(Respuesta res) {
-		res.setPregunta(this.preguntaActual);
+		res.setPreguntaPertenencia(this.preguntaActual);
 		this.respuestasDelEncuestado.add(res);
 	}
 	
@@ -51,7 +53,14 @@ public class Encuestado {
 		this.preguntaActual=preg;
 	}
 	
-	public void responder(String respuesta) {
-		this.preguntaActual.responder(respuesta);
+	public void responder() {
+		this.preguntaActual.responder(this);
 	}
+	public void elegirRespuesta(Respuesta r) {
+		this.respuestasElegidas.add(r);
+	}
+	public List<Respuesta> getRespuestasElegidas(){
+		return this.respuestasElegidas;
+	}
+	
 }

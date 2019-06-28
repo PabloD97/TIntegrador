@@ -7,7 +7,7 @@ import respuestas.Respuesta;
 
 public class PreguntaDeSimpleSeleccion extends Pregunta  {
 	
-	private Encuestado contenedor;
+	
 	private Respuesta respuestaElegida;
 	private Respuesta respuestaQueRedirige;
 	private Pregunta  preguntaARedirigir;
@@ -33,15 +33,7 @@ public class PreguntaDeSimpleSeleccion extends Pregunta  {
 		respuestas.add(respuesta);
 	}
 
-	public void responder( Respuesta respuesta ) {
-		this.setRespuestaElegida(respuesta);
-		this.contenedor.agregarRespuesta(respuesta);
-		this.notificar(respuesta.getRespuesta());
-		this.siSoyUltima();
-		this.getSiguientePregunta().setPreguntaAnterior(this);
-		
-		
-	}
+	
 
 	public void setRespuestaElegida(Respuesta respuesta) {
 		this.respuestaElegida=respuesta;
@@ -56,6 +48,36 @@ public class PreguntaDeSimpleSeleccion extends Pregunta  {
 	}
 	private void setPreguntaARediregir(Pregunta preg) {
 		this.preguntaARedirigir=preg;
+	}
+	/*public void responder(Encuestado e) {
+		//Lo inicializo en null dado que doy por sentado que si no elije alguna opcion no va a poder responder
+		String res = null;
+		
+		for(Respuesta r :e.getRespuestasElegidas()) {
+			e.agregarRespuesta(r);
+			this.notificarRespuesta(r);
+			res+=r.getRespuesta();
+			}
+		this.notificarPregunta(res);
+		
+		e.getRespuestasElegidas().removeAll(e.getRespuestasElegidas());
+		this.getSiguientePregunta().setPreguntaAnterior(this);
+		this.siSoyUltima();
+		*/
+	public void responder( Respuesta respuesta,Encuestado encuestado ) {
+		this.setRespuestaElegida(respuesta);
+		encuestado.agregarRespuesta(respuesta);
+		this.notificarPregunta(respuesta.getRespuesta());
+		
+		this.siSoyUltima();
+		this.getSiguientePregunta().setPreguntaAnterior(this);
+		
+		
+	}
+	@Override
+	public void responder(Encuestado e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

@@ -8,7 +8,7 @@ import encuestado.Encuestado;
 import investigador.Investigador;
 import respuestas.Respuesta;
 
-public class Pregunta {
+public abstract class Pregunta {
 	
 	
 	
@@ -72,11 +72,12 @@ public class Pregunta {
 	}
 	
 	//Lo cambie
-	public void notificar( String respuesta) {
+	public void notificarPregunta( String respuesta) {
 		for( Investigador interesado: interesados ) {
-			interesado.notificarme(this.encuesta, this, respuesta);
+			interesado.notificarmePregunta(this, respuesta);
 		}
 	}
+	 public abstract void responder(Encuestado e); 
 	
 	
 }
