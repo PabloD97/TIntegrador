@@ -38,7 +38,22 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	public void setRespuestaElegida(Respuesta respuesta) {
 		this.respuestaElegida=respuesta;
 	}
-	
+
+	@Override
+	public Pregunta getSiguientePregunta() {
+		Pregunta res;
+		if(this.respuestaElegida==this.respuestaQueRedirige) {
+			res=this.preguntaARedirigir;
+		}
+		else {
+			res= super.getSiguientePregunta();
+		}
+		return res;
+	}
+	public void setRedireccion(Respuesta r,Pregunta p) {
+		this.respuestaElegida=r;
+		this.preguntaARedirigir=p;
+	}
 	@Override
 	public void responder( Encuestado encuestado ) {
 		
@@ -107,17 +122,6 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	
 	
 	
-	@Override
-	public Pregunta getSiguientePregunta() {
-		Pregunta res;
-		if(this.respuestaElegida==this.respuestaQueRedirige) {
-			res=this.preguntaARedirigir;
-		}
-		else {
-			res= super.getSiguientePregunta();
-		}
-		return res;
-	}
 	
 	
 
