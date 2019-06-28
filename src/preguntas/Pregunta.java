@@ -32,7 +32,7 @@ public  class Pregunta {
 		this.interesados= new ArrayList<IInteresado>();
 	}
 	public Pregunta getSiguientePregunta() {
-		return siguientePregunta;
+		return this.siguientePregunta;
 	}
 	
 	public Pregunta getAnteriorPregunta() {

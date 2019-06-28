@@ -18,9 +18,23 @@ public class PreguntaAbierta extends Pregunta {
 		e.elegirRespuesta(res);
 	}
 
-	
-
 	@Override
+	public Pregunta getSiguientePregunta() {
+		return this.siguientePregunta;
+	}
+
+	
+	@Override 
+	public void responder(Encuestado encuestado) {
+		encuestado.agregarRespuesta(encuestado.getRespuestasElegidas().get(0));
+		this.notificarPregunta(encuestado.getRespuestasElegidas().get(0).getRespuesta());
+		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
+		this.siSoyUltima();
+		this.getSiguientePregunta().setPreguntaAnterior(this);
+		
+	}
+	
+/*	@Override
 	public void responder(Encuestado encuestado) {
 		this.siSoyUltima();
 		for(Respuesta r: encuestado.getRespuestasElegidas()) {
@@ -35,5 +49,5 @@ public class PreguntaAbierta extends Pregunta {
 		
 	}
 	
-	
+*/	
 }

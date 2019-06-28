@@ -17,7 +17,7 @@ public class Activa extends Estado {
 	}
     
 	public void comenzarEncuesta(Encuestado encuestado) {
-		encuestado.setPreguntaActual(  this.encuesta.getProtocoloDePreguntas().get(0) );
+		encuestado.setPreguntaActual(this.encuesta.getProtocoloDePreguntas().get(0));
 	}
 	
 

@@ -139,7 +139,7 @@ class TestEncuestado {
 		
 		encuestado.responder();
 		assertEquals( 1, encuestado.getRespuestasDelEncuestado().size() );
-		//assertEquals( 1, encuestado.getPreguntaActual()); tira null
+		//assertEquals( 1, encuestado.getPreguntaActual()); 
 		
 	}
 	@Test
@@ -162,6 +162,8 @@ class TestEncuestado {
 		
 		assertEquals( preguntaAbierta , encuestado.getPreguntaActual() );
 		
+		
+		
 		encuestado.responder();
 		assertEquals( 1, encuestado.getRespuestasDelEncuestado().size() );
 		
@@ -169,7 +171,7 @@ class TestEncuestado {
 		preguntaDeMultipleSeleccion.addRespuesta(colorRojo);
 		preguntaDeMultipleSeleccion.addRespuesta(colorVerde);
 		
-		//assertEquals(  preguntaDeMultipleSeleccion , preguntaAbierta.getSiguientePregunta() );// recibe null
+		assertEquals(  preguntaDeMultipleSeleccion , preguntaAbierta.getSiguientePregunta() );// recibe null
 
 		encuestado.setPreguntaActual(preguntaDeMultipleSeleccion);
 		
