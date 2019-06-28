@@ -54,7 +54,6 @@ public class Proyecto {
 		if(this.puedoAgregarProyecto(subProyecto)) {
 			this.subProyectos.add(subProyecto);
 		}
-		else System.out.println("El proyecto no puede ser agregado");
 	}
 	
 	public void removerSubProyecto(Proyecto subProyecto) {

@@ -10,7 +10,6 @@ import proyecto.Proyecto;
 public class OrdenadasPorProyecto implements IEstrategia {
 
 	
-	// agregado el algoritmo para dar las ncuestas ordenadas por orden alfabetico... espero que este bien
 	@Override
 	public List<Encuesta> dameLasEncuestas(Investigador investigador) {
 

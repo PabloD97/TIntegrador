@@ -15,7 +15,7 @@ import respuestas.Respuesta;
 
 class TestPreguntaDeMultipleSeleccion {
 	
-	PreguntaDeMultipleSeleccion preguntaMultiple;
+	MultiplesOpciones preguntaMultiple;
 	Respuesta respuestaCerrada1;
 	Respuesta respuestaCerrada2;
 	Respuesta respuestaCerrada3;

@@ -30,7 +30,7 @@ public class PreguntaAbierta extends Pregunta {
 		this.notificarPregunta(encuestado.getRespuestasElegidas().get(0).getRespuesta());
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		this.siSoyUltima();
-		this.getSiguientePregunta().setPreguntaAnterior(this);
+		//this.getSiguientePregunta().setPreguntaAnterior(this);
 		
 	}
 	

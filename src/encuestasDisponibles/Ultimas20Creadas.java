@@ -12,9 +12,7 @@ public class Ultimas20Creadas implements IEstrategia {
 	private List<Encuesta> listaReturn= new ArrayList<Encuesta>();
 
 	public List<Encuesta> dameLasUltimasEncuestas(List<Encuesta> lista1) {
-		// Ordena los objetos de menor a mayor mediante el valor de un atributo
 				Collections.sort(lista1, (encuesta1, encuesta2) -> encuesta1.getFechaDeCreacion().compareTo(encuesta2.getFechaDeCreacion()));
-				// Collections.reverse(pibitos); Devuelve la lista ordenada de mayor a menor
 				return lista1;
 	}
 
@@ -31,6 +29,7 @@ public class Ultimas20Creadas implements IEstrategia {
 			}
 		}
 		return listaReturn;
+		//lista1.subList(0, 20);
 	}
 		
 }

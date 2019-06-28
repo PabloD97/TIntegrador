@@ -10,7 +10,10 @@ import observer.IInteresado;
 import respuestas.Respuesta;
 
 
-public class MultiplesOpciones extends Pregunta {
+public abstract class MultiplesOpciones extends Pregunta {
+	
+	
+	public abstract void elegirRespuesta(Respuesta res, Encuestado enc);
 	
 	protected List<Respuesta> respuestas;
 
@@ -54,5 +57,11 @@ public class MultiplesOpciones extends Pregunta {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	protected abstract void addRespuesta(Respuesta respuesta);
+
+
+	protected abstract Object getOpciones();
 	
 }
