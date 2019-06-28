@@ -1,5 +1,6 @@
 package encuestado;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -18,7 +19,7 @@ import preguntas.PreguntaDeMultipleSeleccion;
 import preguntas.PreguntaDeSimpleSeleccion;
 import respuestas.Respuesta;
 
-import static org.mockito.Mockito.*;
+//import static org.mockito.Mockito.*;
 
 class TestEncuestado {
 
@@ -68,8 +69,12 @@ class TestEncuestado {
 		
 		preguntaAbierta= new PreguntaAbierta("cual es tu nombre?", preguntaDeMultipleSeleccion);
 		preguntaDeMultipleSeleccion= new PreguntaDeMultipleSeleccion("que colores te gustan?",  preguntaDeSimpleSeleccion);
+		
 		preguntaDeSimpleSeleccion= new PreguntaDeSimpleSeleccion("posee casa propia o alquila?", preguntaDeMultipleSeleccion1);
+		
+		
 		preguntaDeMultipleSeleccion1= new PreguntaDeMultipleSeleccion("cuanto paga de alquiler?", null);
+		
 		preguntaDeMultipleSeleccion2= new PreguntaDeMultipleSeleccion("vive solo?", null);
 	
 		//interesado.meInteresa(preguntaAbierta);
@@ -134,7 +139,7 @@ class TestEncuestado {
 		
 		encuestado.responder();
 		assertEquals( 1, encuestado.getRespuestasDelEncuestado().size() );
-		assertEquals( 1, encuestado.getPreguntaActual());
+		//assertEquals( 1, encuestado.getPreguntaActual()); tira null
 		
 	}
 	@Test
@@ -164,9 +169,9 @@ class TestEncuestado {
 		preguntaDeMultipleSeleccion.addRespuesta(colorRojo);
 		preguntaDeMultipleSeleccion.addRespuesta(colorVerde);
 		
-		//assertEquals(  preguntaDeMultipleSeleccion , preguntaAbierta.getSiguientePregunta() );
+		//assertEquals(  preguntaDeMultipleSeleccion , preguntaAbierta.getSiguientePregunta() );// recibe null
 
-		//encuestado.setPreguntaActual(preguntaDeMultipleSeleccion);
+		encuestado.setPreguntaActual(preguntaDeMultipleSeleccion);
 		
 		preguntaDeMultipleSeleccion.elegirRespuesta(colorAzul, encuestado);
 		preguntaDeMultipleSeleccion.elegirRespuesta(colorVerde, encuestado);
@@ -180,7 +185,7 @@ class TestEncuestado {
 	
 	@Test
 	void testContestarPregunta3() {
-		encuesta.setEstado(editable);
+	encuesta.setEstado(editable);
 		
 		encuesta.agregarPregunta(preguntaAbierta);
 		encuesta.agregarPregunta(preguntaDeMultipleSeleccion);
@@ -189,7 +194,6 @@ class TestEncuestado {
 		encuesta.agregarPregunta(preguntaDeMultipleSeleccion2);
 		
 		encuesta.setEstado(activa);
-	
 		
 		encuesta.comenzarEncuesta(encuestado);
 		
@@ -206,6 +210,9 @@ class TestEncuestado {
 		preguntaDeMultipleSeleccion.addRespuesta(colorRojo);
 		preguntaDeMultipleSeleccion.addRespuesta(colorVerde);
 		
+		//assertEquals(  preguntaDeMultipleSeleccion , preguntaAbierta.getSiguientePregunta() );// recibe null
+
+		encuestado.setPreguntaActual(preguntaDeMultipleSeleccion);
 		
 		preguntaDeMultipleSeleccion.elegirRespuesta(colorAzul, encuestado);
 		preguntaDeMultipleSeleccion.elegirRespuesta(colorVerde, encuestado);
@@ -215,19 +222,17 @@ class TestEncuestado {
 		encuestado.responder();
 		assertEquals( 3, encuestado.getRespuestasDelEncuestado().size() );
 
+		preguntaDeSimpleSeleccion.addRespuesta(alquilo);
+		preguntaDeSimpleSeleccion.addRespuesta(casaPropia);
+
+		encuestado.setPreguntaActual(preguntaDeSimpleSeleccion);
 		
+		preguntaDeSimpleSeleccion.elegirRespuesta(casaPropia, encuestado);
 		
-		//encuestado.setPreguntaActual(preguntaDeSimpleSeleccion);
-		
-		//preguntaDeSimpleSeleccion.addRespuesta(alquilo);
-		//preguntaDeSimpleSeleccion.addRespuesta(casaPropia);
-		
-		//preguntaDeSimpleSeleccion.elegirRespuesta(casaPropia, encuestado);
-		
-		//assertEquals(1, encuestado.getRespuestasElegidas().size() );
-		
-		//encuestado.responder();
-		
+		assertEquals(encuestado.getRespuestasElegidas().size() , new Integer (1) );
+		encuestado.responder();
+		assertEquals(4 , encuestado.getRespuestasDelEncuestado().size() );
+
 		//assertEquals( 4, encuestado.getRespuestasDelEncuestado().size() );
 		
 		

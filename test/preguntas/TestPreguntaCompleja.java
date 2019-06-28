@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import encuesta.Encuesta;
 import encuestado.Encuestado;
+import investigador.Investigador;
 import respuestas.Respuesta;
 
 class TestPreguntaCompleja {
@@ -25,7 +26,7 @@ class TestPreguntaCompleja {
 	Respuesta got;
 	Respuesta twd;
 	
-	
+	Investigador investigador;
 
 	Encuestado encuestado;
 
@@ -41,6 +42,8 @@ class TestPreguntaCompleja {
 		
 		got= mock(Respuesta.class);
 		twd= mock(Respuesta.class);
+		
+		investigador = new Investigador();
 		
 		//SUT
 		preguntaCompleja= new PreguntaDeSimpleSeleccion("que series ves?", preguntaAbierta1);
@@ -64,6 +67,7 @@ class TestPreguntaCompleja {
 	
 	@Test
 	void testResponde() {
+		//investigador.meInteresa(preguntaCompleja);
 		encuestado.setPreguntaActual(preguntaCompleja);
 		preguntaCompleja.elegirRespuesta(got, encuestado);
 		assertEquals(encuestado.getRespuestasElegidas().size() , new Integer (1) );
@@ -74,6 +78,9 @@ class TestPreguntaCompleja {
 
 	@Test
 	void testRespuestaElegidaDameTuSiguientePregunta() {
+		preguntaCompleja.addRespuesta(got);
+		preguntaCompleja.addRespuesta(twd);
+		
 		encuestado.setPreguntaActual(preguntaCompleja);
 		preguntaCompleja.elegirRespuesta(got, encuestado);
 		assertEquals(encuestado.getRespuestasElegidas().size() , new Integer (1) );
