@@ -6,7 +6,7 @@ import java.util.List;
 import encuestado.Encuestado;
 import respuestas.Respuesta;
 
-public class PreguntaDeSimpleSeleccion extends Pregunta  {
+public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	
 	
 	private Respuesta respuestaElegida;
@@ -54,37 +54,32 @@ public class PreguntaDeSimpleSeleccion extends Pregunta  {
 	public void elegirRespuesta(Respuesta respuesta, Encuestado e) {
 		e.elegirRespuesta(respuesta);
 	}
-	/*public void responder(Encuestado e) {
-		//Lo inicializo en null dado que doy por sentado que si no elije alguna opcion no va a poder responder
-		String res = null;
-		
-		for(Respuesta r :e.getRespuestasElegidas()) {
-			e.agregarRespuesta(r);
-			this.notificarRespuesta(r);
-			res+=r.getRespuesta();
-			}
-		this.notificarPregunta(res);
-		
-		e.getRespuestasElegidas().removeAll(e.getRespuestasElegidas());
-		this.getSiguientePregunta().setPreguntaAnterior(this);
-		this.siSoyUltima();
-		*/
+	
 	@Override
 	public void responder( Encuestado encuestado ) {
 		this.setRespuestaElegida(encuestado.getRespuestasElegidas().get(0));
-		
 		encuestado.agregarRespuesta(encuestado.getRespuestasElegidas().get(0));
-		
-		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
-		
 		this.notificarPregunta(encuestado.getRespuestasElegidas().get(0).getRespuesta());
-		
+		this.notificarRespuesta(encuestado.getRespuestasElegidas().get(0));
+		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		this.siSoyUltima(); 
-		//this.getSiguientePregunta().setPreguntaAnterior(this);
-		
-		 
-	}
-
+		this.getSiguientePregunta().setPreguntaAnterior(this);
+		}
+	/*public void responder(Encuestado e) {
+	//Lo inicializo en null dado que doy por sentado que si no elije alguna opcion no va a poder responder
+	String res = null;
+	
+	for(Respuesta r :e.getRespuestasElegidas()) {
+		e.agregarRespuesta(r);
+		this.notificarRespuesta(r);
+		res+=r.getRespuesta();
+		}
+	this.notificarPregunta(res);
+	
+	e.getRespuestasElegidas().removeAll(e.getRespuestasElegidas());
+	this.getSiguientePregunta().setPreguntaAnterior(this);
+	this.siSoyUltima();
+	*/
 	
 	
 
