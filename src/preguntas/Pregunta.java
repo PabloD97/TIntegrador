@@ -6,19 +6,19 @@ import java.util.List;
 import encuesta.Encuesta;
 import encuestado.Encuestado;
 import investigador.Investigador;
-import respuestas.Respuesta;
+import observer.IInteresado;
 
-public abstract class Pregunta {
+public  class Pregunta {
 	
 	
 	
-	protected List<Investigador> interesados;
+	protected List<IInteresado> interesados;
 	protected String pregunta;
-	private Encuestado contenedor;
-	private boolean esPrimerPregunta=false;
-	private boolean esUltimaPregunta=false;
-	private Pregunta siguientePregunta;
-	private Pregunta anteriorPregunta;
+	protected Encuestado encuestado;
+	protected boolean esPrimerPregunta=false;
+	protected boolean esUltimaPregunta=false;
+	protected Pregunta siguientePregunta;
+	protected Pregunta anteriorPregunta;
     protected Encuesta encuesta;
 	 
 	public String getPregunta() {
@@ -26,8 +26,8 @@ public abstract class Pregunta {
 	}
 	public Pregunta(String preg,Pregunta siguientePregunta) {
 		this.pregunta=preg;
-		this.siguientePregunta=siguientePregunta;
-		this.interesados= new ArrayList<Investigador>();
+		this.siguientePregunta= siguientePregunta;
+		this.interesados= new ArrayList<IInteresado>();
 	}
 	public Pregunta getSiguientePregunta() {
 		return this.siguientePregunta;
@@ -35,9 +35,7 @@ public abstract class Pregunta {
 	protected void setPreguntaAnterior(Pregunta preg) {
 		this.anteriorPregunta=preg;
 	}
-	public void setEncuestado(Encuestado contenedor2) {
-		this.contenedor=contenedor2;
-	}
+	
 	public void setEncuesta(Encuesta encuesta ) {
 		this.encuesta = encuesta;
 	}
@@ -55,7 +53,7 @@ public abstract class Pregunta {
 	}
 	public void siSoyUltima( ) {
 		if(this.ultimaPregunta()) {
-	    	this.contenedor.termineLaEncuesta();
+	    	this.encuestado.termineLaEncuesta();
 	    }
 	}
 	// mensajes nuevos
@@ -67,17 +65,24 @@ public abstract class Pregunta {
 		this.interesados.remove(interesado);
 	}
 	
-	public String getEncuesta() {
+	public List<IInteresado> getInteresados(){
+		return this.interesados;
+	}
+	
+	public String getNombreDeEncuesta() {
 		return this.encuesta.dameTuNombre();
+	}
+	public Encuesta getEncuesta() {
+		return this.encuesta;
 	}
 	
 	//Lo cambie
 	public void notificarPregunta( String respuesta) {
-		for( Investigador interesado: interesados ) {
+		for( IInteresado interesado: interesados ) {
 			interesado.notificarmePregunta(this, respuesta);
 		}
 	}
-	 public abstract void responder(Encuestado e); 
+	 public  void responder(Encuestado e) {} 
 	
 	
 }

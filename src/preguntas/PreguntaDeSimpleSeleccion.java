@@ -1,6 +1,7 @@
 package preguntas;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import encuestado.Encuestado;
 import respuestas.Respuesta;
@@ -11,7 +12,7 @@ public class PreguntaDeSimpleSeleccion extends Pregunta  {
 	private Respuesta respuestaElegida;
 	private Respuesta respuestaQueRedirige;
 	private Pregunta  preguntaARedirigir;
-	private ArrayList<Respuesta> respuestas;
+	private List<Respuesta> respuestas;
 
 	public PreguntaDeSimpleSeleccion(String preg, Pregunta siguientePregunta) {
 		super(preg, siguientePregunta);
@@ -49,6 +50,10 @@ public class PreguntaDeSimpleSeleccion extends Pregunta  {
 	private void setPreguntaARediregir(Pregunta preg) {
 		this.preguntaARedirigir=preg;
 	}
+	
+	public void elegirRespuesta(Respuesta respuesta, Encuestado e) {
+		e.elegirRespuesta(respuesta);
+	}
 	/*public void responder(Encuestado e) {
 		//Lo inicializo en null dado que doy por sentado que si no elije alguna opcion no va a poder responder
 		String res = null;
@@ -64,23 +69,21 @@ public class PreguntaDeSimpleSeleccion extends Pregunta  {
 		this.getSiguientePregunta().setPreguntaAnterior(this);
 		this.siSoyUltima();
 		*/
-	public void responder( Respuesta respuesta,Encuestado encuestado ) {
-		this.setRespuestaElegida(respuesta);
-		encuestado.agregarRespuesta(respuesta);
-		this.notificarPregunta(respuesta.getRespuesta());
-		
-		this.siSoyUltima();
-		this.getSiguientePregunta().setPreguntaAnterior(this);
-		
-		
-	}
 	@Override
-	public void responder(Encuestado e) {
-		// TODO Auto-generated method stub
+	public void responder( Encuestado encuestado ) {
+		this.setRespuestaElegida(encuestado.getRespuestasElegidas().get(0));
+		
+		encuestado.agregarRespuesta(encuestado.getRespuestasElegidas().get(0));
+		
+		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
+		
+		this.notificarPregunta(encuestado.getRespuestasElegidas().get(0).getRespuesta());
+		
+		this.siSoyUltima(); 
+		//this.getSiguientePregunta().setPreguntaAnterior(this);
+		
 		
 	}
-	
-	
 
 	
 	

@@ -3,6 +3,9 @@ package preguntas;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,21 +20,36 @@ class TestPreguntaDeMultipleSeleccion {
 	Respuesta respuestaCerrada2;
 	Respuesta respuestaCerrada3;
 	Respuesta respuestaCerrada4;
-	Encuestado contenedor;
+	Encuestado encuestado;
 	
 
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		contenedor = spy(new Encuestado(null, null,null));
+		encuestado = spy(new Encuestado("pepe", "pepon",null));
 
 		respuestaCerrada1 = mock(Respuesta.class);
 		respuestaCerrada2 = mock(Respuesta.class);
 		respuestaCerrada3 = mock(Respuesta.class);
 		
 		
-		preguntaMultiple= new PreguntaDeMultipleSeleccion(null, contenedor, preguntaMultiple);
+		preguntaMultiple= new PreguntaDeMultipleSeleccion("que colores te gustan?", preguntaMultiple);
 		
+		
+		preguntaMultiple.elegirRespuesta(respuestaCerrada1, encuestado);
+		preguntaMultiple.elegirRespuesta(respuestaCerrada3, encuestado);
+		
+		preguntaMultiple.responder(encuestado );
+	}
+
+	@Test
+	void testPreguntaDeLaPregunta() {
+		assertEquals( new String("que colores te gustan?") , preguntaMultiple.getPregunta() );  
+	}
+	
+	
+	@Test
+	void testPreguntaDameTusOpciones() {
 		preguntaMultiple.addRespuesta(respuestaCerrada1);
 		preguntaMultiple.addRespuesta(respuestaCerrada2);
 		preguntaMultiple.addRespuesta(respuestaCerrada3);
@@ -40,28 +58,15 @@ class TestPreguntaDeMultipleSeleccion {
 		when( respuestaCerrada2.getRespuesta()).thenReturn( "verde" );
 		when( respuestaCerrada3.getRespuesta()).thenReturn( "marron" );
 		
-		preguntaMultiple.elegirRespuesta(respuestaCerrada1);
-		preguntaMultiple.elegirRespuesta(respuestaCerrada3);
 		
-		preguntaMultiple.responder( );
-	}
-
-	@Test
-	void testPreguntaDeLaPregunta() {
-		assertEquals( new String("�Que colores te gustan?") , preguntaMultiple.getPregunta() );  
-	}
-	
-	
-	@Test
-	void testPreguntaDameTusOpciones() {
-		assertEquals(  preguntaMultiple.getRespuestas().size() , 3 );
+		List<Respuesta>respuestas= new ArrayList<Respuesta>();
+		respuestas.add(respuestaCerrada1);
+		respuestas.add(respuestaCerrada2);
+		respuestas.add(respuestaCerrada3);
+		assertEquals(respuestas, preguntaMultiple.getOpciones());
 	}
 	
-	@Test
-	void testResponderLaPregunta() {
-		
-		assertEquals( contenedor.getRespuestasDelEncuestado()  , contenedor.getRespuestasDelEncuestado() );
-	}
+	
 
 }
 

@@ -94,14 +94,14 @@ public class Investigador implements IInteresado{
 
 	@Override
 	public void notificarmePregunta(Pregunta p, String r) {
-		System.out.println("La pregunta" + p.getPregunta() + "de la encuesta" 
-				+ p.getEncuesta()
-				+ "Tuvo la siguiente respuesta" + r);
+		System.out.println("La pregunta " + p.getPregunta() + " de la encuesta " 
+				+ p.getNombreDeEncuesta()
+				+ " Tuvo la siguiente respuesta " + r);
 	}
 	@Override
 	public void notificarmeRespuesta(Pregunta pregunta, Respuesta respuesta) {
 		System.out.println("La pregunta" + pregunta.getPregunta() + "de la encuesta" 
-		+ pregunta.getEncuesta()
+		+ pregunta.getNombreDeEncuesta()
 		+ "Tuvo la siguiente respuesta" + respuesta.getRespuesta());
 		
 	}

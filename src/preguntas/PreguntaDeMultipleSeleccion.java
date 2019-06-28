@@ -2,6 +2,7 @@ package preguntas;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import encuestado.Encuestado;
 import respuestas.Respuesta;
@@ -9,24 +10,20 @@ import respuestas.Respuesta;
 
 public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 
-    private	ArrayList<Respuesta>respuestaElegidas;
 	
-	private Encuestado contenedorDeRespuestas;
-	private ArrayList<Respuesta> respuestas= new ArrayList<Respuesta>();
+	private List<Respuesta> respuestas;
 	
-	public PreguntaDeMultipleSeleccion(String pregunta2,  Encuestado contenedor, Pregunta sigPreg) {
+	public PreguntaDeMultipleSeleccion(String pregunta2,  Pregunta sigPreg) {
 		super(pregunta2,sigPreg);
-		this.contenedorDeRespuestas = contenedor;
 		this.respuestas = new ArrayList<Respuesta>();
-		this.respuestaElegidas= new ArrayList<Respuesta>();
 	}
 
 	public void addRespuesta(Respuesta respuesta) {
 		respuestas.add(respuesta);
 	}
 	
-	public ArrayList<Respuesta> getRespuestasElegidas(){
-		return this.respuestaElegidas;
+	public List<Respuesta> getOpciones(){
+		return this.respuestas;
 	}
 	
 	public void elegirRespuesta(Respuesta respuestaCerrada1, Encuestado e) {
@@ -45,20 +42,12 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 		this.notificarPregunta(res);
 		
 		e.getRespuestasElegidas().removeAll(e.getRespuestasElegidas());
-		this.getSiguientePregunta().setPreguntaAnterior(this);
+		//this.getSiguientePregunta().setPreguntaAnterior(this);
 		this.siSoyUltima();
 		
 		
 		
-		/*String 
-		for( Respuesta respuesta : respuestaElegidas ) {
-			
-			contenedorDeRespuestas.agregarRespuesta(respuesta );
-			this.getSiguientePregunta().setPreguntaAnterior(this);
-		}
-		this.notificar(respuestas);
-		this.respuestaElegidas.removeAll(respuestaElegidas);
-		this.siSoyUltima();*/
+		
 	    
 	}
  

@@ -17,7 +17,7 @@ public class Encuestado {
 	private List<Respuesta>respuestasElegidas;
 	
 	
-	public List<Respuesta> respuestasDelEncuestado;
+	private List<Respuesta> respuestasDelEncuestado;
 	
 	
 	public Encuestado( String nombre, String apellido , Encuesta encuesta){

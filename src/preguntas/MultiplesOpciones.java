@@ -6,6 +6,7 @@ import java.util.List;
 
 import encuestado.Encuestado;
 import investigador.Investigador;
+import observer.IInteresado;
 import respuestas.Respuesta;
 
 
@@ -38,12 +39,12 @@ public class MultiplesOpciones extends Pregunta {
 		}
 		
 	}
-	public boolean estaSuscripto(Investigador i, Respuesta r) {
+	public boolean estaSuscripto(IInteresado i, Respuesta r) {
 		return i.getSuscripciones().contains(r);
 	}
 	public void notificarRespuesta( Respuesta respuesta) {
 		
-		for( Investigador interesado: interesados ) {
+		for( IInteresado interesado: interesados ) {
 			if(this.estaSuscripto(interesado, respuesta)) {
 			interesado.notificarmeRespuesta(this, respuesta);
 			}

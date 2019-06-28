@@ -5,37 +5,34 @@ import respuestas.Respuesta;
 
 public class PreguntaAbierta extends Pregunta {
 	
-	private Respuesta respuestaAbierta;
 		
-	
-	
-	
-	public PreguntaAbierta(String pregunta,Pregunta siguientePregunta) {
-		super(pregunta, siguientePregunta);
+	public PreguntaAbierta(String preg, Pregunta siguientePregunta) {
+		super(preg, siguientePregunta);
 	}
 
-	public void responder(String contestacion) {
-		respuestaAbierta.setRespuesta(contestacion);
-		this.siSoyUltima();
-		this.getSiguientePregunta().setPreguntaAnterior(this);
-		this.notificarPregunta(contestacion);
-	}
+
+
 	public void escribirRespuesta(String s, Encuestado e) {
 		Respuesta res=new Respuesta(s);
 		e.elegirRespuesta(res);
 	}
 
-	
+	@Override
+	public Pregunta getSiguientePregunta() {
+		return this.siguientePregunta;
+	}
 
 	@Override
-	public void responder(Encuestado e) {
+	public void responder(Encuestado encuestado) {
 		this.siSoyUltima();
-		this.getSiguientePregunta().setPreguntaAnterior(this);
-		for(Respuesta r:e.getRespuestasElegidas()) {
+		for(Respuesta r: encuestado.getRespuestasElegidas()) {
 			this.notificarPregunta(r.getRespuesta());
-			e.agregarRespuesta(r);
+			encuestado.agregarRespuesta(r);
+			//e.getRespuestasDelEncuestado().remove(r);
 		}
-		e.getRespuestasElegidas().removeAll(e.getRespuestasElegidas());
+		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
+		//this.getSiguientePregunta().setPreguntaAnterior(this); LA PORQUERIA ESTA ROMPE TODO, SALTA EN NULL CUANDO ES INICIALIZADA EN EL CONTRUCTOR
+		
 	}
 	
 	

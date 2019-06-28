@@ -30,7 +30,7 @@ class TestRespuesta {
 
 	@Test
 	void testDecimeAQuePreguntaPerteneces() {
-		respuesta.setPregunta(preguntaAbierta);
+		respuesta.setPreguntaPertenencia(preguntaAbierta);
 		assertEquals(preguntaAbierta, respuesta.getPreguntaALaQuePertenece());
 	}
 }
