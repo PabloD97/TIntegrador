@@ -33,18 +33,18 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 	@Override
 	public void responder(Encuestado encuestado) {
 		//Lo inicializo en null dado que doy por sentado que si no elije alguna opcion no va a poder responder
-		//String res = null;
+		String res = null;
 		
 		for(Respuesta r :encuestado.getRespuestasElegidas()) {
 			encuestado.agregarRespuesta(r);
-			//this.notificarRespuesta(r);//Creo que rompe x esto
-		//	res+=r.getRespuesta();
+			this.notificarRespuesta(r);//Creo que rompe x esto
+			res+=r.getRespuesta();
 			}
-		//this.notificarPregunta(res);
+		this.notificarPregunta(res);
 		
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		
-		encuestado.setPreguntaActual(this.getSiguientePregunta());
+		//encuestado.setPreguntaActual(this.getSiguientePregunta());
 
 		//this.getSiguientePregunta().setPreguntaAnterior(this);
 		this.siSoyUltima();

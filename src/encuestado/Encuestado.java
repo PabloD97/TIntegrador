@@ -55,6 +55,7 @@ public class Encuestado {
 	
 	public void responder() {
 		this.preguntaActual.responder(this);
+		this.setPreguntaActual(preguntaActual.getSiguientePregunta());
 	}
 	public void elegirRespuesta(Respuesta r) {
 		this.respuestasElegidas.add(r);

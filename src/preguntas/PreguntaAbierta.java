@@ -28,7 +28,7 @@ public class PreguntaAbierta extends Pregunta {
 			encuestado.agregarRespuesta(r);
 			//e.getRespuestasDelEncuestado().remove(r);
 		}
-		encuestado.setPreguntaActual(this.getSiguientePregunta());
+		//encuestado.setPreguntaActual(this.getSiguientePregunta());
 
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		//this.getSiguientePregunta().setPreguntaAnterior(this);
