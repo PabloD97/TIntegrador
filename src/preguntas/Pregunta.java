@@ -24,16 +24,23 @@ public  class Pregunta {
 	public String getPregunta() {
 		return this.pregunta;
 	}
-	public Pregunta(String preg,Pregunta siguientePregunta) {
+	public Pregunta(String preg) {
 		this.pregunta=preg;
-		this.siguientePregunta= siguientePregunta;
+		
+		//this.siguientePregunta= siguientePregunta;
+		
 		this.interesados= new ArrayList<IInteresado>();
 	}
 	public Pregunta getSiguientePregunta() {
-		return this.siguientePregunta;
+		return siguientePregunta;
 	}
+	
+	public Pregunta getAnteriorPregunta() {
+		return anteriorPregunta;
+	}
+	
 	protected void setPreguntaAnterior(Pregunta preg) {
-		this.anteriorPregunta=preg;
+		anteriorPregunta=preg;
 	}
 	
 	public void setEncuesta(Encuesta encuesta ) {

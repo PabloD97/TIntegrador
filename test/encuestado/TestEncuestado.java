@@ -72,8 +72,8 @@ class TestEncuestado {
 		preguntaDeMultipleSeleccion1= new PreguntaDeMultipleSeleccion("cuanto paga de alquiler?", null);
 		preguntaDeMultipleSeleccion2= new PreguntaDeMultipleSeleccion("vive solo?", null);
 	
-		interesado.meInteresa(preguntaAbierta);
-		//interesado.notificarmeRespuesta(preguntaDeMultipleSeleccion, colorVerde); ESTO TIRA NULL :(
+		//interesado.meInteresa(preguntaAbierta);
+		//interesado.notificarmeRespuesta(preguntaDeMultipleSeleccion, colorVerde);// ESTO TIRA NULL :(
 		
 		preguntaDeMultipleSeleccion1.siSoyUltima();
 		preguntaDeMultipleSeleccion2.siSoyUltima();
@@ -134,6 +134,8 @@ class TestEncuestado {
 		
 		encuestado.responder();
 		assertEquals( 1, encuestado.getRespuestasDelEncuestado().size() );
+		assertEquals( 1, encuestado.getPreguntaActual());
+		
 	}
 	@Test
 	void testContestarPregunta2() {
@@ -162,7 +164,9 @@ class TestEncuestado {
 		preguntaDeMultipleSeleccion.addRespuesta(colorRojo);
 		preguntaDeMultipleSeleccion.addRespuesta(colorVerde);
 		
-		encuestado.setPreguntaActual(preguntaDeMultipleSeleccion);
+		//assertEquals(  preguntaDeMultipleSeleccion , preguntaAbierta.getSiguientePregunta() );
+
+		//encuestado.setPreguntaActual(preguntaDeMultipleSeleccion);
 		
 		preguntaDeMultipleSeleccion.elegirRespuesta(colorAzul, encuestado);
 		preguntaDeMultipleSeleccion.elegirRespuesta(colorVerde, encuestado);
@@ -185,6 +189,7 @@ class TestEncuestado {
 		encuesta.agregarPregunta(preguntaDeMultipleSeleccion2);
 		
 		encuesta.setEstado(activa);
+	
 		
 		encuesta.comenzarEncuesta(encuestado);
 		
@@ -201,7 +206,6 @@ class TestEncuestado {
 		preguntaDeMultipleSeleccion.addRespuesta(colorRojo);
 		preguntaDeMultipleSeleccion.addRespuesta(colorVerde);
 		
-		encuestado.setPreguntaActual(preguntaDeMultipleSeleccion);
 		
 		preguntaDeMultipleSeleccion.elegirRespuesta(colorAzul, encuestado);
 		preguntaDeMultipleSeleccion.elegirRespuesta(colorVerde, encuestado);
@@ -213,7 +217,7 @@ class TestEncuestado {
 
 		
 		
-		encuestado.setPreguntaActual(preguntaDeSimpleSeleccion);
+		//encuestado.setPreguntaActual(preguntaDeSimpleSeleccion);
 		
 		//preguntaDeSimpleSeleccion.addRespuesta(alquilo);
 		//preguntaDeSimpleSeleccion.addRespuesta(casaPropia);

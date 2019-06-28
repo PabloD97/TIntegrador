@@ -7,7 +7,8 @@ public class PreguntaAbierta extends Pregunta {
 	
 		
 	public PreguntaAbierta(String preg, Pregunta siguientePregunta) {
-		super(preg, siguientePregunta);
+		super(preg);
+		this.siguientePregunta= siguientePregunta;
 	}
 
 
@@ -17,10 +18,7 @@ public class PreguntaAbierta extends Pregunta {
 		e.elegirRespuesta(res);
 	}
 
-	@Override
-	public Pregunta getSiguientePregunta() {
-		return this.siguientePregunta;
-	}
+	
 
 	@Override
 	public void responder(Encuestado encuestado) {
@@ -30,8 +28,10 @@ public class PreguntaAbierta extends Pregunta {
 			encuestado.agregarRespuesta(r);
 			//e.getRespuestasDelEncuestado().remove(r);
 		}
+		encuestado.setPreguntaActual(this.getSiguientePregunta());
+
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
-		//this.getSiguientePregunta().setPreguntaAnterior(this); LA PORQUERIA ESTA ROMPE TODO, SALTA EN NULL CUANDO ES INICIALIZADA EN EL CONTRUCTOR
+		//this.getSiguientePregunta().setPreguntaAnterior(this);
 		
 	}
 	

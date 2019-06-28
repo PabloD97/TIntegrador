@@ -12,11 +12,100 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	private Respuesta respuestaElegida;
 	private Respuesta respuestaQueRedirige;
 	private Pregunta  preguntaARedirigir;
-	private List<Respuesta> respuestas;
 
+	protected List<Respuesta> respuestas;
+
+	
 	public PreguntaDeSimpleSeleccion(String preg, Pregunta siguientePregunta) {
-		super(preg, siguientePregunta);
+		super(preg);
+		this.respuestas = new ArrayList<Respuesta>();
+		this.siguientePregunta= siguientePregunta;
 	}
+	
+	public void addRespuesta(Respuesta respuesta) {
+		respuestas.add(respuesta);
+	}
+	
+	public List<Respuesta> getOpciones(){
+		return this.respuestas;
+	}
+	
+	
+	public void elegirRespuesta(Respuesta respuestaCerrada1, Encuestado e) {
+		e.elegirRespuesta(respuestaCerrada1);
+	}
+	
+	public void setRespuestaElegida(Respuesta respuesta) {
+		this.respuestaElegida=respuesta;
+	}
+	
+	@Override
+	public void responder( Encuestado encuestado ) {
+		
+		this.setRespuestaElegida(encuestado.getRespuestasElegidas().get(0));
+		
+		encuestado.agregarRespuesta(encuestado.getRespuestasElegidas().get(0));
+		
+		this.notificarPregunta(encuestado.getRespuestasElegidas().get(0).getRespuesta());
+		this.notificarRespuesta(encuestado.getRespuestasElegidas().get(0));
+		
+		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
+		
+		encuestado.setPreguntaActual(this.getSiguientePregunta());
+		
+		this.siSoyUltima(); 
+		
+		this.getSiguientePregunta().setPreguntaAnterior(this);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+	/*
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@Override
 	public Pregunta getSiguientePregunta() {
@@ -30,10 +119,6 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 		return res;
 	}
 	
-	public void addRespuesta(Respuesta respuesta) {
-		respuestas.add(respuesta);
-	}
-
 	
 
 	public void setRespuestaElegida(Respuesta respuesta) {
@@ -41,8 +126,17 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	}
 	
 	
-	public String getRespuesta() {
-		return respuestaElegida.getRespuesta();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public Respuesta getRespuestaElegida() {
+		return this.respuestaElegida;
 	}
 	private void setRespuestaRedirige(Respuesta res) {
 		this.respuestaElegida=res;
@@ -51,9 +145,23 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 		this.preguntaARedirigir=preg;
 	}
 	
-	public void elegirRespuesta(Respuesta respuesta, Encuestado e) {
-		e.elegirRespuesta(respuesta);
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@Override
 	public void responder( Encuestado encuestado ) {
@@ -65,22 +173,8 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 		this.siSoyUltima(); 
 		this.getSiguientePregunta().setPreguntaAnterior(this);
 		}
-	/*public void responder(Encuestado e) {
-	//Lo inicializo en null dado que doy por sentado que si no elije alguna opcion no va a poder responder
-	String res = null;
-	
-	for(Respuesta r :e.getRespuestasElegidas()) {
-		e.agregarRespuesta(r);
-		this.notificarRespuesta(r);
-		res+=r.getRespuesta();
-		}
-	this.notificarPregunta(res);
-	
-	e.getRespuestasElegidas().removeAll(e.getRespuestasElegidas());
-	this.getSiguientePregunta().setPreguntaAnterior(this);
-	this.siSoyUltima();
-	*/
-	
+
 	
 
 }
+*/

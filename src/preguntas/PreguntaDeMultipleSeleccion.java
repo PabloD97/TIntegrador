@@ -14,8 +14,9 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 	private List<Respuesta> respuestas;
 	
 	public PreguntaDeMultipleSeleccion(String pregunta2,  Pregunta sigPreg) {
-		super(pregunta2,sigPreg);
+		super(pregunta2);
 		this.respuestas = new ArrayList<Respuesta>();
+		this.siguientePregunta=sigPreg;
 	}
 
 	public void addRespuesta(Respuesta respuesta) {
@@ -30,18 +31,20 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 		e.elegirRespuesta(respuestaCerrada1);
 	}
 	@Override
-	public void responder(Encuestado e) {
+	public void responder(Encuestado encuestado) {
 		//Lo inicializo en null dado que doy por sentado que si no elije alguna opcion no va a poder responder
 		String res = null;
 		
-		for(Respuesta r :e.getRespuestasElegidas()) {
-			e.agregarRespuesta(r);
+		for(Respuesta r :encuestado.getRespuestasElegidas()) {
+			encuestado.agregarRespuesta(r);
 			this.notificarRespuesta(r);
 			res+=r.getRespuesta();
 			}
 		this.notificarPregunta(res);
 		
-		e.getRespuestasElegidas().removeAll(e.getRespuestasElegidas());
+		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
+		encuestado.setPreguntaActual(this.getSiguientePregunta());
+
 		//this.getSiguientePregunta().setPreguntaAnterior(this);
 		this.siSoyUltima();
 		
