@@ -42,10 +42,10 @@ class TestEncuesta {
 	
 	PreguntaAbierta preguntaAbierta;
 	
-	Respuesta respuestaCerrada = new Respuesta("marron");
-	Respuesta respuestaCerrada2 = new Respuesta("azul");
-	Respuesta respuestaCerrada3 = new Respuesta("amarillo");
-	Respuesta respuestaCerrada4 = new Respuesta("Ninguno");
+	Respuesta respuestaCerrada = new Respuesta("marron", null);
+	Respuesta respuestaCerrada2 = new Respuesta("azul", null);
+	Respuesta respuestaCerrada3 = new Respuesta("amarillo", null);
+	Respuesta respuestaCerrada4 = new Respuesta("Ninguno", null);
 
 
 	

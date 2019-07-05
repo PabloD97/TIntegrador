@@ -8,18 +8,18 @@ import respuestas.Respuesta;
 
 public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	
-	
+	/*
 	private Respuesta respuestaElegida;
 	private Respuesta respuestaQueRedirige;
 	private Pregunta  preguntaARedirigir;
-
+*/
 	protected List<Respuesta> respuestas;
 
 	
-	public PreguntaDeSimpleSeleccion(String preg, Pregunta siguientePregunta) {
+	public PreguntaDeSimpleSeleccion(String preg/*-Pregunta siguientePregunta*/) {
 		super(preg);
 		this.respuestas = new ArrayList<Respuesta>();
-		this.siguientePregunta= siguientePregunta;
+		//this.siguientePregunta= siguientePregunta;
 	}
 	
 	public void addRespuesta(Respuesta respuesta) {
@@ -34,11 +34,11 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	public void elegirRespuesta(Respuesta respuestaCerrada1, Encuestado e) {
 		e.elegirRespuesta(respuestaCerrada1);
 	}
-	
+	/*
 	public void setRespuestaElegida(Respuesta respuesta) {
 		this.respuestaElegida=respuesta;
 	}
-
+/*
 	@Override
 	public Pregunta getSiguientePregunta() {
 		Pregunta res;
@@ -53,24 +53,22 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	public void setRedireccion(Respuesta r,Pregunta p) {
 		this.respuestaElegida=r;
 		this.preguntaARedirigir=p;
-	}
+	}*/
 	@Override
 	public void responder( Encuestado encuestado ) {
 		
-		this.setRespuestaElegida(encuestado.getRespuestasElegidas().get(0));
+		//this.setRespuestaElegida(encuestado.getRespuestasElegidas().get(0));
 		
 		encuestado.agregarRespuesta(encuestado.getRespuestasElegidas().get(0));
+		encuestado.setPreguntaActual( encuestado.getRespuestasElegidas().get(0).getSiguientePregunta() );
 		
-		this.notificarPregunta(encuestado.getRespuestasElegidas().get(0).getRespuesta());
-		this.notificarRespuesta(encuestado.getRespuestasElegidas().get(0));
 		
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		
-		//encuestado.setPreguntaActual(this.getSiguientePregunta());
-		
+	
 		this.siSoyUltima(); 
 		
-		this.getSiguientePregunta().setPreguntaAnterior(this);
+		//this.getSiguientePregunta().setPreguntaAnterior(this);
 	}
 
 	

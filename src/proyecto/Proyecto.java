@@ -68,13 +68,7 @@ public class Proyecto {
 		return this.subProyectos;
 	}
 	
-	public List<Encuesta> encuestasPorOrdenAlfabetico(){// Esto daria las encuestas ordenadas alfabeticamente
-		List<Encuesta> ordenadas = this.getEncuestas();
-		 
-		Collections.sort(ordenadas, (encuesta1, encuesta2) -> encuesta1.dameTuNombre() .compareTo(encuesta2.dameTuNombre() ));
-		
-		return ordenadas;
-	} 
+	
 	
 	
 }

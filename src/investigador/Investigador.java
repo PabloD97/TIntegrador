@@ -8,7 +8,6 @@ import encuestasDisponibles.Las25MasContestadas;
 import encuestasDisponibles.OrdenadasPorProyecto;
 import encuestasDisponibles.Ultimas20Creadas;
 import observer.IInteresado;
-import preguntas.Pregunta;
 import proyecto.Proyecto;
 import respuestas.Respuesta;
 
@@ -65,14 +64,14 @@ public class Investigador implements IInteresado{
 	}
 	
 	@Override
-	public void meInteresa(Pregunta pregunta) {
-		pregunta.agregarInteresado(this);
+	public void meInteresa(Respuesta respuesta) {
+		respuesta.agregarInteresado(this);
 		
 	}
 
 	@Override
-	public void noMeInteresa(Pregunta pregunta) {
-		pregunta.sacarInteresado(this);		
+	public void noMeInteresa(Respuesta respuesta) {
+		respuesta.sacarInteresado(this);		
 	}
 	
 	
@@ -81,32 +80,17 @@ public class Investigador implements IInteresado{
 	}
 	
 	
-	//Sobre entendiendo que solamente se va a poder suscribir si la respuesta esta en la pregunta
-	public void subscribirseRespuesta(Respuesta res) {
-		this.subscripcionRespuestas.add(res);
-	}
+	
 	public List<Respuesta> getSuscripciones(){
 		return this.subscripcionRespuestas;
 	}
 
 
-
-
 	@Override
-	public void notificarmePregunta(Pregunta p, String r) {
-		System.out.println("La pregunta " + p.getPregunta() + " de la encuesta " 
-				+ p.getNombreDeEncuesta()
-				+ " Tuvo la siguiente respuesta " + r);
-	}
-	@Override
-	public void notificarmeRespuesta(Pregunta pregunta, Respuesta respuesta) {
-		System.out.println("La pregunta" + pregunta.getPregunta() + "de la encuesta" 
-		+ pregunta.getNombreDeEncuesta()
-		+ "Tuvo la siguiente respuesta" + respuesta.getRespuesta());
-		
-	}
+	public void notificar() {}
 
-	
+
+
 }
 
 

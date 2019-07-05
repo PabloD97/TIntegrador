@@ -1,12 +1,9 @@
 package preguntas;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import encuestado.Encuestado;
-import investigador.Investigador;
-import observer.IInteresado;
 import respuestas.Respuesta;
 
 
@@ -30,7 +27,7 @@ public abstract class MultiplesOpciones extends Pregunta {
 	}
 		
 	
-	
+	/*
 	@Override 
 	public void agregarInteresado(Investigador interesado) {
 		this.interesados.add(interesado);
@@ -51,6 +48,7 @@ public abstract class MultiplesOpciones extends Pregunta {
 		}
 	}
 
+	*/
 
 	@Override
 	public void responder(Encuestado e) {
@@ -62,6 +60,6 @@ public abstract class MultiplesOpciones extends Pregunta {
 	protected abstract void addRespuesta(Respuesta respuesta);
 
 
-	protected abstract Object getOpciones();
+	protected abstract List<Respuesta> getOpciones();
 	
 }

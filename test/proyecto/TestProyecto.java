@@ -87,27 +87,7 @@ class TestProyecto {
 		assertEquals( encuesta1, proyectoPrincipal.encuestaMasContestada() );
 	}
 	
-	@Test
-	void testEncuestasOrdenadasAlfabeticamente() {
-		when(encuesta1.dameTuNombre()).thenReturn("encuestaA");
-		when(encuesta2.dameTuNombre()).thenReturn("encuestaB");
-		when(encuesta3.dameTuNombre()).thenReturn("encuestaC");
-		when(encuesta4.dameTuNombre()).thenReturn("encuestaD");
-		
-		ArrayList<Encuesta> encuestas= new ArrayList<Encuesta>();
-		encuestas.add(encuesta1);
-		encuestas.add(encuesta2);
-		encuestas.add(encuesta3);
-		encuestas.add(encuesta4);
-		
-		
-		proyectoPrincipal.agregarUnaEncuesta(encuesta4);
-		proyectoPrincipal.agregarUnaEncuesta(encuesta2);
-		proyectoPrincipal.agregarUnaEncuesta(encuesta1);
-		proyectoPrincipal.agregarUnaEncuesta(encuesta3);
-		
-		assertEquals(encuestas , proyectoPrincipal.encuestasPorOrdenAlfabetico() );
-	}
+
 }
 
 

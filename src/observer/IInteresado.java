@@ -2,17 +2,16 @@ package observer;
 
 import java.util.List;
 
-import preguntas.Pregunta;
 import respuestas.Respuesta;
 
 public interface IInteresado {
 
-	public void meInteresa(Pregunta pregunta); 
+	public void meInteresa(Respuesta respuesta); 
     
-	public void noMeInteresa(Pregunta pregunta);
+	public void noMeInteresa(Respuesta respuesta);
 	// nnotificar no hace nada
-	public void notificarmeRespuesta( Pregunta pregunta, Respuesta respuesta);
-	public void notificarmePregunta(Pregunta p, String r);
+	public void notificar( );
+	
 
 	public List<Respuesta> getSuscripciones();
 	

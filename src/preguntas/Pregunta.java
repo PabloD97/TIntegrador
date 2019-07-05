@@ -8,16 +8,16 @@ import encuestado.Encuestado;
 import investigador.Investigador;
 import observer.IInteresado;
 
-public  class Pregunta {
+public abstract class Pregunta {
 	
 	
 	
-	protected List<IInteresado> interesados;
+	//protected List<IInteresado> interesados;
 	protected String pregunta;
 	protected Encuestado encuestado;
 	protected boolean esPrimerPregunta=false;
 	protected boolean esUltimaPregunta=false;
-	protected Pregunta siguientePregunta;
+	//protected Pregunta siguientePregunta;
 	protected Pregunta anteriorPregunta;
     protected Encuesta encuesta;
 	 
@@ -26,15 +26,12 @@ public  class Pregunta {
 	}
 	public Pregunta(String preg) {
 		this.pregunta=preg;
-		
-		//this.siguientePregunta= siguientePregunta;
-		
-		this.interesados= new ArrayList<IInteresado>();
 	}
+	/*
 	public Pregunta getSiguientePregunta() {
 		return this.siguientePregunta;
 	}
-	
+	*/
 	public Pregunta getAnteriorPregunta() {
 		return anteriorPregunta;
 	}
@@ -64,7 +61,7 @@ public  class Pregunta {
 	    }
 	}
 	// mensajes nuevos
-	public void agregarInteresado(Investigador interesado) {
+	/*public void agregarInteresado(Investigador interesado) {
 		this.interesados.add(interesado);
 	}
 
@@ -75,7 +72,7 @@ public  class Pregunta {
 	public List<IInteresado> getInteresados(){
 		return this.interesados;
 	}
-	
+	*/
 	public String getNombreDeEncuesta() {
 		return this.encuesta.dameTuNombre();
 	}
@@ -83,13 +80,8 @@ public  class Pregunta {
 		return this.encuesta;
 	}
 	
-	//Lo cambie
-	public void notificarPregunta( String respuesta) {
-		for( IInteresado interesado: interesados ) {
-			interesado.notificarmePregunta(this, respuesta);
-		}
-	}
-	 public  void responder(Encuestado e) {} 
+
+	public  void responder(Encuestado e) {} 
 	
 	
 }
