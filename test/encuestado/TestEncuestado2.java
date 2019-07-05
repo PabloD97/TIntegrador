@@ -58,7 +58,6 @@ class TestEncuestado2 {
 		activa= new Activa();
 		cerrada= new Cerrada();
 		
-		investigador = new Investigador();
 
 		
 	}
@@ -86,6 +85,8 @@ class TestEncuestado2 {
 	
 	@Test 
 	void testResponderUnaPregunta() {
+		Investigador investigador= spy(new Investigador());
+		investigador.meInteresa(azul);
 		encuesta.setEstado(editable);
 		
 		encuesta.agregarPregunta(primerPregunta);
@@ -105,9 +106,15 @@ class TestEncuestado2 {
 		
 		encuestado.responder();
 		
+		//assertTrue( azul.getInteresados().contains(investigador));
+		
+		verify(investigador).notificar();
+		
 		assertTrue( encuestado.getRespuestasDelEncuestado().contains(azul) );
 		
 		assertEquals( preguntaSiElegisAzul, encuestado.getPreguntaActual() );
+		
+		
 		
 	}
 	

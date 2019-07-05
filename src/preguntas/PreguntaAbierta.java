@@ -6,9 +6,8 @@ import respuestas.Respuesta;
 public class PreguntaAbierta extends Pregunta {
 	
 		
-	public PreguntaAbierta(String preg/*, Pregunta siguientePregunta*/) {
+	public PreguntaAbierta(String preg) {
 		super(preg);
-		//this.siguientePregunta= siguientePregunta;
 	}
 
 
@@ -17,36 +16,25 @@ public class PreguntaAbierta extends Pregunta {
 		Respuesta res=new Respuesta(s, null);
 		e.elegirRespuesta(res);
 	}
-/*
-	@Override
-	public Pregunta getSiguientePregunta() {
-		return this.siguientePregunta;
-	}
-*/
-	
+
 	@Override 
 	public void responder(Encuestado encuestado) {
 		encuestado.agregarRespuesta(encuestado.getRespuestasElegidas().get(0));
-		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
-		this.siSoyUltima();
-		//this.getSiguientePregunta().setPreguntaAnterior(this);
 		
-	}
-	
-/*	@Override
-	public void responder(Encuestado encuestado) {
-		this.siSoyUltima();
-		for(Respuesta r: encuestado.getRespuestasElegidas()) {
-			this.notificarPregunta(r.getRespuesta());
-			encuestado.agregarRespuesta(r);
-			//e.getRespuestasDelEncuestado().remove(r);
-		}
-		//encuestado.setPreguntaActual(this.getSiguientePregunta());
+		encuestado.setPreguntaActual( encuestado.getRespuestasElegidas().get(0).getSiguientePregunta() );
 
+		
+		encuestado.getRespuestasElegidas().get(0).notificar();
+
+		
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
-		//this.getSiguientePregunta().setPreguntaAnterior(this);
+		
+
+		
+		this.siSoyUltima();
+		
 		
 	}
 	
-*/	
+	
 }

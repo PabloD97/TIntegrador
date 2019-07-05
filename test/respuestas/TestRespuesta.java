@@ -47,7 +47,7 @@ class TestRespuesta {
 	void testNotificar() {
 		Investigador investigador1= spy(new Investigador());
 		investigador1.meInteresa(respuesta);
-		respuesta.notificiar();
+		respuesta.notificar();
 		verify(investigador1).notificar();
 	}
 	

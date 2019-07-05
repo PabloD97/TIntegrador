@@ -42,6 +42,7 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 		
 		encuestado.setPreguntaActual( encuestado.getRespuestasElegidas().get(0).getSiguientePregunta() );
 		
+		encuestado.getRespuestasElegidas().get(0).notificar();
 		
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		

@@ -17,7 +17,6 @@ public class Respuesta {
 	
 	public Respuesta(String textoRespuesta,Pregunta siguientePregunta) {
 		this.respuesta=textoRespuesta;
-		//this.setSiguientePregunta(siguientePregunta);;
 		this.siguientePregunta=siguientePregunta;
 		this.interesados= new ArrayList<IInteresado>();
 	}
@@ -39,7 +38,7 @@ public class Respuesta {
 
 	// metodos nuevos
 	
-	public void notificiar() {
+	public void notificar() {
 		for(IInteresado interesado: interesados) {
 			interesado.notificar();
 		}
@@ -51,6 +50,10 @@ public class Respuesta {
 
 	public void agregarInteresado(IInteresado investigador) {
 		this.interesados.add(investigador);
+	}
+	
+	public List<IInteresado> getInteresados(){
+		return this.interesados;
 	}
 	
 	public void setSiguientePregunta(Pregunta pregunta) {

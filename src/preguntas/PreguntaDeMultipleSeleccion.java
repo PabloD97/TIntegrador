@@ -19,44 +19,32 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 		//this.siguientePregunta=siguientePregunta;
 	}
 
+	@Override
 	public void addRespuesta(Respuesta respuesta) {
 		respuestas.add(respuesta);
 	}
-	
+	@Override
 	public List<Respuesta> getOpciones(){
 		return this.respuestas;
 	}
-	
+	@Override
 	public void elegirRespuesta(Respuesta respuestaCerrada1, Encuestado e) {
 		e.elegirRespuesta(respuestaCerrada1);
 	}
+	
 	@Override
 	public void responder(Encuestado encuestado) {
-		//Lo inicializo en null dado que doy por sentado que si no elije alguna opcion no va a poder responder
-		//String res = null;
-		
 		for(Respuesta r :encuestado.getRespuestasElegidas()) {
 			encuestado.agregarRespuesta(r);
-			//this.notificarRespuesta(r);//Creo que rompe x esto
-			//res+=r.getRespuesta();
-			}
-		//this.notificarPregunta(res);
+		}
+		encuestado.setPreguntaActual( encuestado.getRespuestasElegidas().get(0).getSiguientePregunta() );
+		
+		encuestado.getRespuestasElegidas().get(0).notificar();
+
 		
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		
-		encuestado.setPreguntaActual( encuestado.getRespuestasElegidas().get(0).getSiguientePregunta() );
-
-		//this.getSiguientePregunta().setPreguntaAnterior(this);
-		this.siSoyUltima();
-		
-		
-		
-		
-	    
+		this.siSoyUltima(); 
 	}
  
- 
-	
-
-	
 }
