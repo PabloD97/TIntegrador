@@ -5,26 +5,34 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import investigador.Investigador;
+import preguntas.Pregunta;
 import preguntas.PreguntaAbierta;
+import preguntas.PreguntaDeMultipleSeleccion;
+
 import static org.mockito.Mockito.*;
 
 class TestRespuesta {
 	
 	Respuesta respuesta;
 	PreguntaAbierta preguntaAbierta;
+	Pregunta multipleSeleccion;
+	Investigador investigador;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		respuesta= new Respuesta("azul");
+		respuesta= new Respuesta("rojo", multipleSeleccion);
+		investigador = new Investigador();
 		
 		preguntaAbierta= mock(PreguntaAbierta.class);
+		multipleSeleccion= new PreguntaDeMultipleSeleccion("que colores te gustan");
+		//multipleSeleccion= mock(PreguntaDeMultipleSeleccion.class);
 		
 	}
 
 	@Test
 	void testSeteoDeLaRespuesta() {
-		respuesta.setRespuesta("rojo");
 		assertEquals(new String("rojo"), respuesta.getRespuesta());
 	}
 
@@ -32,5 +40,19 @@ class TestRespuesta {
 	void testDecimeAQuePreguntaPerteneces() {
 		respuesta.setPreguntaPertenencia(preguntaAbierta);
 		assertEquals(preguntaAbierta, respuesta.getPreguntaALaQuePertenece());
+	}
+	
+	@Test 
+	void testNotificar() {
+		Investigador investigador1= spy(new Investigador());
+		investigador1.meInteresa(respuesta);
+		respuesta.notificiar();
+		verify(investigador1).notificar();
+	}
+	
+	@Test 
+	void testDameTuSiguientePregunta() {
+		//respuesta.setSiguientePregunta(multipleSeleccion);
+		assertEquals(multipleSeleccion, respuesta.getSiguientePregunta());
 	}
 }

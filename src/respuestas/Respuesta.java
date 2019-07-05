@@ -1,5 +1,6 @@
 package respuestas;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import observer.IInteresado;
@@ -16,7 +17,8 @@ public class Respuesta {
 	
 	public Respuesta(String textoRespuesta,Pregunta siguientePregunta) {
 		this.respuesta=textoRespuesta;
-		this.siguientePregunta=siguientePregunta;
+		this.setSiguientePregunta(siguientePregunta);;
+		this.interesados= new ArrayList<IInteresado>();
 	}
 
 	public void setRespuesta(String contestacion) {
@@ -34,6 +36,14 @@ public class Respuesta {
 		this.pregPertenencia=preg;
 	}
 
+	// metodos nuevos
+	
+	public void notificiar() {
+		for(IInteresado interesado: interesados) {
+			interesado.notificar();
+		}
+	}
+	
 	public void sacarInteresado(IInteresado investigador) {
 		this.interesados.remove(investigador);
 	}
@@ -42,9 +52,12 @@ public class Respuesta {
 		this.interesados.add(investigador);
 	}
 	
+	public void setSiguientePregunta(Pregunta pregunta) {
+		siguientePregunta= pregunta;
+	}
 	
 	public Pregunta getSiguientePregunta() {
-		return this.siguientePregunta ;
+		return siguientePregunta ;
 	}
 	
 }

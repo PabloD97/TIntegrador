@@ -33,10 +33,10 @@ class TestPreguntaCompleja {
 	@BeforeEach
 	void setUp() throws Exception {
 	 
-		preguntaAbierta1= new PreguntaAbierta("que series ves?", preguntaCerrada);
+		preguntaAbierta1= new PreguntaAbierta("que series ves?");
 		
 	
-		preguntaCerrada= new PreguntaDeMultipleSeleccion("que series ves?", null);
+		preguntaCerrada= new PreguntaDeMultipleSeleccion("que series ves?");
 		
 		encuestado= spy( new Encuestado("Pablo", "Diaz",encuesta) );
 		
