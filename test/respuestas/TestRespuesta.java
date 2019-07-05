@@ -21,7 +21,7 @@ class TestRespuesta {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		multipleSeleccion= new PreguntaDeMultipleSeleccion("que colores te gustan");
+		multipleSeleccion= new PreguntaDeMultipleSeleccion("que colores te gustan",null);
 		preguntaAbierta= mock(PreguntaAbierta.class);
 
 		
