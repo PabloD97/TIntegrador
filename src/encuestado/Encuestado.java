@@ -5,9 +5,7 @@ import java.util.List;
 
 import encuesta.Encuesta;
 import preguntas.Pregunta;
-import preguntas.PreguntaAbierta;
 import respuestas.Respuesta;
-
 public class Encuestado {
 	
 	private String nombre;

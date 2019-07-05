@@ -8,58 +8,38 @@ import respuestas.Respuesta;
 
 public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	
-	/*
-	private Respuesta respuestaElegida;
-	private Respuesta respuestaQueRedirige;
-	private Pregunta  preguntaARedirigir;
-*/
+
 	protected List<Respuesta> respuestas;
 
 	
-	public PreguntaDeSimpleSeleccion(String preg/*-Pregunta siguientePregunta*/) {
+	
+	public PreguntaDeSimpleSeleccion(String preg) {
 		super(preg);
 		this.respuestas = new ArrayList<Respuesta>();
-		//this.siguientePregunta= siguientePregunta;
+		
 	}
 	
+
+	@Override
 	public void addRespuesta(Respuesta respuesta) {
-		respuestas.add(respuesta);
+		this.respuestas.add(respuesta);
 	}
-	
+
+	@Override
 	public List<Respuesta> getOpciones(){
 		return this.respuestas;
 	}
 	
-	
+	@Override
 	public void elegirRespuesta(Respuesta respuestaCerrada1, Encuestado e) {
 		e.elegirRespuesta(respuestaCerrada1);
 	}
-	/*
-	public void setRespuestaElegida(Respuesta respuesta) {
-		this.respuestaElegida=respuesta;
-	}
-/*
-	@Override
-	public Pregunta getSiguientePregunta() {
-		Pregunta res;
-		if(this.respuestaElegida==this.respuestaQueRedirige) {
-			res=this.preguntaARedirigir;
-		}
-		else {
-			res= super.getSiguientePregunta();
-		}
-		return res;
-	}
-	public void setRedireccion(Respuesta r,Pregunta p) {
-		this.respuestaElegida=r;
-		this.preguntaARedirigir=p;
-	}*/
+
 	@Override
 	public void responder( Encuestado encuestado ) {
 		
-		//this.setRespuestaElegida(encuestado.getRespuestasElegidas().get(0));
-		
 		encuestado.agregarRespuesta(encuestado.getRespuestasElegidas().get(0));
+		
 		encuestado.setPreguntaActual( encuestado.getRespuestasElegidas().get(0).getSiguientePregunta() );
 		
 		
@@ -68,7 +48,7 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	
 		this.siSoyUltima(); 
 		
-		//this.getSiguientePregunta().setPreguntaAnterior(this);
+		
 	}
 
 	

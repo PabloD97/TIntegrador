@@ -7,17 +7,20 @@ import encuesta.Encuesta;
 import encuestado.Encuestado;
 import investigador.Investigador;
 import observer.IInteresado;
+import respuestas.Respuesta;
 
 public abstract class Pregunta {
 	
 	
 	
-	//protected List<IInteresado> interesados;
+	
+	
+	
 	protected String pregunta;
 	protected Encuestado encuestado;
 	protected boolean esPrimerPregunta=false;
 	protected boolean esUltimaPregunta=false;
-	//protected Pregunta siguientePregunta;
+	
 	protected Pregunta anteriorPregunta;
     protected Encuesta encuesta;
 	 
@@ -27,11 +30,7 @@ public abstract class Pregunta {
 	public Pregunta(String preg) {
 		this.pregunta=preg;
 	}
-	/*
-	public Pregunta getSiguientePregunta() {
-		return this.siguientePregunta;
-	}
-	*/
+	
 	public Pregunta getAnteriorPregunta() {
 		return anteriorPregunta;
 	}
@@ -60,19 +59,7 @@ public abstract class Pregunta {
 	    	this.encuestado.termineLaEncuesta();
 	    }
 	}
-	// mensajes nuevos
-	/*public void agregarInteresado(Investigador interesado) {
-		this.interesados.add(interesado);
-	}
-
-	public void sacarInteresado(Investigador interesado) {
-		this.interesados.remove(interesado);
-	}
 	
-	public List<IInteresado> getInteresados(){
-		return this.interesados;
-	}
-	*/
 	public String getNombreDeEncuesta() {
 		return this.encuesta.dameTuNombre();
 	}
@@ -82,6 +69,10 @@ public abstract class Pregunta {
 	
 
 	public  void responder(Encuestado e) {} 
+	
+	
+	//protected abstract void addRespuesta(Respuesta respuesta);
+
 	
 	
 }

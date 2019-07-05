@@ -17,7 +17,8 @@ public class Respuesta {
 	
 	public Respuesta(String textoRespuesta,Pregunta siguientePregunta) {
 		this.respuesta=textoRespuesta;
-		this.setSiguientePregunta(siguientePregunta);;
+		//this.setSiguientePregunta(siguientePregunta);;
+		this.siguientePregunta=siguientePregunta;
 		this.interesados= new ArrayList<IInteresado>();
 	}
 

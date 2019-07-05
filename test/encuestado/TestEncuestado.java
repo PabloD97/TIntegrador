@@ -67,18 +67,17 @@ class TestEncuestado {
 	
 		encuesta= new Encuesta("encuestaA", 119, 6, 27);
 		
-		preguntaAbierta= new PreguntaAbierta("cual es tu nombre?", preguntaDeMultipleSeleccion);
-		preguntaDeMultipleSeleccion= new PreguntaDeMultipleSeleccion("que colores te gustan?",  preguntaDeSimpleSeleccion);
+		preguntaAbierta= new PreguntaAbierta("cual es tu nombre?");
 		
-		preguntaDeSimpleSeleccion= new PreguntaDeSimpleSeleccion("posee casa propia o alquila?", preguntaDeMultipleSeleccion1);
+		preguntaDeMultipleSeleccion= new PreguntaDeMultipleSeleccion("que colores te gustan?");
+		
+		preguntaDeSimpleSeleccion= new PreguntaDeSimpleSeleccion("posee casa propia o alquila?");
 		
 		
-		preguntaDeMultipleSeleccion1= new PreguntaDeMultipleSeleccion("cuanto paga de alquiler?", null);
+		preguntaDeMultipleSeleccion1= new PreguntaDeMultipleSeleccion("cuanto paga de alquiler?");
 		
-		preguntaDeMultipleSeleccion2= new PreguntaDeMultipleSeleccion("vive solo?", null);
+		preguntaDeMultipleSeleccion2= new PreguntaDeMultipleSeleccion("vive solo?");
 	
-		//interesado.meInteresa(preguntaAbierta);
-		//interesado.notificarmeRespuesta(preguntaDeMultipleSeleccion, colorVerde);// ESTO TIRA NULL :(
 		
 		preguntaDeMultipleSeleccion1.siSoyUltima();
 		preguntaDeMultipleSeleccion2.siSoyUltima();
