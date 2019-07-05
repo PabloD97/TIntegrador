@@ -20,6 +20,11 @@ public class Respuesta {
 		this.siguientePregunta=siguientePregunta;
 		this.interesados= new ArrayList<IInteresado>();
 	}
+	
+	public Respuesta(String textoRespuesta) {
+		this.respuesta=textoRespuesta;
+		this.interesados= new ArrayList<IInteresado>();
+	}
 
 	public void setRespuesta(String contestacion) {
 		this.respuesta=contestacion;

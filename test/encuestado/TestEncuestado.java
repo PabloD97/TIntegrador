@@ -81,7 +81,7 @@ class TestEncuestado {
 		
 		preguntaDeMultipleSeleccion1.siSoyUltima();
 		preguntaDeMultipleSeleccion2.siSoyUltima();
-		
+		/*
 		colorAzul = new Respuesta("azul");
 		colorRojo = new Respuesta("rojo");
 		colorVerde = new Respuesta("verde");
@@ -94,7 +94,7 @@ class TestEncuestado {
 		
 		si=new Respuesta("si");
 		no=new Respuesta("no");
-		
+		*/
 	}
 
 	@Test

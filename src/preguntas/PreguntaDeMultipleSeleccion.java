@@ -10,13 +10,13 @@ import respuestas.Respuesta;
 
 public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 
-	
+	private Pregunta siguientePregunta;
 	private List<Respuesta> respuestas;
 	
-	public PreguntaDeMultipleSeleccion(String pregunta2/*,  Pregunta siguientePregunta*/) {
+	public PreguntaDeMultipleSeleccion(String pregunta2,  Pregunta siguientePregunta) {
 		super(pregunta2);
 		this.respuestas = new ArrayList<Respuesta>();
-		//this.siguientePregunta=siguientePregunta;
+		this.siguientePregunta=siguientePregunta;
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 		for(Respuesta r :encuestado.getRespuestasElegidas()) {
 			encuestado.agregarRespuesta(r);
 		}
-		encuestado.setPreguntaActual( encuestado.getRespuestasElegidas().get(0).getSiguientePregunta() );
+		encuestado.setPreguntaActual( this.siguientePregunta );
 		
 		encuestado.getRespuestasElegidas().get(0).notificar();
 

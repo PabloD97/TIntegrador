@@ -38,13 +38,15 @@ class TestEncuestado2 {
 	Respuesta azul;
 	Respuesta rojo;
 	
+	Respuesta si;
+	Respuesta no;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		
 		primerPregunta= new PreguntaDeSimpleSeleccion("que color te gusta?");
-		preguntaSiElegisAzul= new PreguntaDeMultipleSeleccion("te gusta el mar?");
-		preguntaSiElegisRojo= new PreguntaDeMultipleSeleccion("que te produce ver ese color?");
+		preguntaSiElegisAzul= new PreguntaDeMultipleSeleccion("te gusta el mar?",null);
+		preguntaSiElegisRojo= new PreguntaDeMultipleSeleccion("que te produce ver ese color?",null);
 		
 		azul= new Respuesta("azul", preguntaSiElegisAzul);
 		rojo= new Respuesta("rojo", preguntaSiElegisRojo);
@@ -58,12 +60,12 @@ class TestEncuestado2 {
 		activa= new Activa();
 		cerrada= new Cerrada();
 		
-
+		
 		
 	}
 
 	@Test
-	void testDameTusDatos() {
+	void testDatosDelEncuestado() {
 		assertEquals( encuestado.getDatosDelEncuestado() , new String( "jose marmol" ) );
 	}
 	
@@ -106,7 +108,7 @@ class TestEncuestado2 {
 		
 		encuestado.responder();
 		
-		//assertTrue( azul.getInteresados().contains(investigador));
+		assertTrue( azul.getInteresados().contains(investigador));
 		
 		verify(investigador).notificar();
 		

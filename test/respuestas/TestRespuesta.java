@@ -53,7 +53,6 @@ class TestRespuesta {
 	
 	@Test 
 	void testDameTuSiguientePregunta() {
-		//respuesta.setSiguientePregunta(multipleSeleccion);
 		assertEquals(multipleSeleccion, respuesta.getSiguientePregunta());
 	}
 }
