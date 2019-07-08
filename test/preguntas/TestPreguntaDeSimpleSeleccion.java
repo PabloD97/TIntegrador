@@ -14,7 +14,7 @@ import encuestado.Encuestado;
 import investigador.Investigador;
 import respuestas.Respuesta;
 
-class TestPreguntaCompleja {
+class TestPreguntaDeSimpleSeleccion {
 	
 	PreguntaDeSimpleSeleccion preguntaCompleja;
 	
@@ -33,10 +33,8 @@ class TestPreguntaCompleja {
 	@BeforeEach
 	void setUp() throws Exception {
 	 
-		preguntaAbierta1= new PreguntaAbierta("que series ves?");
 		
 	
-		preguntaCerrada= new PreguntaDeMultipleSeleccion("que series ves?");
 		
 		encuestado= spy( new Encuestado("Pablo", "Diaz",encuesta) );
 		
@@ -46,13 +44,13 @@ class TestPreguntaCompleja {
 		investigador = new Investigador();
 		
 		//SUT
-		preguntaCompleja= new PreguntaDeSimpleSeleccion("que series ves?", preguntaAbierta1);
+		preguntaCompleja= new PreguntaDeSimpleSeleccion("que series ves?");
 	
 		 
 	}
 
 	@Test
-	void testPreguntaDameTuPregunta() {
+	void testDameTuPregunta() {
 		assertEquals( "que series ves?", preguntaCompleja.getPregunta() );
 	}
 	
@@ -61,18 +59,17 @@ class TestPreguntaCompleja {
 		preguntaCompleja.addRespuesta(got);
 		preguntaCompleja.addRespuesta(twd);
 		
-		assertEquals( 2, preguntaCompleja.getOpciones().size() );
+		assertTrue(  preguntaCompleja.getOpciones().contains(got) && preguntaCompleja.getOpciones().contains(twd) );
 	}
 	
 	
 	@Test
 	void testResponde() {
-		//investigador.meInteresa(preguntaCompleja);
 		encuestado.setPreguntaActual(preguntaCompleja);
 		preguntaCompleja.elegirRespuesta(got, encuestado);
-		assertEquals(encuestado.getRespuestasElegidas().size() , new Integer (1) );
+		assertTrue(encuestado.getRespuestasElegidas().contains(got) );
 		encuestado.responder();
-		assertEquals( 1, encuestado.getRespuestasDelEncuestado().size() );
+		assertTrue(  encuestado.getRespuestasDelEncuestado().contains(got) );
 
 	}
 
@@ -87,9 +84,9 @@ class TestPreguntaCompleja {
 		
 		encuestado.responder();
 		assertTrue(  encuestado.getRespuestasDelEncuestado().contains(got) );
-		assertEquals(preguntaCompleja.getSiguientePregunta(),  preguntaAbierta1);
-		assertEquals(  preguntaAbierta1, preguntaCompleja.getSiguientePregunta());
-		assertEquals(  preguntaAbierta1.getAnteriorPregunta(), preguntaCompleja);
+		//assertEquals(  preguntaAbierta1);
+		//assertEquals(  preguntaAbierta1, preguntaCompleja.getSiguientePregunta());
+		//assertEquals(  preguntaAbierta1.getAnteriorPregunta(), preguntaCompleja);
 		
 		
 		assertEquals(  preguntaAbierta1,encuestado.getPreguntaActual() );

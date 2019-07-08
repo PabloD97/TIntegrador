@@ -60,6 +60,17 @@ class TestEncuestado2 {
 		activa= new Activa();
 		cerrada= new Cerrada();
 		
+		encuesta.setEstado(editable);
+		
+		encuesta.agregarPregunta(primerPregunta);
+		encuesta.agregarPregunta(preguntaSiElegisAzul);
+		encuesta.agregarPregunta(preguntaSiElegisRojo);
+		
+		encuesta.siguienteEstado();
+		encuesta.comenzarEncuesta(encuestado);
+
+		primerPregunta.addRespuesta(azul);
+		primerPregunta.addRespuesta(rojo);
 		
 		
 	}
@@ -70,7 +81,7 @@ class TestEncuestado2 {
 	}
 	
 	@Test
-	void testComenzarEncuesta() {
+	void testEncuestadoComienzaLaEncuesta() {
 		
 		encuesta.setEstado(editable);
 		
@@ -86,23 +97,13 @@ class TestEncuestado2 {
 	}
 	
 	@Test 
-	void testResponderUnaPregunta() {
+	void testEncuestadoRespondeUnaPregunta() {
 		Investigador investigador= spy(new Investigador());
 		investigador.meInteresa(azul);
-		encuesta.setEstado(editable);
-		
-		encuesta.agregarPregunta(primerPregunta);
-		encuesta.agregarPregunta(preguntaSiElegisAzul);
-		encuesta.agregarPregunta(preguntaSiElegisRojo);
-		
-		encuesta.siguienteEstado();
-		encuesta.comenzarEncuesta(encuestado);
-
+	
 		
 		assertEquals( primerPregunta, encuestado.getPreguntaActual() );
 		
-		primerPregunta.addRespuesta(azul);
-		primerPregunta.addRespuesta(rojo);
 		
 		primerPregunta.elegirRespuesta(azul, encuestado);
 		
@@ -115,8 +116,6 @@ class TestEncuestado2 {
 		assertTrue( encuestado.getRespuestasDelEncuestado().contains(azul) );
 		
 		assertEquals( preguntaSiElegisAzul, encuestado.getPreguntaActual() );
-		
-		
 		
 	}
 	

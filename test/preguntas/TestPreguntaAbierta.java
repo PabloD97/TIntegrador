@@ -12,29 +12,28 @@ import org.junit.jupiter.api.Test;
 
 import encuesta.Encuesta;
 import encuestado.Encuestado;
-import investigador.Investigador;
 
 class TestPreguntaAbierta {
 	
 	PreguntaAbierta preguntaAbierta;
 	PreguntaAbierta preguntaAbierta2;
 	
-	Investigador investigador;
 	Encuesta encuesta;
 	Encuestado contenedor;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		investigador = mock(Investigador.class);
-		encuesta= mock(Encuesta.class);
 		
-		preguntaAbierta = new PreguntaAbierta("¿que color te gusta?", preguntaAbierta2);
+		encuesta= mock(Encuesta.class);
+		//preguntaAbierta2= new PreguntaAbierta
+		
+		preguntaAbierta = new PreguntaAbierta("cual es tu nombre?", preguntaAbierta2);
 		
 	}
 	@Test
 	void testPreguntaAbierta() {
-		assertEquals( new String("¿que color te gusta?") , preguntaAbierta.getPregunta() );
+		assertEquals( new String("cual es tu nombre?") , preguntaAbierta.getPregunta() );
 	}
 
 	@Test
@@ -50,18 +49,11 @@ class TestPreguntaAbierta {
 	}
 
 	@Test
-	void testAgregarInteresado() {
-		preguntaAbierta.agregarInteresado(investigador);
-		assertEquals( new Integer(1), preguntaAbierta.getInteresados().size());
+	void testDameTuSiguientePregunta() {
+		assertEquals(preguntaAbierta2, preguntaAbierta.getSiguientePregunta());
 	}
 
-	@Test
-	void testSacarInteresado() {
-		preguntaAbierta.agregarInteresado(investigador);
-		assertEquals( new Integer(1), preguntaAbierta.getInteresados().size());
-		preguntaAbierta.sacarInteresado(investigador);
-		assertTrue( preguntaAbierta.getInteresados().isEmpty() );
-	}
+	
 	@Test
 	void testAQueEncuestaPerteneces() {
 		preguntaAbierta.setEncuesta(encuesta);

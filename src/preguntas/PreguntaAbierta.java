@@ -19,11 +19,16 @@ public class PreguntaAbierta extends Pregunta {
 		encuestado.elegirRespuesta(res);
 	}
 
+	public Pregunta getSiguientePregunta() {
+		return this.siguientePregunta;
+	}
+	
+	
 	@Override 
 	public void responder(Encuestado encuestado) {
 		encuestado.agregarRespuesta(encuestado.getRespuestasElegidas().get(0));
 		
-		encuestado.setPreguntaActual( this.siguientePregunta );
+		encuestado.setPreguntaActual( this.getSiguientePregunta() );
 
 		
 		encuestado.getRespuestasElegidas().get(0).notificar();

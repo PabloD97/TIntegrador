@@ -60,11 +60,11 @@ public class Respuesta {
 	public List<IInteresado> getInteresados(){
 		return this.interesados;
 	}
-	
+	/*
 	public void setSiguientePregunta(Pregunta pregunta) {
 		siguientePregunta= pregunta;
 	}
-	
+	*/
 	public Pregunta getSiguientePregunta() {
 		return siguientePregunta ;
 	}

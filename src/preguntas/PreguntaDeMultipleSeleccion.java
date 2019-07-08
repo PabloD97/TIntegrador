@@ -19,6 +19,10 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 		this.siguientePregunta=siguientePregunta;
 	}
 
+	public Pregunta getSiguientePregunta() {
+		return this.siguientePregunta;
+	}
+	
 	@Override
 	public void addRespuesta(Respuesta respuesta) {
 		respuestas.add(respuesta);
@@ -37,7 +41,7 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 		for(Respuesta r :encuestado.getRespuestasElegidas()) {
 			encuestado.agregarRespuesta(r);
 		}
-		encuestado.setPreguntaActual( this.siguientePregunta );
+		encuestado.setPreguntaActual( this.getSiguientePregunta() );
 		
 		encuestado.getRespuestasElegidas().get(0).notificar();
 

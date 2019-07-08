@@ -53,12 +53,12 @@ class TestPreguntaDeMultipleSeleccion {
 		preguntaMultiple.addRespuesta(respuestaCerrada1);
 		preguntaMultiple.addRespuesta(respuestaCerrada2);
 		preguntaMultiple.addRespuesta(respuestaCerrada3);
-	
+	/*
 		when( respuestaCerrada1.getRespuesta()).thenReturn( "azul" );
 		when( respuestaCerrada2.getRespuesta()).thenReturn( "verde" );
 		when( respuestaCerrada3.getRespuesta()).thenReturn( "marron" );
 		
-		
+		*/
 		List<Respuesta>respuestas= new ArrayList<Respuesta>();
 		respuestas.add(respuestaCerrada1);
 		respuestas.add(respuestaCerrada2);
