@@ -15,31 +15,29 @@ import respuestas.Respuesta;
 
 class TestPreguntaDeMultipleSeleccion {
 	
-	MultiplesOpciones preguntaMultiple;
+	PreguntaDeMultipleSeleccion preguntaMultiple;
 	Respuesta respuestaCerrada1;
 	Respuesta respuestaCerrada2;
 	Respuesta respuestaCerrada3;
 	Respuesta respuestaCerrada4;
 	Encuestado encuestado;
-	
+	MultiplesOpciones preguntaDeSimpleSeleccion;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		
 		encuestado = spy(new Encuestado("pepe", "pepon",null));
 
+		preguntaDeSimpleSeleccion= mock(PreguntaDeSimpleSeleccion.class);
 		respuestaCerrada1 = mock(Respuesta.class);
 		respuestaCerrada2 = mock(Respuesta.class);
 		respuestaCerrada3 = mock(Respuesta.class);
 		
 		
-		preguntaMultiple= new PreguntaDeMultipleSeleccion("que colores te gustan?", preguntaMultiple);
+		preguntaMultiple= new PreguntaDeMultipleSeleccion("que colores te gustan?", preguntaDeSimpleSeleccion);
 		
 		
-		preguntaMultiple.elegirRespuesta(respuestaCerrada1, encuestado);
-		preguntaMultiple.elegirRespuesta(respuestaCerrada3, encuestado);
 		
-		preguntaMultiple.responder(encuestado );
 	}
 
 	@Test
@@ -53,12 +51,7 @@ class TestPreguntaDeMultipleSeleccion {
 		preguntaMultiple.addRespuesta(respuestaCerrada1);
 		preguntaMultiple.addRespuesta(respuestaCerrada2);
 		preguntaMultiple.addRespuesta(respuestaCerrada3);
-	/*
-		when( respuestaCerrada1.getRespuesta()).thenReturn( "azul" );
-		when( respuestaCerrada2.getRespuesta()).thenReturn( "verde" );
-		when( respuestaCerrada3.getRespuesta()).thenReturn( "marron" );
 		
-		*/
 		List<Respuesta>respuestas= new ArrayList<Respuesta>();
 		respuestas.add(respuestaCerrada1);
 		respuestas.add(respuestaCerrada2);
@@ -66,9 +59,56 @@ class TestPreguntaDeMultipleSeleccion {
 		assertEquals(respuestas, preguntaMultiple.getOpciones());
 	}
 	
+	@Test
+	void testDameTuSiguientePregunta() {
+		assertEquals(preguntaDeSimpleSeleccion, preguntaMultiple.getSiguientePregunta());
+	}
 	
+	@Test
+	void testAgregarOpciones() {
+		preguntaMultiple.addRespuesta(respuestaCerrada1);
+		preguntaMultiple.addRespuesta(respuestaCerrada2);
+		preguntaMultiple.addRespuesta(respuestaCerrada3);
+	
+		assertEquals( preguntaMultiple.getOpciones().size() , 3 );
+	}
+	
+	@Test
+	void testEncuestadoRespondeLaPregunta() {
+		encuestado.setPreguntaActual(preguntaMultiple);
+		
+		preguntaMultiple.addRespuesta(respuestaCerrada1);
+		preguntaMultiple.addRespuesta(respuestaCerrada2);
+		preguntaMultiple.addRespuesta(respuestaCerrada3);
+		
+		preguntaMultiple.elegirRespuesta(respuestaCerrada1, encuestado);
+		preguntaMultiple.elegirRespuesta(respuestaCerrada2, encuestado);
+		
+		encuestado.responder();
+		assertEquals(preguntaDeSimpleSeleccion, encuestado.getPreguntaActual());
+		assertTrue( encuestado.getRespuestasDelEncuestado().contains(respuestaCerrada1) && encuestado.getRespuestasDelEncuestado().contains(respuestaCerrada2) );
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -44,7 +44,7 @@ class TestRespuesta {
 	}
 	
 	@Test 
-	void testNotificar() {
+	void testNotificarALosInteresados() {
 		Investigador investigador1= spy(new Investigador());
 		investigador1.meInteresa(respuesta);
 		respuesta.notificar();
@@ -55,4 +55,5 @@ class TestRespuesta {
 	void testDameTuSiguientePregunta() {
 		assertEquals(multipleSeleccion, respuesta.getSiguientePregunta());
 	}
+	
 }

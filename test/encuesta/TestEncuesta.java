@@ -160,10 +160,11 @@ class TestEncuesta {
 		encuesta1.setEstado(editable);
 		assertTrue(!encuesta1.encuestaDisponible());
 		
-		encuesta1.setEstado(activa);
+		encuesta1.siguienteEstado();;
 		assertTrue(encuesta1.encuestaDisponible());
 		
-		encuesta1.setEstado(cerrada);
+		encuesta1.siguienteEstado();
+		encuesta1.siguienteEstado();
 		assertTrue(!encuesta1.encuestaDisponible());
 		
 	}
