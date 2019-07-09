@@ -30,6 +30,7 @@ public class PreguntaAbierta extends Pregunta {
 		
 		encuestado.setPreguntaActual( this.getSiguientePregunta() );
 
+		this.getSiguientePregunta().setPreguntaAnterior(this);
 		
 		encuestado.getRespuestasElegidas().get(0).notificar();
 

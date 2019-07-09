@@ -113,6 +113,8 @@ class TestEncuestado2 {
 		
 		verify(investigador).notificar();
 		
+		assertEquals( primerPregunta , preguntaSiElegisAzul.getAnteriorPregunta() );
+		
 		assertTrue( encuestado.getRespuestasDelEncuestado().contains(azul) );
 		
 		assertEquals( preguntaSiElegisAzul, encuestado.getPreguntaActual() );

@@ -38,6 +38,9 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	@Override
 	public void responder( Encuestado encuestado ) {
 		
+		encuestado.getRespuestasElegidas().get(0).getSiguientePregunta().setPreguntaAnterior(this);
+
+		
 		encuestado.agregarRespuesta(encuestado.getRespuestasElegidas().get(0));
 		
 		encuestado.setPreguntaActual( encuestado.getRespuestasElegidas().get(0).getSiguientePregunta() );
