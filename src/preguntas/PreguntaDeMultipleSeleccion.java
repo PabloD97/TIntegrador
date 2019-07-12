@@ -19,9 +19,6 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 		this.siguientePregunta=siguientePregunta;
 	}
 
-	public Pregunta getSiguientePregunta() {
-		return this.siguientePregunta;
-	}
 	
 	@Override
 	public void addRespuesta(Respuesta respuesta) {
@@ -34,6 +31,13 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 	@Override
 	public void elegirRespuesta(Respuesta respuestaCerrada1, Encuestado e) {
 		e.elegirRespuesta(respuestaCerrada1);
+	}
+	public Pregunta getSiguientePregunta() {
+		Pregunta res=null;
+		if(!this.esUltimaPregunta) {
+		res=this.siguientePregunta;
+		}
+		return res;
 	}
 	
 	@Override

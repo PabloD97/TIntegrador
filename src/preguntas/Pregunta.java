@@ -32,7 +32,10 @@ public abstract class Pregunta {
 	}
 	
 	public Pregunta getAnteriorPregunta() {
-		return anteriorPregunta;
+		Pregunta res=null;
+		if(!this.esPrimerPregunta) {
+		res= this.anteriorPregunta;}
+		return res;
 	}
 	
 	protected void setPreguntaAnterior(Pregunta preg) {

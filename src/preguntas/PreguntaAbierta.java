@@ -20,7 +20,11 @@ public class PreguntaAbierta extends Pregunta {
 	}
 
 	public Pregunta getSiguientePregunta() {
-		return this.siguientePregunta;
+		Pregunta res=null;
+		if(!this.esUltimaPregunta) {
+		res=this.siguientePregunta;
+		}
+		return res;
 	}
 	
 	
