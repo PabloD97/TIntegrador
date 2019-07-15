@@ -38,7 +38,9 @@ class TestPreguntaDeSimpleSeleccion {
 		
 		encuestado= spy( new Encuestado("Pablo", "Diaz",encuesta) );
 		
-		got= mock(Respuesta.class);
+		preguntaCerrada = new PreguntaDeMultipleSeleccion(null, preguntaAbierta1);
+		
+		got= new Respuesta("got", preguntaCerrada);
 		twd= mock(Respuesta.class);
 		
 		investigador = new Investigador();
@@ -65,11 +67,18 @@ class TestPreguntaDeSimpleSeleccion {
 	
 	@Test
 	void testResponde() {
+		preguntaCompleja.addRespuesta(got);
+		preguntaCompleja.addRespuesta(twd);
+		
 		encuestado.setPreguntaActual(preguntaCompleja);
+		assertEquals(encuestado.getPreguntaActual(),preguntaCompleja);
+		
 		preguntaCompleja.elegirRespuesta(got, encuestado);
 		assertTrue(encuestado.getRespuestasElegidas().contains(got) );
+	
+		
 		encuestado.responder();
-		assertTrue(  encuestado.getRespuestasDelEncuestado().contains(got) );
+		assertTrue(  encuestado.getRespuestasDelEncuestado().contains(got) ); 
 
 	}
 
@@ -84,13 +93,9 @@ class TestPreguntaDeSimpleSeleccion {
 		
 		encuestado.responder();
 		assertTrue(  encuestado.getRespuestasDelEncuestado().contains(got) );
-		//assertEquals(  preguntaAbierta1);
-		//assertEquals(  preguntaAbierta1, preguntaCompleja.getSiguientePregunta());
-		//assertEquals(  preguntaAbierta1.getAnteriorPregunta(), preguntaCompleja);
+	
 		
-		
-		assertEquals(  preguntaAbierta1,encuestado.getPreguntaActual() );
-		// ESTE FUNCIONA, PERO LAS DEMAS TIPOS DE PREGUNTA NO :/
+		assertEquals(  preguntaCerrada,encuestado.getPreguntaActual() );
 	}
 
 }

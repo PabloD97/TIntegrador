@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import preguntas.PreguntaAbierta;
 import proyecto.Proyecto;
+import respuestas.Respuesta;
+
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
@@ -19,9 +21,12 @@ class TestInvestigador {
 	PreguntaAbierta pregunta1;
 	PreguntaAbierta pregunta2;
 	
+	Respuesta respuesta;
+	
 	@BeforeEach
 	void setUp() throws Exception {
 		
+		respuesta=mock(Respuesta.class);
 		proyecto1= mock(Proyecto.class);
 		proyecto2= mock(Proyecto.class);
 		pregunta1= mock(PreguntaAbierta.class);
@@ -52,6 +57,20 @@ class TestInvestigador {
 		assertEquals( 0, investigador.getProyectos().size() );
 	}
 
+	@Test
+	void testSuscribirseAUnaRespuesta() {
+		investigador.meInteresa(respuesta);
+		assertTrue( investigador.getSuscripciones().contains(respuesta) );
+	}
+	
+	@Test
+	void testDesuscribirseAUnaRespuesta() {
+		investigador.meInteresa(respuesta);
+		assertTrue( investigador.getSuscripciones().contains(respuesta) );
+		
+		investigador.noMeInteresa(respuesta);
+		assertFalse( investigador.getSuscripciones().contains(respuesta) );
+	}
 	// FALTA TESTEAR LO DE SUSCRIBIRSE A UNA RESPUESTA( AUN NO ENTIENDO MUY BIEN ESA PARTE), LO DE
 	// NOTIFICARME, LO DE DESUSCRIBIRSE A LA RESPUESTA Y GETSUSCRIPCIONES
 	

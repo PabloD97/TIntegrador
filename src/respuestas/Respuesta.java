@@ -26,10 +26,7 @@ public class Respuesta {
 		this.interesados= new ArrayList<IInteresado>();
 	}
 
-	public void setRespuesta(String contestacion) {
-		this.respuesta=contestacion;
-		
-	}
+	
 	public String getRespuesta() {
 		return this.respuesta;
 	}

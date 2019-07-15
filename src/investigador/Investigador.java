@@ -15,7 +15,7 @@ import respuestas.Respuesta;
 public class Investigador implements IInteresado{
 	
 	private List<Proyecto> proyectos;
-	private List<Respuesta>subscripcionRespuestas=new ArrayList<Respuesta>();
+	private List<Respuesta>subscripcionRespuestas;;
 	private Las25MasContestadas masContestadas = new Las25MasContestadas();
 	private OrdenadasPorProyecto ordenadas = new OrdenadasPorProyecto();
 	private Ultimas20Creadas ultimasCreadas = new Ultimas20Creadas();
@@ -28,6 +28,7 @@ public class Investigador implements IInteresado{
 	public Investigador() {
 		this.encuestas= new ArrayList<Encuesta>();
 		this.proyectos = new ArrayList<Proyecto>();
+		this.subscripcionRespuestas=new ArrayList<Respuesta>();
 	}
 	
 	
@@ -66,12 +67,13 @@ public class Investigador implements IInteresado{
 	@Override
 	public void meInteresa(Respuesta respuesta) {
 		respuesta.agregarInteresado(this);
-		
+		this.subscripcionRespuestas.add(respuesta);
 	}
 
 	@Override
 	public void noMeInteresa(Respuesta respuesta) {
 		respuesta.sacarInteresado(this);		
+		this.subscripcionRespuestas.remove(respuesta);
 	}
 	
 	

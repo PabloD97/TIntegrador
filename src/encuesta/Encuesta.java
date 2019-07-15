@@ -16,7 +16,6 @@ import preguntas.Pregunta;
 public class Encuesta {
  
 	
-	// cambie tdas a list ya que hay que pensar en interfaces
 	private List<Encuestado> encuestados;
 	private List<Pregunta> protocoloDePreguntas;
 	private List<Respuesta> respuestas;
@@ -79,15 +78,18 @@ public class Encuesta {
 	public Integer vecesFinalizado() {// queda mejor asi, sino teniamos una variable de mas alpedo
 		return this.encuestados.size();
 	}
+	
 	public List<Respuesta> getTodasLasRespuestas(){
-		for(Encuestado f:encuestados) {
-			respuestas.addAll(f.getRespuestasDelEncuestado());
+		for(Encuestado encuestado:encuestados) {
+			respuestas.addAll(encuestado.getRespuestasDelEncuestado());
 		}
 		return respuestas;
 	}
+	
 	public ArrayList<Encuestado>getEncuestados(){// mas lendo este nombre uwu
 		return (ArrayList<Encuestado>) this.encuestados;
 	}
+	
 	public void comenzarEncuesta(Encuestado encuestado) {
 		this.estado.comenzarEncuesta(encuestado);
 	}

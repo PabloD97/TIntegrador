@@ -49,6 +49,7 @@ class TestRespuesta {
 		investigador1.meInteresa(respuesta);
 		respuesta.notificar();
 		verify(investigador1).notificar();
+		
 	}
 	
 	@Test 
@@ -56,4 +57,35 @@ class TestRespuesta {
 		assertEquals(multipleSeleccion, respuesta.getSiguientePregunta());
 	}
 	
+	@Test
+	void testAInvestigadorNoLeInteresaLaPregunta() {
+		Investigador investigador1= spy(new Investigador());
+		
+		respuesta.notificar();
+		
+		verifyZeroInteractions(investigador1);
+	}
+	
+
+	@Test
+	void testSacarInteresado() {
+		respuesta.agregarInteresado(investigador);
+		respuesta.sacarInteresado(investigador);
+		assertFalse( respuesta.getInteresados().contains(investigador) );
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

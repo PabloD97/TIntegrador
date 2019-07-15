@@ -169,6 +169,16 @@ class TestEncuesta {
 		
 	}
 
+	@Test
+	void testEncuestaDameTusEncuestados() {
+		encuesta1.setEstado(activa);
+		encuesta1.encuestaFinalizada(encuestado1);
+		encuesta1.encuestaFinalizada(encuestado1);
+		encuesta1.encuestaFinalizada(encuestado1);
+		
+		assertEquals(new Integer(3), encuesta1.getEncuestados().size());
+	}
+	
 }
 
 

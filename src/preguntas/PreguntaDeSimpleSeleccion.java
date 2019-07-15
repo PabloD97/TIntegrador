@@ -31,8 +31,8 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	}
 	
 	@Override
-	public void elegirRespuesta(Respuesta respuestaCerrada1, Encuestado e) {
-		e.elegirRespuesta(respuestaCerrada1);
+	public void elegirRespuesta(Respuesta respuesta, Encuestado encuestado) {
+		encuestado.elegirRespuesta(respuesta);
 	}
 
 	@Override
@@ -47,6 +47,7 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 		
 		encuestado.getRespuestasElegidas().get(0).notificar();
 		
+	
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		
 	
