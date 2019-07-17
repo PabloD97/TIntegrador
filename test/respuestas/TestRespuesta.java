@@ -9,6 +9,7 @@ import investigador.Investigador;
 import preguntas.Pregunta;
 import preguntas.PreguntaAbierta;
 import preguntas.PreguntaDeMultipleSeleccion;
+import preguntas.PreguntaDeSimpleSeleccion;
 
 import static org.mockito.Mockito.*;
 
@@ -18,15 +19,19 @@ class TestRespuesta {
 	PreguntaAbierta preguntaAbierta;
 	Pregunta multipleSeleccion;
 	Investigador investigador;
+	RespuestaCompleja respuestas;
+	PreguntaDeSimpleSeleccion seleccionSimple;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		multipleSeleccion= new PreguntaDeMultipleSeleccion("que colores te gustan",null);
 		preguntaAbierta= mock(PreguntaAbierta.class);
-
+		seleccionSimple=new PreguntaDeSimpleSeleccion("¿Como te llamas?");
 		
 		respuesta= new Respuesta("rojo", multipleSeleccion);
 		investigador = new Investigador();
+		respuestas =new RespuestaCompleja("Nahuel", multipleSeleccion);
+		seleccionSimple.addRespuesta(respuestas);
 		
 		//multipleSeleccion= mock(PreguntaDeMultipleSeleccion.class);
 		

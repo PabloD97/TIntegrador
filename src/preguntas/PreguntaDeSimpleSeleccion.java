@@ -5,6 +5,7 @@ import java.util.List;
 
 import encuestado.Encuestado;
 import respuestas.Respuesta;
+import respuestas.RespuestaCompleja;
 
 public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	
@@ -22,7 +23,7 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 
 	@Override
 	public void addRespuesta(Respuesta respuesta) {
-		this.respuestas.add(respuesta);
+		this.respuestas.add((RespuestaCompleja) respuesta);
 	}
 
 	@Override
@@ -31,8 +32,8 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	}
 	
 	@Override
-	public void elegirRespuesta(Respuesta respuesta, Encuestado encuestado) {
-		encuestado.elegirRespuesta(respuesta);
+	public void elegirRespuesta(Respuesta respuestaCerrada1, Encuestado e) {
+		e.elegirRespuesta(respuestaCerrada1);
 	}
 
 	@Override
@@ -47,7 +48,6 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 		
 		encuestado.getRespuestasElegidas().get(0).notificar();
 		
-	
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		
 	

@@ -12,14 +12,10 @@ public class Respuesta {
 	private String respuesta;
 	private Pregunta pregPertenencia;
 	private List<IInteresado> interesados;
-	private Pregunta siguientePregunta;
 	
 	
-	public Respuesta(String textoRespuesta,Pregunta siguientePregunta) {
-		this.respuesta=textoRespuesta;
-		this.siguientePregunta=siguientePregunta;
-		this.interesados= new ArrayList<IInteresado>();
-	}
+	
+	
 	
 	public Respuesta(String textoRespuesta) {
 		this.respuesta=textoRespuesta;
@@ -62,8 +58,6 @@ public class Respuesta {
 		siguientePregunta= pregunta;
 	}
 	*/
-	public Pregunta getSiguientePregunta() {
-		return siguientePregunta ;
-	}
+	
 	
 }
