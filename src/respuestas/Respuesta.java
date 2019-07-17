@@ -12,6 +12,8 @@ public class Respuesta {
 	private String respuesta;
 	private Pregunta pregPertenencia;
 	private List<IInteresado> interesados;
+	private	Pregunta siguientePregunta;
+	private Boolean esUltimaPregunta=false;
 	
 	
 	
@@ -20,6 +22,12 @@ public class Respuesta {
 	public Respuesta(String textoRespuesta) {
 		this.respuesta=textoRespuesta;
 		this.interesados= new ArrayList<IInteresado>();
+	}
+
+	public Respuesta(String textoRespuesta,Pregunta siguientePregunta) {
+		this.respuesta=textoRespuesta;
+		this.interesados= new ArrayList<IInteresado>();
+		this.siguientePregunta=siguientePregunta;
 	}
 
 	
@@ -52,6 +60,21 @@ public class Respuesta {
 	
 	public List<IInteresado> getInteresados(){
 		return this.interesados;
+	}
+	
+	//Metodos que solo utilizaria pregunta de simpleSeleccion con multiples opciones
+	public Pregunta getSiguientePregunta() {
+		if(this.esUltimaPregunta) {
+			//El comportamiento de la siguiente pregunta tiene que ser definido. 
+			//Ya que habiamos utilizado un systemPrintIn pero no pidieron cambiar ese codigo ya que corria por parte de GUI
+			return null;
+		}
+		else {
+		return this.siguientePregunta;
+		}
+	}
+	public boolean ultimaPregunta() {
+		return this.esUltimaPregunta;
 	}
 	/*
 	public void setSiguientePregunta(Pregunta pregunta) {

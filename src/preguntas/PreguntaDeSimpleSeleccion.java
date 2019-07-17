@@ -5,7 +5,6 @@ import java.util.List;
 
 import encuestado.Encuestado;
 import respuestas.Respuesta;
-import respuestas.RespuestaCompleja;
 
 public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 	
@@ -23,7 +22,7 @@ public class PreguntaDeSimpleSeleccion extends MultiplesOpciones  {
 
 	@Override
 	public void addRespuesta(Respuesta respuesta) {
-		this.respuestas.add((RespuestaCompleja) respuesta);
+		this.respuestas.add(respuesta);
 	}
 
 	@Override

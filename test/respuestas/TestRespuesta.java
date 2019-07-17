@@ -19,7 +19,7 @@ class TestRespuesta {
 	PreguntaAbierta preguntaAbierta;
 	Pregunta multipleSeleccion;
 	Investigador investigador;
-	RespuestaCompleja respuestas;
+
 	PreguntaDeSimpleSeleccion seleccionSimple;
 	
 	@BeforeEach
@@ -30,8 +30,7 @@ class TestRespuesta {
 		
 		respuesta= new Respuesta("rojo", multipleSeleccion);
 		investigador = new Investigador();
-		respuestas =new RespuestaCompleja("Nahuel", multipleSeleccion);
-		seleccionSimple.addRespuesta(respuestas);
+	
 		
 		//multipleSeleccion= mock(PreguntaDeMultipleSeleccion.class);
 		
