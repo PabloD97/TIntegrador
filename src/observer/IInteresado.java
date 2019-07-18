@@ -10,7 +10,7 @@ public interface IInteresado {
     
 	public void noMeInteresa(Respuesta respuesta);
 	
-	
+	public void notificar();
 
 	public List<Respuesta> getSuscripciones();
 	

@@ -15,7 +15,7 @@ class TestEditable {
 	Encuesta encuesta;
 	PreguntaAbierta preguntaAbierta;
 	Encuestado encuestado;
-	Editable editable;
+	Estado editable;
 	
 	@BeforeEach
 	void setUp() throws Exception {

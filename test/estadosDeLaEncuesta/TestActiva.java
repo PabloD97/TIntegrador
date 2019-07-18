@@ -12,7 +12,7 @@ import preguntas.PreguntaAbierta;
 
 class TestActiva {
 
-	Activa activa;
+	Estado activa;
 	Encuesta encuesta;
 	PreguntaAbierta preguntaAbierta;
 	Encuestado encuestado;

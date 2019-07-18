@@ -88,7 +88,9 @@ public class Investigador implements IInteresado{
 	}
 
 
-	
+
+	@Override
+	public void notificar() {}
 
 
 

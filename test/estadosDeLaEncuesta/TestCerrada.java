@@ -11,7 +11,7 @@ import encuestado.Encuestado;
 import preguntas.PreguntaAbierta;
 
 class TestCerrada {
-	Cerrada cerrada;
+	Estado cerrada;
 	Encuesta encuesta;
 	PreguntaAbierta preguntaAbierta;
 	Encuestado encuestado;
