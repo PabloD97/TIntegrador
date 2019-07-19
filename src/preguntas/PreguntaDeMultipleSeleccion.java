@@ -56,7 +56,7 @@ public class PreguntaDeMultipleSeleccion extends MultiplesOpciones {
 		
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		
-		this.siSoyUltima(); 
+		
 	}
  
 }

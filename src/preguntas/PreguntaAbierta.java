@@ -41,12 +41,13 @@ public class PreguntaAbierta extends Pregunta {
 		
 		encuestado.getRespuestasElegidas().removeAll(encuestado.getRespuestasElegidas());
 		
-
+		}
 		
-		this.siSoyUltima();
+		
+		;
 		
 		
 	}
 	
 	
-}
+

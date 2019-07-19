@@ -17,7 +17,7 @@ public abstract class Pregunta {
 	
 	
 	protected String pregunta;
-	protected Encuestado encuestado;
+	
 	protected boolean esPrimerPregunta=false;
 	protected boolean esUltimaPregunta=false;
 	
@@ -57,11 +57,12 @@ public abstract class Pregunta {
 	public boolean ultimaPregunta() {
 		return this.esUltimaPregunta;
 	}
-	public void siSoyUltima( ) {
+	/*public void siSoyUltima( ) {
 		if(this.ultimaPregunta()) {
 	    	this.encuestado.termineLaEncuesta();
 	    }
 	}
+	*/
 	
 	public String getNombreDeEncuesta() {
 		return this.encuesta.dameTuNombre();

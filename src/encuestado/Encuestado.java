@@ -53,6 +53,9 @@ public class Encuestado {
 	
 	public void responder() {
 		this.preguntaActual.responder(this);
+		if(this.preguntaActual.ultimaPregunta()) {
+			this.preguntaActual.getEncuesta().encuestaFinalizada(this);
+		}
 	}
 	
 	public void elegirRespuesta(Respuesta r) {
