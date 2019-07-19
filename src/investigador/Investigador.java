@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import encuesta.Encuesta;
+import encuestasDisponibles.IEstrategia;
 import encuestasDisponibles.Las25MasContestadas;
 import encuestasDisponibles.OrdenadasPorProyecto;
 import encuestasDisponibles.Ultimas20Creadas;
@@ -16,9 +17,9 @@ public class Investigador implements IInteresado{
 	
 	private List<Proyecto> proyectos;
 	private List<Respuesta>subscripcionRespuestas;;
-	private Las25MasContestadas masContestadas = new Las25MasContestadas();
-	private OrdenadasPorProyecto ordenadas = new OrdenadasPorProyecto();
-	private Ultimas20Creadas ultimasCreadas = new Ultimas20Creadas();
+	
+	
+	private IEstrategia strategy;
 	
 	//
 	private List<Encuesta>encuestas;
@@ -33,7 +34,12 @@ public class Investigador implements IInteresado{
 	
 	
 	
-
+	public void setEstragia(IEstrategia e) {
+		this.strategy=e;
+	}
+	public List<Encuesta> filtrar(){
+		return this.strategy.dameLasEncuestas(this);
+	}
 	public List<Proyecto> getProyectos() {
 		return proyectos;	
 	}
@@ -52,17 +58,7 @@ public class Investigador implements IInteresado{
 
 	// mensajes nuevos, correspondientes al hito 2
 	
-	public List<Encuesta> dameLas25MasContestadas() {
-		return this.masContestadas.dameLasEncuestas(this);
-	}
 	
-	public List<Encuesta> damelasOrdenadasPorProyectos() {
-		return this.ordenadas.dameLasEncuestas(this);
-	}
-
-	public List<Encuesta> dameLasUltimas20Creadas() {
-		return this.ultimasCreadas.dameLasEncuestas(this);
-	}
 	
 	@Override
 	public void meInteresa(Respuesta respuesta) {

@@ -44,6 +44,7 @@ class TestUltimas20Creadas {
 	Encuesta encuesta25;
 	Encuesta encuesta26;
 	Encuesta encuesta27;
+	IEstrategia ultimas20;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -76,6 +77,7 @@ class TestUltimas20Creadas {
 		encuesta24 = new Encuesta("x", 119, 6, 24);
 		encuesta25 = new Encuesta("y", 119, 6, 25);
 		encuesta26 = new Encuesta("z", 119, 6, 26);
+		ultimas20 = new Ultimas20Creadas();
 	}
 
 	@Test
@@ -135,8 +137,9 @@ class TestUltimas20Creadas {
 		encuesta.add(encuesta26);
 
 		Collections.reverse(encuesta);
+		investigador.setEstragia(ultimas20);
 		
-		assertEquals(encuesta, investigador.dameLasUltimas20Creadas() );
+		assertEquals(encuesta, investigador.filtrar() );
 	}
 
 }

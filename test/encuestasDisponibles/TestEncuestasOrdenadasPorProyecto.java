@@ -44,6 +44,7 @@ class TestEncuestasOrdenadasPorProyecto {
 	Encuesta encuesta25;
 	Encuesta encuesta26;
 	Encuesta encuesta27;
+	IEstrategia ordenadas;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -76,6 +77,7 @@ class TestEncuestasOrdenadasPorProyecto {
 		encuesta24 = new Encuesta("x", 119, 6, 24);
 		encuesta25 = new Encuesta("y", 119, 6, 25);
 		encuesta26 = new Encuesta("z", 119, 6, 26);
+		ordenadas = new OrdenadasPorProyecto();
 	}
 
 	@Test
@@ -138,10 +140,11 @@ class TestEncuestasOrdenadasPorProyecto {
 		encuesta.add(encuesta24);
 		encuesta.add(encuesta25);
 		encuesta.add(encuesta26);
-
+		
+		investigador.setEstragia(ordenadas);
 		
 		
-		assertEquals(encuesta, investigador.damelasOrdenadasPorProyectos());
+		assertEquals(encuesta, investigador.filtrar());
 	}
 
 }

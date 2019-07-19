@@ -9,7 +9,6 @@ import encuesta.Encuesta;
 import investigador.Investigador;
 import proyecto.Proyecto;
 import static org.mockito.Mockito.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +47,9 @@ class TestLas25EncuestasMasCompletadas {
 	Encuesta encuesta26;
 	Encuesta encuesta27;
 
+	IEstrategia las25;
+	
+
 	@BeforeEach
 	void setUp() throws Exception {
 		
@@ -81,9 +83,9 @@ class TestLas25EncuestasMasCompletadas {
 		encuesta25= mock(Encuesta.class);
 		encuesta26= mock(Encuesta.class);
 		
-		
 		investigador = new Investigador();
-		
+
+		las25= new Las25MasContestadas();
 		
 	}
 
@@ -176,8 +178,9 @@ class TestLas25EncuestasMasCompletadas {
 		e.add(encuesta4);
 		e.add(encuesta3);
 		e.add(encuesta2);
+		investigador.setEstragia(las25);
 		
-		assertEquals( e , investigador.dameLas25MasContestadas() );
+		assertEquals( e , investigador.filtrar() );
 		
 		
 	}
